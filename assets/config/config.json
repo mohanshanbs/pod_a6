@@ -1,0 +1,6 @@
+{
+  "apiURL": "http://182.76.143.242:8888",  
+  "baseURL": "http://182.76.143.242:4200",
+  "pdfServiceURL": "http://172.24.175.33/princeXML_new/",
+  "uploadsURL": "/pod_assets/uploads/"
+}
