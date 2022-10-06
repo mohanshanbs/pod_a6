@@ -1,0 +1,61 @@
+<div class="tabsMenu">
+    <ul>
+        <li #Projects id="listed_projects" matTooltip="Projects" (click)="sideIconClick(1,$event)"
+            routerLink="projectslist" [ngClass]="{'activemenu': menuid == 1, 'opensubmenu': showSubmenu }"
+            *ngIf="loginuserrole == 1 || loginuserrole == 2">
+            <img class="sidemenuicon" align="absmiddle" src="assets/icons/projects.png">
+            <img class="sidemenuicon act" align="absmiddle" src="assets/icons/projects-active.png">
+            <span class="nav-link-text">Projects</span>
+        </li>
+        <li id="listed_myprojects" matTooltip="My Projects" (click)="sideIconClick(2,$event)" routerLink="myprojects"
+            [ngClass]="{'activemenu': menuid == 2 }" *ngIf="loginuserrole != 1 && loginuserrole != 2">
+            <img class="sidemenuicon" align="absmiddle" src="assets/icons/projects.png">
+            <img class="sidemenuicon act" align="absmiddle" src="assets/icons/projects-active.png">
+            <span class="nav-link-text">My Projects</span>
+        </li>
+        <li #userlist id="listed_users" matTooltip="Users" (click)="sideIconClick(4,$event)" routerLink="userslist"
+            [ngClass]="{'activemenu': menuid == 4 }" *ngIf="loginuserrole == 1 || loginuserrole == 2">
+            <img class="sidemenuicon" align="absmiddle" src="assets/icons/users.png">
+            <img class="sidemenuicon act" align="absmiddle" src="assets/icons/users-active.png">
+            <span class="nav-link-text">Users</span>
+        </li>
+    </ul>
+    <div class="profilesec">
+        <div class="userpro-sec">
+            <img src="assets/icons/user-icon.png" class="user one" />
+            <span>Welcome, {{userdetails}}</span>
+            <button id="opendropdown" (click)="opendrop()">
+                <i class="fa fa-caret-down" aria-hidden="true"></i>
+            </button>
+            <div class="dropmenu" [class.open-dp]="opendropdown">
+
+                <ul>
+                    <li>
+                        <a href="javascript:void(0);" id="logout_btn" (click)="open(content)">
+                            <img class="sidemenuicon" align="absmiddle" src="assets/images/4.png">
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h5 class="modal-title">Ready to Leave?</h5>
+        <button type="button" class="close" aria-label="Close" id="modal_close_ic" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>Select "Logout" below if you are ready to end your current session.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark cancelmodalbtn" id="modal_cancel_confirm"
+            (click)="c('close')">Cancel</button>
+        <button type="button" class="btn btn-outline-dark okmodalbtn" (click)="c('logout')"
+            id="modal_logout_confirm">Logout</button>
+    </div>
+</ng-template>

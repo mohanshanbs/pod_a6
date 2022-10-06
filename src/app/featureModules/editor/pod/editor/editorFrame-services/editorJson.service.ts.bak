@@ -1,0 +1,327 @@
+import { Injectable } from '@angular/core';
+import { ProjectDataService } from '../../services/project-data.service';
+import { AppConfig } from 'src/app/app-config';
+
+@Injectable({ providedIn: 'root' })
+
+export class editorJsonService {
+
+  constructor(public dataservice: ProjectDataService, private appConfig: AppConfig) {
+
+  }
+  isSave: boolean = false;
+  count: number = 0;
+  tableidarray: any = [];
+  tablesize: any = [];
+
+
+  /** 
+   * timeout function for delay rendering
+   */
+  timeout = function(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
+
+  createSaveJSON = async function(data) {
+    try {
+      this.isSave = true;
+      let test_array: any = [];
+      test_array = await this.createJSON(data.childNodes, '', '');
+      return new Promise((resolve, reject) => {
+        resolve(test_array)
+      })
+
+    } catch (error) {
+
+    }
+  }
+
+  /** function to create json from html */
+  createJSONfromHTML = async function(data, contentDoc, save, projectPath) {
+    try {
+      this.isSave = save;
+      let array: any = [];
+      array.push({ fileName: 'editorHeadJSON' }, { fileName: 'editorBodyJSON' })
+      if (this.isSave) {
+        if (window.location.hostname.indexOf('newmedia.spi-global.com') < 0) {
+          data = data.replace(new RegExp(projectPath + "/assets/", "g"), "../../assets/")
+          data = data.replace(new RegExp(projectPath + "/img/", "g"), "../../img/");
+        }
+        contentDoc.body.innerHTML = '';
+        contentDoc.head.innerHTML = '';
+        let headTags = data.match(/<head[^>]*>[\s\S]*<\/head>/gi);
+        let bodyTags = data.match(/<body[^>]*>[\s\S]*<\/body>/gi);
+        contentDoc.body.innerHTML = bodyTags;
+        contentDoc.head.innerHTML = headTags;
+        this.tableformate(contentDoc);
+        array[0].data = await this.createJSON(contentDoc.head.childNodes, '', '');
+        await this.timeout(1000)
+        array[1].data = await this.createJSON(contentDoc.body.childNodes, '', '');
+
+      } else {
+        this.isSave = save ? save : false;
+        /* old data 
+            data=data.replace(new RegExp("../../assets/","g"),"http://172.24.198.179/pod_assets/uploads/Denniston_10e/assets/")
+            data=data.replace(new RegExp("../../img/","g"),"http://172.24.198.179/pod_assets/uploads/Denniston_10e/img/");
+            let url = this.appConfig.config.apiURL.substring(0,this.appConfig.config.apiURL.lastIndexOf(':'))
+            data=data.replace(new RegExp("../../assets/","g"),url+"/pod_assets/uploads/Denniston_10e/assets/")
+            data=data.replace(new RegExp("../../img/","g"),url+"/pod_assets/uploads/Denniston_10e/img/");
+        end old data */
+
+        /* new data */
+        data = data.replace(new RegExp("../../assets/", "g"), projectPath + "/assets/")
+        data = data.replace(new RegExp("../../img/", "g"), projectPath + "/img/");
+        /* end new data */
+
+        let headTags = data.match(/<head[^>]*>[\s\S]*<\/head>/gi);
+        let bodyTags = data.match(/<body[^>]*>[\s\S]*<\/body>/gi);
+        contentDoc.body.innerHTML = bodyTags;
+        contentDoc.head.innerHTML = headTags;
+        await this.timeout(1000);
+        this.tableformate(contentDoc);
+        array[0].data = await this.createJSON(contentDoc.head.childNodes, '', '');
+        await this.timeout(1000)
+        array[1].data = await this.createJSON(contentDoc.body.childNodes, '', '');
+      }
+      return new Promise((resolve, reject) => {
+        resolve(array)
+      })
+    } catch (error) {
+
+    }
+
+
+  }
+
+  tableformate(contentDoc) {
+        let tablelist = contentDoc.querySelectorAll('table');
+        if (tablelist.length > 0) {
+
+          let pageheight = (parseFloat((localStorage.getItem('pagesize')).split(',')[1]) * 96);
+          for (let i = 0; i < tablelist.length; i++) {
+
+            let curwidth: any = window.getComputedStyle(tablelist[i], null).getPropertyValue("width");
+            curwidth = parseFloat(curwidth.split('px')[0]);
+            let thistable = contentDoc.querySelectorAll('#'+tablelist[i].id);
+            if (curwidth > 720 && thistable[0].innerHTML.indexOf('<img') < 0) {
+              this.tableidarray.push(tablelist[i].id);
+              let tableChildren = tablelist[i].children;
+              let totalheight = 0;
+              let tmpwidth = 0;
+              let theadwidth = 0;
+              let tbodywidth = 0;
+              thistable[0].innerHTML = thistable[0].innerHTML.replace(new RegExp("<td ", "g"), "<td style='font-size: 12px !important; padding: 1px !important;margin: 0 !important;text-indent: 0 !important;'");
+              thistable[0].innerHTML = thistable[0].innerHTML.replace(new RegExp("<th ", "g"), "<th style='font-size: 12px !important; padding: 1px !important;margin: 0 !important;text-indent: 0 !important;width:13%;'");
+              thistable[0].innerHTML = thistable[0].innerHTML.replace(new RegExp("<col ", "g"), "<col style='font-size: 12px !important; padding: 1px !important;margin: 0 !important;text-indent: 0 !important;'");
+
+              for(var j=0; j < tableChildren.length; j++){
+              
+                if(tableChildren[j].tagName.toLowerCase() == 'thead' || tableChildren[j].tagName.toLowerCase() == 'tbody'){
+                   tableChildren[j].style.cssText = 'display: block';
+                   tmpwidth = parseFloat(window.getComputedStyle(tableChildren[j], null).getPropertyValue("width"));
+                    let tmpheight = window.getComputedStyle(tableChildren[j], null).getPropertyValue("height");
+                    totalheight = totalheight + parseFloat(tmpheight);
+                    /*if(tableChildren[j].tagName.toLowerCase() == 'thead') {
+                       for(var p=0; p<tableChildren[j].children.length; p++) {
+                          for(var q=0; q<tableChildren[j].children[p].children.length; q++) {
+                            if(tableChildren[j].children[p].children[q].textContent !== '') {
+                              tbodywidth = tableChildren[j].children[p].children[q].offsetWidth;
+                              tbodywidth = (tbodywidth / tmpwidth) * 100;
+                              tableChildren[j].children[p].children[q].style.width = tbodywidth+'%';
+                            }
+                         }
+                       }
+                    } else */if(tableChildren[j].tagName.toLowerCase() == 'tbody') {
+                       for(var p=0; p<tableChildren[j].children.length; p++) {
+                          for(var q=0; q<tableChildren[j].children[p].children.length; q++) {
+                            if(tableChildren[j].children[p].children[q].textContent !== '') {
+                              tbodywidth = tableChildren[j].children[p].children[q].offsetWidth;
+                              tbodywidth = (tbodywidth / tmpwidth) * 100;
+                              tableChildren[j].children[p].children[q].style.width = tbodywidth+'%';
+                              break;
+                            }
+                         }
+                       }
+                    }
+                }
+              }
+             if(totalheight > 900 && totalheight <= 1035){
+                var differenceheight = totalheight - 720;
+                var scaleper = (differenceheight) / totalheight;
+                var scaleval = (1-scaleper)+0.2;
+                var moveval = ((scaleval*100)/6);
+                (tablelist[i]).style.cssText += 'transform: rotate(270deg) scale('+scaleval+') translate(2%,-'+(moveval)+'%); width: '+tmpwidth+'px !important; height: 710px !important;';
+              } else if (totalheight > 1035){
+                var differenceheight = totalheight - 720;
+                var scaleper = (differenceheight) / totalheight;
+                scaleper = Math.round(scaleper * 10) / 10;
+                var scaleval = (1-scaleper)+0.2;
+                var moveval = (scaleval*100)/2.7;
+                (tablelist[i]).style.cssText += 'transform: rotate(270deg) scale('+scaleval+') translate(20%,-'+(moveval)+'%); width: '+tmpwidth+'px !important; height: 850px !important;';
+              } else {
+                tablelist[i].style.cssText += 'transform: rotate(270deg) translateY(11%); width: 714px !important; height: 900px !important;';
+              }
+              (tablelist[i] as HTMLElement).classList.add("tableLandscape");
+              let breaknode = document.createElement('p') as HTMLElement;
+              breaknode.setAttribute("class", "break_the_page");
+              thistable[0].parentNode.parentNode.after(breaknode);
+              this.tablesize.push({
+                id: tablelist[i].id,
+                width: window.getComputedStyle(tablelist[i], null).getPropertyValue("width"),
+                height: window.getComputedStyle(tablelist[i], null).getPropertyValue("height"),
+                scale: (scaleval)? scaleval:'',
+                move: (moveval) ? moveval:''
+              });
+
+            }
+          }
+        }
+  }
+  /** function to create - JSON  */
+  createJSON = async function(contentData, fromIndex, toIndex) {
+    try {
+      this.count = 0;
+      let json: any = '';
+      //json='[' 
+      let array: any = [];
+      toIndex = toIndex != '' ? toIndex : contentData.length;
+      fromIndex = fromIndex != '' ? fromIndex : 0;
+      for (var i = fromIndex; i < toIndex; i++) {
+        if (contentData[i].nodeType != 8 || contentData[i].nodeName.toLowerCase != '#comment') {
+          if (contentData[i].nodeName.toLowerCase() == '#text')
+            continue
+
+          json = await this.setCurrentElement(json, contentData[i])
+          json += ',';
+        }
+      }
+      json = json.substring(0, json.length - 1);
+
+      if (toIndex <= 1) {
+        //json = '[{"section":[{"attributes":[{"id":"","computedStyles":"","offsetHeight":"","marginTop":"","uniqid":""}]}]}]';
+        json = '';
+      }
+
+      if (json != "")
+        json = "[" + json + "]";
+
+
+      return new Promise((resolve, reject) => {
+        resolve(json)
+      });
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+  /** function to create current element - JSON  */
+  setCurrentElement = async function(json, element) {
+    try {
+      this.count++;
+      json += "{";
+      let elem_field: any = element.nodeName == undefined ? '' : element.nodeName.toLowerCase();
+      json += '"' + elem_field + '"';
+      json += ':';
+      json += '[';
+      json = await this.setCurrentElementAttr(json, element);
+      let elementChild: any = element.childNodes.length > 0 ? element : '';
+      if (elementChild) {
+
+        for (let i = 0; i < element.childNodes.length; i++) {
+
+          if (element.childNodes[i].nodeName == '#text') {
+            let textLen = element.childNodes[i].textContent.trim();
+            if (textLen.length > 0)
+              json = await this.appendTextNode(json, element.childNodes[i]);
+
+          } else {
+            json += ',';
+            json = await this.setCurrentElement(json, element.childNodes[i]);
+          }
+        }
+      }
+
+      json += ']'
+      json += '}'
+      return new Promise((resolve, reject) => {
+        resolve(json)
+      });
+    } catch (error) {
+      console.log(error)
+    }
+
+  }
+
+  appendTextNode = async function(json, element) {
+    let text_node = element.textContent.replace(/\n/g, " ").replace(/"/g, "'").replace(/\r/g, "\\r").replace(/\t/g, "\\t").replace(/\f/g, "\\f");
+    json += ',';
+    json += '{';
+    json += '"text":"' + text_node + '"';
+    json += '}';
+
+    return new Promise((resolve, reject) => {
+      resolve(json)
+    })
+
+  }
+
+  /** function to create element attributes - JSON */
+  setCurrentElementAttr = async function(json, element) {
+    json += '{';
+    json += '"attributes"';
+    json += ':';
+    json += '[';
+    json += '{';
+    if (element.attributes && element.attributes.length >= 1) {
+      for (let key in element.attributes) {
+        if (element.attributes.hasOwnProperty(key)) {
+          if (this.isSave && (element.attributes[key].nodeName == 'isbelongto' || element.attributes[key].nodeName == 'text'))
+            continue
+
+          let value = element.attributes[key].value.replace(/['"]+/g, '');
+          json += '"' + element.attributes[key].nodeName + '":"' + value + '",';
+        }
+      }
+    }
+    json = await this.setCurrentElementStyle(json, element);
+
+    if (!this.isSave)
+      json += ',"uniqid":"' + this.count + '"';
+
+
+    json += '}';
+    json += ']';
+    json += '}';
+    return new Promise((resolve, reject) => {
+      resolve(json)
+    })
+  }
+  /** function to create element computed styles - JSON  */
+  setCurrentElementStyle = async function(json, element) {
+    var styles = this.dataservice.defaultStyles();
+    var p_styles = '';
+    let marginTop: number = 0;
+    for (var s = 0; s < styles.length; s++) {
+      var style_prop = this.dataservice.getPropValue(element, styles[s]);
+      style_prop = style_prop.replace(/['"]+/g, '');
+      marginTop = styles[s] == 'margin-top' ? style_prop.replace('px', '') : marginTop
+      p_styles += styles[s] + ':' + style_prop + ';';
+    }
+
+
+    if (!this.isSave) {
+      json += '"computedStyles":"' + p_styles + '",';
+      let height = element.offsetHeight != undefined ? element.offsetHeight : element.clientHeight;
+      json += '"offsetHeight":"' + height + '",';
+      json += '"marginTop":"' + Math.round(marginTop) + '"';
+    } else {
+      json += '"computedStyles":"' + p_styles + '"';
+    }
+
+    return new Promise((resolve, reject) => {
+      resolve(json)
+    })
+
+  }
+}

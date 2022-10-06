@@ -1,0 +1,41 @@
+<div class="style-wrap">
+  <div *ngIf="!isImage">
+    <!-- Add drop down input field -->
+    <div *ngIf="type=='dropdown'&&name!='Position'&&name!='Size'" class="font-familywrap">
+      <label class="label">{{labelValue}}</label>
+      <select name="name" id={{name}} [(ngModel)]="data" (change)="sendData()">
+        <option *ngFor="let item of option" [value]="item">{{item}}</option>
+      </select>
+    </div>
+
+    <!-- Add textbox input field -->
+    <div class="input-field" *ngIf="type=='textbox'">
+      <label class="label">{{labelValue}}</label>
+      <input id={{name}} type="number" [(ngModel)]="data" (change)="sendData()">
+    </div>
+
+
+    <!-- Add color input -->
+    <div class="input-field" *ngIf="name=='color'||name=='backgroundColor'">
+      <label class="label">{{labelValue}}</label>
+      <input id={{name}} type="color" [(ngModel)]="data" (change)="sendData()">
+    </div>
+
+    <!-- Add button -->
+    <div *ngIf="(name!='color'&&name!='backgroundColor')&&type=='button'" class="format-button">
+      <button id={{name}} *ngIf="data" type="button" (click)="sendData()" class="clicked">{{labelValue}}</button>
+      <button id={{name}} *ngIf="!data" type="button" (click)="sendData()">{{labelValue}}</button>
+    </div>
+  </div>
+
+  <div *ngIf="isImage&&(name=='Position'||name=='Size')">
+    <!-- Add drop down input field -->
+    <div *ngIf="type=='dropdown'">
+      <label class="label">{{labelValue}}</label>
+      <select name="name" id={{name}} [(ngModel)]="data" (change)="sendData()">
+        <option value="Default">Default</option>
+        <option *ngFor="let item of option" [value]="item.name">{{item.name}}</option>
+      </select>
+    </div>
+  </div>
+</div>

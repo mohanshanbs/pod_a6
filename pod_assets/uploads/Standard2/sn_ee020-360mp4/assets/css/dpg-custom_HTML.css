@@ -1,0 +1,4891 @@
+/*------------------------------------------------------------
+/* BLK 2.0 DPG Custom CSS
+/* This stylesheet is provided for any overwrites and custom edits to BLK 2.0 content.
+/* This stylesheet takes priority over the "BLK Base Page" CSS
+------------------------------------------------------------*/
+/*------------------------------------------------------------
+/* BLK 2.0 Base Page Changes
+/* Change the base page styles below
+
+/*------------------------------------------------------------
+/* Base Font
+------------------------------------------------------------
+/-----ACME Common Module Fonts-----
+[Museo Slab]                font-family: 'Museo Slab';
+[proximanovaregular]      font-family: 'proximanovaregular';
+[Proxima Nova Light]        font-family: 'Proxima Nova Light';
+[Proxima Nova Bold]         font-family: 'Proxima Nova Bold';
+[MHE DPG Global Icons]      font-family: 'MHE DPG Global Icon Font';
+
+/-----MHHE-BLK2-----
+[Arumsans Light]            font-family: 'arumsans-light';
+[Arumsans Black]            font-family: 'arumsans-black';
+[Arumsans Regular]          font-family: 'arumsans-regular';
+[Arumsans Extra Bold]       font-family: 'arumsans-exbold';
+[Bravura]                   font-family: 'bravura';
+[Bravura Text]              font-family: 'bravura-text';
+[Catwing]                   font-family: 'catwing';
+[Cinecav X Mono]            font-family: 'cinecav-x-mono';
+[Letter Gothic]             font-family: 'letter-gothic';
+[Nimbus]                    font-family: 'nimbus';
+[Proxima Nova Condensed]    font-family: 'proxima-nova-cond';
+[Proxima Nova Light]        font-family: 'proxima-nova-light';
+[Spud]                      font-family: 'spud';
+[Spud Black]                font-family: 'spud-black';
+[Spud Bold]                 font-family: 'spud-bold';
+[SRA Serif 1.1]             font-family: 'sra-serif1';
+[SRA Serif Condensed]       font-family: 'sra-serif-condensed';
+[SRA Serif Unicode]         font-family: 'sra-serif-unicode';
+[Stix General]              font-family: 'stix-general';
+[Stix Mathjax Latin]        font-family: 'stix-mathjax-latin';
+[Stix Mathjax Main]         font-family: 'stix-mathjax-main';
+[Stix Mathjax Monospace]    font-family: 'stix-mathjax-monospace';
+[Stix Mathjax Sans Serif]   font-family: 'stix-mathjax-sansserif';
+[TeeFranklin Book]          font-family: 'teefranklin-book';
+[TeeFranklin Heavy]         font-family: 'teefranklin-heavy';
+[TeeFranklin Light]         font-family: 'teefranklin-light';
+[TeeFranklin Medium]        font-family: 'teefranklin-medium';
+[TeeFranklin Thin]          font-family: 'teefranklin-thin';
+[TeeFranklin Ultra Light]   font-family: 'teefranklin-ultralight';
+[That]                      font-family: 'that';
+[That Light]                font-family: 'that-light';
+[Urw Palladio TOT]          font-family: 'urwpalladiotot';
+[Vectipede]                 font-family: 'vectipede';
+------------------------------------------------------------*/
+body, li p, figcaption p, h1, h2, h3, h4, h5, h6, .unit-info, cite {
+  font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif;
+}
+
+body > p, body > ol > li p, body > ul > li p, .page-number, section.mhhe-blk-header p, section {
+  font-family: 'nimbus', Georgia, serif;
+}
+
+/*------------------------------------------------------------
+/* Base Colors
+------------------------------------------------------------*/
+/* This color palette, by default, is the same as in the provided BLK Base Page CSS
+/* The CSS may be changed here to alter any of the colors provided by BLK 2.0
+/* // DEFAULT Main Color Palette
+mhe-color--background-color1:                        #666666; // grey
+mhe-color--background-color2:                        #0058ac; // blue 
+mhe-color--background-color3:                        #dc081d; // red
+mhe-color--background-color4:                        #00707B; // teal
+mhe-color--background-color5:                        #993399; // purple
+mhe-color--background-color6:                        #17864d; // green
+mhe-color--background-color7:                        #c73e00; // orange
+
+// Color variants
+mhe-color--background-color1-light:                  #D4D4D4;
+mhe-color--background-color1-dark:                   #333333;
+mhe-color--background-color1-container:            	 #EDEDED;		
+
+mhe-color--background-color2-light:                  #C7D9F0;
+mhe-color--background-color2-dark:                   #003E79;
+mhe-color--background-color2-container:				 #dae6f2;		
+
+mhe-color--background-color3-light:                  #EEDCC5;
+mhe-color--background-color3-dark:                   #790410;
+mhe-color--background-color3-container:				 #EAE5DB;
+
+mhe-color--background-color4-light:                  #BCDBDB;
+mhe-color--background-color4-dark:                   #005962;
+mhe-color--background-color4-container:				 #D9EFEC;		
+
+mhe-color--background-color5-light:                  #DABFDC;
+mhe-color--background-color5-dark:                   #712571;
+mhe-color--background-color5-container:				 #E7DAEB;		
+
+mhe-color--background-color6-light:                  #BCDBC4;
+mhe-color--background-color6-dark:                   #105A34;
+mhe-color--background-color6-container:			 	 #E4F2E7;		
+
+mhe-color--background-color7-light:                  #FDD8C0;
+mhe-color--background-color7-dark:                   #942E00;
+mhe-color--background-color7-container:				 #FFF3EE;	
+------------------------------------------------------------*/
+/*---Color1---*/
+/*-Base-*/
+.mhhe-color--border-color1 {
+  border-color: #666666;
+}
+
+.mhhe-color--background-color1 {
+  background-color: #666666;
+}
+
+.mhhe-color--text-color1 {
+  color: #666666;
+}
+
+/*-Light-*/
+.mhhe-color--border-color1-light {
+  border-color: #D4D4D4;
+}
+
+.mhhe-color--background-color1-light {
+  background-color: #D4D4D4;
+}
+
+.mhhe-color--text-color1-light {
+  color: #D4D4D4;
+}
+
+/*-Dark-*/
+.mhhe-color--border-color1-dark {
+  border-color: #333333;
+}
+
+.mhhe-color--background-color1-dark {
+  background-color: #333333;
+}
+
+.mhhe-color--text-color1-dark {
+  color: #333333;
+}
+
+/*-Container (Background, renamed to avoid confusion)-*/
+.mhhe-color--border-color1-container {
+  border-color: #EDEDED;
+}
+
+.mhhe-color--background-color1-container {
+  background-color: #EDEDED;
+}
+
+.mhhe-color--text-color1-container {
+  color: #EDEDED;
+}
+
+/*---Color2---*/
+/*-Base-*/
+.mhhe-color--border-color2 {
+  border-color: #0058ac;
+}
+
+.mhhe-color--background-color2 {
+  background-color: #0058ac;
+}
+
+.mhhe-color--text-color2 {
+  color: #0058ac;
+}
+
+/*-Light-*/
+.mhhe-color--border-color2-light {
+  border-color: #C7D9F0;
+}
+
+.mhhe-color--background-color2-light {
+  background-color: #C7D9F0;
+}
+
+.mhhe-color--text-color2-light {
+  color: #C7D9F0;
+}
+
+/*-Dark-*/
+.mhhe-color--border-color2-dark {
+  border-color: #003E79;
+}
+
+.mhhe-color--background-color2-dark {
+  background-color: #003E79;
+}
+
+.mhhe-color--text-color2-dark {
+  color: #003E79;
+}
+
+/*-Container (Background, renamed to avoid confusion)-*/
+.mhhe-color--border-color2-container {
+  border-color: #dae6f2;
+}
+
+.mhhe-color--background-color2-container {
+  background-color: #dae6f2;
+}
+
+.mhhe-color--text-color2-container {
+  color: #dae6f2;
+}
+
+/*---Color3---*/
+/*-Base-*/
+.mhhe-color--border-color3 {
+  border-color: #dc081d;
+}
+
+.mhhe-color--background-color3 {
+  background-color: #dc081d;
+}
+
+.mhhe-color--text-color3 {
+  color: #dc081d;
+}
+
+/*-Light-*/
+.mhhe-color--border-color3-light {
+  border-color: #EEDCC5;
+}
+
+.mhhe-color--background-color3-light {
+  background-color: #EEDCC5;
+}
+
+.mhhe-color--text-color3-light {
+  color: #EEDCC5;
+}
+
+/*-Dark-*/
+.mhhe-color--border-color3-dark {
+  border-color: #790410;
+}
+
+.mhhe-color--background-color3-dark {
+  background-color: #790410;
+}
+
+.mhhe-color--text-color3-dark {
+  color: #790410;
+}
+
+/*-Container (Background, renamed to avoid confusion)-*/
+.mhhe-color--border-color3-container {
+  border-color: #EAE5DB;
+}
+
+.mhhe-color--background-color3-container {
+  background-color: #EAE5DB;
+}
+
+.mhhe-color--text-color3-container {
+  color: #EAE5DB;
+}
+
+/*---Color4---*/
+/*-Base-*/
+.mhhe-color--border-color4 {
+  border-color: #00707B;
+}
+
+.mhhe-color--background-color4 {
+  background-color: #00707B;
+}
+
+.mhhe-color--text-color4 {
+  color: #00707B;
+}
+
+/*-Light-*/
+.mhhe-color--border-color4-light {
+  border-color: #BCDBDB;
+}
+
+.mhhe-color--background-color4-light {
+  background-color: #BCDBDB;
+}
+
+.mhhe-color--text-color4-light {
+  color: #BCDBDB;
+}
+
+/*-Dark-*/
+.mhhe-color--border-color4-dark {
+  border-color: #005962;
+}
+
+.mhhe-color--background-color4-dark {
+  background-color: #005962;
+}
+
+.mhhe-color--text-color4-dark {
+  color: #005962;
+}
+
+/*-Container (Background, renamed to avoid confusion)-*/
+.mhhe-color--border-color4-container {
+  border-color: #D9EFEC;
+}
+
+.mhhe-color--background-color4-container {
+  background-color: #D9EFEC;
+}
+
+.mhhe-color--text-color4-container {
+  color: #D9EFEC;
+}
+
+/*---Color5---*/
+/*-Base-*/
+.mhhe-color--border-color5 {
+  border-color: #993399;
+}
+
+.mhhe-color--background-color5 {
+  background-color: #993399;
+}
+
+.mhhe-color--text-color5 {
+  color: #993399;
+}
+
+/*-Light-*/
+.mhhe-color--border-color5-light {
+  border-color: #DABFDC;
+}
+
+.mhhe-color--background-color5-light {
+  background-color: #DABFDC;
+}
+
+.mhhe-color--text-color5-light {
+  color: #DABFDC;
+}
+
+/*-Dark-*/
+.mhhe-color--border-color5-dark {
+  border-color: #712571;
+}
+
+.mhhe-color--background-color5-dark {
+  background-color: #712571;
+}
+
+.mhhe-color--text-color5-dark {
+  color: #712571;
+}
+
+/*-Container (Background, renamed to avoid confusion)-*/
+.mhhe-color--border-color5-container {
+  border-color: #E7DAEB;
+}
+
+.mhhe-color--background-color5-container {
+  background-color: #E7DAEB;
+}
+
+.mhhe-color--text-color5-container {
+  color: #E7DAEB;
+}
+
+/*---Color6---*/
+/*-Base-*/
+.mhhe-color--border-color6 {
+  border-color: #17864d;
+}
+
+.mhhe-color--background-color6 {
+  background-color: #17864d;
+}
+
+.mhhe-color--text-color6 {
+  color: #17864d;
+}
+
+/*-Light-*/
+.mhhe-color--border-color6-light {
+  border-color: #BCDBC4;
+}
+
+.mhhe-color--background-color6-light {
+  background-color: #BCDBC4;
+}
+
+.mhhe-color--text-color6-light {
+  color: #BCDBC4;
+}
+
+/*-Dark-*/
+.mhhe-color--border-color6-dark {
+  border-color: #105A34;
+}
+
+.mhhe-color--background-color6-dark {
+  background-color: #105A34;
+}
+
+.mhhe-color--text-color6-dark {
+  color: #105A34;
+}
+
+/*-Container (Background, renamed to avoid confusion)-*/
+.mhhe-color--border-color6-container {
+  border-color: #E4F2E7;
+}
+
+.mhhe-color--background-color6-container {
+  background-color: #E4F2E7;
+}
+
+.mhhe-color--text-color6-container {
+  color: #E4F2E7;
+}
+
+/*---Color7---*/
+/*-Base-*/
+.mhhe-color--border-color7 {
+  border-color: #c73e00;
+}
+
+.mhhe-color--background-color7 {
+  background-color: #c73e00;
+}
+
+.mhhe-color--text-color7 {
+  color: #c73e00;
+}
+
+/*-Light-*/
+.mhhe-color--border-color7-light {
+  border-color: #FDD8C0;
+}
+
+.mhhe-color--background-color7-light {
+  background-color: #FDD8C0;
+}
+
+.mhhe-color--text-color7-light {
+  color: #FDD8C0;
+}
+
+/*-Dark-*/
+.mhhe-color--border-color7-dark {
+  border-color: #942E00;
+}
+
+.mhhe-color--background-color7-dark {
+  background-color: #942E00;
+}
+
+.mhhe-color--text-color7-dark {
+  color: #942E00;
+}
+
+/*-Container (Background, renamed to avoid confusion)-*/
+.mhhe-color--border-color7-container {
+  border-color: #FFF3EE;
+}
+
+.mhhe-color--background-color7-container {
+  background-color: #FFF3EE;
+}
+
+.mhhe-color--text-color7-container {
+  color: #FFF3EE;
+}
+/*------------------------------------------------------------
+/* BLK 2.0 Custom Breadcrumb Bar Styles
+/* The items below are preset "BLK Custom" patterns that can be edited.
+/* These items will appear for various elements in the Habitat Breadcrumb Bar during authoring.
+------------------------------------------------------------*/
+
+.blk-custom-a {
+    /*INSERT CODE*/;
+}
+
+.blk-custom-b {
+    /*INSERT CODE*/;
+}
+
+.blk-custom-c {
+    /*INSERT CODE*/;
+}
+
+.blk-custom-d {
+    /*INSERT CODE*/;
+}
+
+.blk-custom-e {
+    /*INSERT CODE*/;
+}
+
+.blk-custom-f {
+    /*INSERT CODE*/;
+}
+
+.blk-custom-g {
+    /*INSERT CODE*/;
+}
+
+.blk-custom-h {
+    /*INSERT CODE*/;
+}
+
+.blk-custom-i {
+    /*INSERT CODE*/;
+}
+
+/*------------------------------------------------------------
+/* BLK 2.0 Patterns
+/* The items below are BLK patterns. Apply custom styling as needed to the below items.
+------------------------------------------------------------*/
+/*-----Accounting Tables--------------------------------------*/
+/*---Trial Balance Table---*/
+.trial_balance_table {
+	/*INSERT CODE*/;
+}
+
+/*---Transaction List---*/
+.transaction_list {
+	/*INSERT CODE*/;
+}
+
+/*---T-Account Table---*/
+.t_account_table {
+	/*INSERT CODE*/;
+}
+
+/*---Statement of Stockholder's Equity Table---*/
+.sset_table {
+	/*INSERT CODE*/
+}
+
+/*---Income Statement Table---*/
+.income_statement_table {
+	/*INSERT CODE*/
+}
+
+/*---Balance Sheet Table---*/
+.balance_sheet_table {
+	/*INSERT CODE*/
+}
+
+/*---Accounting Equation---*/
+.accounting_equation_table {
+	/*INSERT CODE*/
+}
+
+/*-----Side Notes---------------------------------------------*/
+
+/*---Side Note 1---*/
+.sidenote-1 {
+	/*INSERT CODE*/
+}
+
+/*---Side Note 2---*/
+.sidenote-2 {
+    /*INSERT CODE*/
+}
+
+/*---Side Note 3---*/
+.sidenote-3.learning_outcomes h4 {
+   color: #790410;	
+   border-bottom: 2px solid #790410;
+   font-weight: bold;
+}
+.sidenote-3.learning_outcomes {
+   border: 2px solid #790410;
+}
+.sidenote-3 h4 {
+    margin-top: 0;
+}
+/*---Side Note 4---*/
+.sidenote-4 {
+	/*INSERT CODE*/
+}
+
+/*---Side Note 5---*/
+.sidenote-5.ethics_box h4 {
+	color: #ffffff;
+    font-weight: bold;
+    background-color: #790410;
+}
+.sidenote-5.ethics_box {
+    background-color: #EEDCC5;
+    border-bottom: 2px solid #790410;
+    margin: 2em 0;
+}
+.sidenote-5 h4 {
+    margin: -1em -1em .5em -1em;
+}
+
+/*---Side Note 6---*/
+.sidenote-6 {
+	/*INSERT CODE*/
+}
+
+/*---Side Note 7---*/
+.sidenote-7 {
+	/*INSERT CODE*/
+}
+
+/*---Side Note 8---*/
+.sidenote-8 {
+	/*INSERT CODE*/
+}
+
+/*---Side Note 9---*/
+.sidenote-9 {
+	/*INSERT CODE*/
+}
+
+/*---Side Note 10---*/
+.sidenote-10 {
+	/*INSERT CODE*/
+}
+
+/*---Side Note w/Icon#1---*/
+.sidenote-icon1.example h4 {
+	vertical-align: middle !important;
+    text-align: middle !important;
+    background-color: #105A34;
+    font-weight: bold;
+    font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif !important;
+}
+.sidenote-icon1.example {
+    background-color: #BCDBC4;
+    border: 2px solid #105A34;
+}
+.sidenote-icon1.example p {
+    font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif !important;
+}
+.sidenote-icon1 {
+    padding: 24px;
+}
+.sidenote-icon1 h4 {
+    margin: -18px -26px .75em;
+    padding: 8px;
+}
+
+/*---Side Note w/Icon#2---*/
+.sidenote-3.legal_box {
+    border: 2px solid #00707B;
+    margin: 2em 0;
+}
+.sidenote-3.legal_box h4 {
+    font-weight: bold;
+    color: #00707B;
+    border-bottom: 2px solid #00707B;
+}
+
+
+/*-----Tables------------------------------------------*/
+
+.mhhe--basic_table {
+    /*INSERT CODE*/
+}
+.mhhe--layout_table_non_data.border_left {
+    margin-left: 0em;
+    width: 100% !important;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.mhhe--layout_table_non_data.table_left {
+    width: 100% !important;
+    margin-left: 0em;
+    margin-right: 0em;
+}
+.mhhe--layout_table_non_data.table_left td {
+    vertical-align: top;
+}
+.mhhe--layout_table_non_data.background_color_table {
+    width: 100% !important;
+    background-color: #FDD8C0;
+}
+.mhhe--layout_table_non_data.background_color_table tbody td p {
+    font-family: "nimbus", Georgia, serif !important;
+    font-weight: bold;
+}
+.mhhe--column_row-header-table {
+    /*INSERT CODE*/
+}
+
+.mhhe--grouped-row_column-header-table {
+    /*INSERT CODE*/
+}
+
+.mhhe--grouped-column_row-header-table {
+    /*INSERT CODE*/
+}
+
+/* Enumeration code */
+.enumeration {
+    /*INSERT CODE*/
+}
+
+.caption {
+    /*INSERT CODE*/
+}
+
+/*-----Media Buttons------------------------------------------*/
+.media-inline {
+	/*INSERT CODE*/
+}
+
+/*-----Unit Banner--------------------------------------------*/
+.unit_banner {
+	/*INSERT CODE*/
+}
+
+/*-----Chapter Openers-----------------------------*/
+/*---Chapter Opener Type A & B---*/
+.mhhe-chapter_opener-chapter_number {
+    color: #333;
+    font-weight: bold;
+}
+.mhhe-chapter_opener-chapter_title {
+    color: #790410;
+    font-weight: bold;
+    
+}
+.mhhe-chapter_opener {
+	border-top: 20px solid #790410;
+    background-color: #EEDCC5;
+}
+
+/*---Chapter Opener Type A---*/
+.mhhe-chapter_opener-style_one {
+	/*INSERT CODE*/
+}
+
+/*---Chapter Opener Type B---*/
+.mhhe-chapter_opener-style_two { 
+	/*INSERT CODE*/
+}
+
+/*-----Edition Sections----------------------------*/
+/*---Digital Edition---*/
+section.digital {
+	/*INSERT CODE*/
+}
+
+/*---Student Edition---*/
+section.student {
+	/*INSERT CODE*/
+}
+
+/*---Instructor Edition---*/
+section.instructor {
+	color: #005271;
+}
+
+/*---Print Edition---*/
+section.print {
+	/*INSERT CODE*/
+}
+
+/*-----Lists---------------------------------------*/
+/*---Lower Alpha List---*/
+.colored-lower-alpha-list {
+	list-style-type: lower-alpha;
+    color: #DC081D;
+    font-weight: bold;
+    font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif !important;
+
+}
+.colored-lower-alpha-list p {
+    color: #000000;
+    font-weight: normal;
+    font-family: "nimbus", Georgia, serif !important;
+}
+
+/*---Upper Alpha List---*/
+.upper-alpha-list {
+	/*INSERT CODE*/
+}
+
+/*---Full-Bolded List---*/
+.bolded-list {
+	/*INSERT CODE*/
+}
+
+/*---Bulleted List---*/
+.bulleted-list {
+	/*INSERT CODE*/
+}
+
+/*---Colored Bulleted List---*/
+.colored-bulleted-list {
+	/*INSERT CODE*/
+}
+
+/*---Numbered List---*/
+.numbered-list {
+	/*INSERT CODE*/
+}
+
+/*---Colored Numbered List---*/
+.colored-numbered-list {
+    color: #DC081D;
+    margin-left: 1em;
+    font-weight: bold;
+    font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif !important;
+}
+.colored-numbered-list p {
+    color: #000000;
+    font-weight: normal;
+    font-family: "nimbus", Georgia, serif !important;
+}
+
+/*---Arrow List---*/
+.list-arrow > li:before {
+  font-size: 200% !important;
+}
+.list-arrow {
+	color: #DC081D !important;
+}
+.list-arrow p {
+    color: #000000 !important;
+}
+/*---Bold List Counters---*/
+.bolded-list-indicator {
+	/*INSERT CODE*/
+}
+
+/*---Checkbox List---*/
+.list-image-checkbox {
+	/*INSERT CODE*/
+}
+
+/*---Checkmark List---*/
+.list-image-checkmark {
+	/*INSERT CODE*/
+}
+
+/*---Circles List---*/
+.circles-list {
+	/*INSERT CODE*/
+}
+
+/*---Dash List---*/
+.list-dash {
+	/*INSERT CODE*/
+}
+
+/*---Guillemet List---*/
+.list-guillemet {
+	/*INSERT CODE*/
+}
+
+/*---Step List---*/
+.list-step {
+	/*INSERT CODE*/
+}
+
+/*-----Text----------------------------------------*/
+/*---Text---*/
+body p {
+	/*INSERT CODE*/
+}
+
+cite {
+	/*INSERT CODE*/
+}
+
+/*---Extract---*/
+.extract {
+	/*INSERT CODE*/
+}
+
+/*---Headings---*/
+.page-header-b {
+  margin-top: -20px;
+  margin-top: -20px;
+  padding-top: 20px;
+  clear: both;
+  margin-bottom: 1em;
+  border-top: 4px solid #ffffff !important;
+}
+.page-header-b h1 {
+    text-transform: uppercase;
+    display: table-row;
+}
+.page-header-b .number {
+  font-weight: bold !important;
+  color: #00707B !important;
+  padding-right: 0.3em;
+  display: table-cell;
+}
+.page-header-b .title {
+  font-weight: bold !important;
+  color: #790410 !important;
+  display: table-cell;
+}
+h1 {
+	/*INSERT CODE*/
+}
+
+h2 {
+	color: #790410;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.85em;
+}
+
+h3 {
+    color: #005962;
+    font-weight: bold;
+}
+
+h4 {
+	/*INSERT CODE*/
+}
+
+h5 {
+	/*INSERT CODE*/
+}
+
+h6 {
+	/*INSERT CODE*/
+}
+
+/*---H1 with Rule---*/
+.rule {
+	/*INSERT CODE*/
+}
+
+/*---Page Number---*/
+.page-number {
+	/*INSERT CODE*/
+}
+
+/*-----Quotes-----*/
+.quote-a {
+	/*INSERT CODE*/
+}
+
+.quote-c {
+	/*INSERT CODE*/
+}
+/*-----Title Text Elements-------------------*/
+.icon {
+	/*INSERT CODE*/
+}
+
+.title {
+	/*INSERT CODE*/
+}
+
+.number {
+	/*INSERT CODE*/
+}
+
+.label {
+	/*INSERT CODE*/
+}
+
+/* LC styles */
+/**.hiddentext {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0px;
+}**/
+#annotatedcontent {float: left; width: 60% ;}
+#annotations {float: left; width: 40% ;  font-size: small;}
+
+/*textarea:focus {
+  background: pink;
+}*/
+
+.scrobile_container * {
+    white-space: normal;
+}
+.scrobile_container {
+    display: block;
+    flex-wrap: nowrap;
+    overflow-y:hidden !important;
+    }
+.scrobile_container table.td_width {
+    width: 1500px !important;
+}
+ th.td_width_1, td.td_width_1 {
+    width: 1000px !important;
+}
+th.td_width_400, td.td_width_400 {
+    width: 400px !important;
+}
+@media (max-width: 979px) {
+    .scrobile_container > * {
+        min-width: fit-content !important;
+    }
+}
+@media (max-width: 560px) {
+    figure > .scrobile_container > img {
+      min-width: fit-content !important;
+    }
+}
+table .mhe-fifty-container img {
+    max-width: 50%  !important;
+}
+table .mhe-seventyfive-container img {
+    max-width: 75%  !important;
+}
+table .mhe-eightyfive-container img {
+    max-width: 85%  !important;
+}
+table .mhe-eighty-container img {
+    max-width: 80%  !important;
+}
+@media (max-width: 560px) {
+    .scrobile_container > * {
+        min-width: fit-content !important;
+    }
+}
+td.dpg-bar--non_break em,
+td.dpg-bar--non_break strong,
+div.scrobile_container table tr th.dpg-bar--non_break,
+div.scrobile_container table tr td.dpg-bar--non_break,
+.dpg-bar--non_break,
+table caption div.dpg-bar--non_break,
+table caption p span.dpg-bar--non_break,
+table tr td.dpg-bar--non_break,
+table tr td.dpg-bar--non_break span,
+table tr td .dpg-bar--non_break,
+table tr td.dpg-bar--non_break em,
+table tr td.dpg-bar--non_break strong
+ {
+    white-space: nowrap !important;
+}
+ol li p, ul li p {
+    display: block !important;
+    margin-top: 0.2em !important;
+}
+.scrobile_container p {
+    min-width: auto !important;
+}
+.scrobile_container td ol, .scrobile_container td ul, .scrobile_container td ol li, .scrobile_container td ul li, .scrobile_container td ol li p, .scrobile_container td ul li p {
+    white-space: normal !important;
+}
+ul li,
+ol li {
+    font-size: 1.188em;
+}
+td, th,
+td th, td td,
+li tr td, li tr th
+ {
+    font-size: 1.188em;
+}
+
+td ul li,
+td ol li,
+td ul li p,
+td ol li p,
+ul li p,
+ol li p,
+li td, li th,
+td th, td td {
+    font-size: 100%;
+}
+ol li ul li,
+ul li ul li,
+ul li ol li,
+ol li ol li,
+ol li ul li p,
+ul li ul li p,
+ul li ol li p,
+ol li ol li p {
+    font-size: 100%;
+}
+.pen_icon {
+    width: 70px;
+    margin: 0 16px;
+    vertical-align: middle !important;
+}
+.text-right {
+    text-align: right;
+}
+.font-bold {
+    font-weight: bold;
+}
+.font-italic {
+    font-style: italic;
+}
+.font-italic-bold {
+    font-style: italic;
+    font-weight: bold;
+}
+.red_text, p.red_text {
+    color: #DC081D;
+    font-weight: bold !important;
+    font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif !important;
+}
+.orange_text {
+    color: #942E00;
+    font-weight: bold;
+}
+.green_text {
+    color: #17864D;
+    font-weight: bold;
+}
+.blue_text {
+    color: #00707B;
+    font-weight: bold;
+}
+.hash_text {
+    color: #666666;
+    font-weight: bold;
+}
+.blue_dark_text {
+    color: #0058AC;
+    font-weight: bold;
+}
+
+.upper_text {
+    text-transform: uppercase;
+}
+
+figure p {
+    font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif !important;
+}
+figure p.fig_caption {
+    font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif !important;
+    display: table-row;
+    font-weight: bold;
+}
+figure .number {
+    color: #666666;
+    font-weight: bold;
+    padding-right: 1em;
+    font-size: 1.1em;
+    white-space: nowrap !important;
+    display: table-cell;
+    
+}
+figure .label {
+  font-size: 1.1em;
+  font-weight: bold;
+  display: table-cell;
+}
+figure .background_brown {
+    background-color: #FDD8C0;
+    padding: 1em;
+    font-size: 1.1em;
+}
+.lower_text {
+    text-transform: lowercase;
+    font-family: "nimbus", Georgia, serif !important;
+}
+.upper_text {
+    text-transform: uppercase;
+}
+.dpg-bar--serif_font {
+    font-family: "nimbus", Georgia, serif !important;
+}
+img.roger_icon {
+    width: 600px !important;
+}
+.list-step.list-no-indent li {
+    font-family: "nimbus", Georgia, serif !important;
+}
+.quote-attr {
+    font-size: 80%;
+}
+.red_text {
+    color: #790410;
+}
+.red-dark {
+    color: #790410;
+    text-transform: uppercase;
+}.sidenote-icon1.NCLEX h4:first-child {
+    margin-top: -1.4em!important;
+}
+
+@font-face {
+  font-family: 'Nimbus';
+  src: url("../../../../../fonts/nimbus/nimbusromdot-bol.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nimbus';
+  src: url("../../../../../fonts/nimbus/nimbusromdot-bolita.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Nimbus';
+  src: url("../../../../../fonts/nimbus/nimbusromdot-reg.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nimbus';
+  src: url("../../../../../fonts/nimbus/nimbusromdot-regita.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'proximanova';
+  src: url("../../../../../fonts/proxima-nova/PROXIMAN.OTF") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'proximanova';
+  src: url("../../../../../fonts/proxima-nova/PROXIMNI.OTF") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'proximanova';
+  src: url("../../../../../fonts/proxima-nova/PROXIMNB.OTF") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'proximanova';
+  src: url("../../../../../fonts/proxima-nova/PROXINBI.OTF") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'proximanovalight';
+  src: url("../../../../../fonts/proxima-nova/ProximaNovaLight.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'proximanovaregular';
+  src: url("../../../../../fonts/proxima-nova/proxima-nova-regular.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'proximanovaregular';
+  src: url("../../../../../fonts/proxima-nova/proximanovaregular.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'verdana';
+  src: url("../../../../../fonts/verdana/Verdana.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'verdana';
+  src: url("../../../../../fonts/verdana/Verdanab.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'arial';
+  src: url("../../../../../fonts/arial/arial.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'arial';
+  src: url("../../../../../fonts/arial/arialbd.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'arial';
+  src: url("../../../../../fonts/arial/arialbi.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'arial';
+  src: url("../../../../../fonts/arial/ariali.otf") format("opentype");
+  font-weight: 400;
+  font-style: italic;
+}
+
+.table-d tbody tr td:first-child math{
+     text-align: center!important;
+    display: inline-block!important;
+}
+
+/* New update marginal text*/
+
+div.mhhe-pod--bodym section > p,
+div.mhhe-pod--bodym section > header,
+div.mhhe-pod--bodym section > ol,
+div.mhhe-pod--bodym section > ul,
+div.mhhe-pod--bodym section section > p
+{
+ margin-outside: 1.77in !important;
+ margin-inside: auto !important;
+}
+
+div.mhhe-pod--bodym figure,
+div.mhhe-pod--bodym .mhhe-pod--glos-entry,
+div.mhhe-pod--bodym div[role="region"] > section,
+div.mhhe-pod--bodym div[role="region"] > section header,
+div.mhhe-pod--bodym div[role="region"] > section ol,
+div.mhhe-pod--bodym div[role="region"] > section ul,
+div.mhhe-pod--bodym div[role="region"] > section p,
+div.mhhe-pod--bodym div[role="region"] > section figure,
+div.mhhe-pod--bodym div[role="region"] > section div,
+div.mhhe-pod--bodym section[role="region"] p,
+div.mhhe-pod--bodym section[role="region"] div,
+div.mhhe-pod--bodym section[role="region"] header,
+div.mhhe-pod--bodym section[role="region"] figure,
+div.mhhe-pod--bodym section[role="region"] ol,
+div.mhhe-pod--bodym section[role="region"] ul,
+div.mhhe-pod--bodym section[role="region"] header,
+div.mhhe-pod--bodym section[role="region"] section,
+div.mhhe-pod--bodym div[class~="genetic-tips"] > section ol,
+div.mhhe-pod--bodym div[class~="genetic-tips"] > section ul,
+div.mhhe-pod--bodym div[class~="genetic-tips"] > section header,
+
+div.mhhe-pod--bodym div[class~="primary-"] > section header,
+div.mhhe-pod--bodym div[class~="primary-"] > section p,
+div.mhhe-pod--bodym div[class~="primary-"] > section ol,
+div.mhhe-pod--bodym div[class~="primary-"] > section ul,
+
+div.mhhe-pod--bodym div[class^="primary-"] > section header,
+div.mhhe-pod--bodym div[class^="primary-"] > section p,
+div.mhhe-pod--bodym div[class^="primary-"] > section ol,
+div.mhhe-pod--bodym div[class^="primary-"] > section ul,
+
+div.mhhe-pod--bodym div[class~="learning-outcomes"] section > *,
+div.mhhe-pod--bodym aside p,
+div.mhhe-pod--bodym aside ol,
+div.mhhe-pod--bodym aside section,
+div.mhhe-pod--bodym aside ul,
+div.mhhe-pod--bodym section .lookingahead,
+div.mhhe-pod--bodym section .lookingahead p,
+div.mhhe-pod--bodym section .lookingahead ol,
+div.mhhe-pod--bodym section .lookingahead li,
+div.mhhe-pod--bodym header.mhhe-chapter_opener,
+div.mhhe-pod--bodym section > cite,
+
+div.mhhe-pod--bodym aside section header,
+div.mhhe-pod--bodym aside section p,
+div.mhhe-pod--bodym aside section ol,
+div.mhhe-pod--bodym aside section ul,
+div.mhhe-pod--bodym .exhibit section,
+div.mhhe-pod--bodym .exhibit section p,
+div.mhhe-pod--bodym .exhibit section ol,
+div.mhhe-pod--bodym .exhibit section ul,
+div.mhhe-pod--bodym .exhibit section table
+{
+ margin-outside: auto !important;
+}
+div.mhhe-pod--bodym div[class~="learning-outcomes"]
+{
+ margin-outside: 1.77in !important;
+ margin-inside: auto !important;
+}
+
+div.mhhe-pod--bodym span.mhhe-pod--majorcolumn-span
+{
+ margin-outside: 1.77in !important;
+ margin-inside: auto !important;
+}
+
+/*div.mhhe-pod--bodym section section,
+div.mhhe-pod--bodym section section section,
+div.mhhe-pod--bodym section .mhhe-pod--glos-entry,
+div.mhhe-pod--bodym section aside,
+aside p,
+aside ol,
+aside section,
+aside ul,
+div.mhhe-pod--bodym section .lookingahead,
+div.mhhe-pod--bodym section .lookingahead p,
+div.mhhe-pod--bodym section .lookingahead ol,
+div.mhhe-pod--bodym section .lookingahead li,
+div.mhhe-pod--bodym header.mhhe-chapter_opener,
+div.mhhe-pod--bodym section > cite,
+div.mhhe-pod--bodym div.mhhe-pod-aside,
+div.mhhe-pod--bodym div.learning-outcomes section p,
+div.mhhe-pod--bodym div.learning-outcomes section ol,
+div.mhhe-pod--bodym div.learning-outcomes section ul,
+div.mhhe-pod--bodym div.learning-outcomes section header,
+div.mhhe-pod--bodym section section > div[role="region"]
+{
+ margin-outside: auto !important;
+}*/
+
+section figure > img
+{
+ text-align: center !important;
+}
+section figure
+{
+ margin-outside: auto !important;
+}
+
+div.mhhe-pod--bodym section figure figcaption,
+div.mhhe-pod--bodym section figure figcaption>p.figure-font,
+div.mhhe-pod--bodym section p.concept-check,
+div.mhhe-pod--bodym div.mhhe-pod--stacked-parent-div
+{
+ width: 100% !important;
+ margin-outside: auto !important;
+}
+div.mhhe-pod--stacked-parent-div
+{
+ 
+}
+
+div.mhhe-pod--bodym .mhhe-pod--glos-entry
+{                
+    width:150px !important;
+    padding: 0pt;
+    text-align:left;
+    
+    
+  margin-top: 0px !important;
+  margin-left: 0px !important;
+  clear: both;
+  float: outside !important;
+}
+.mhhe-pod--glos-entry p.mhhe-pod--glos-title
+{
+ display: block;
+ text-align: left !important;
+  line-height:1.1;
+  border: 0;
+ width: 100% !important;
+
+ font-weight: 10pt !important;
+ font-weight: bold;
+}
+.mhhe-pod--glos-entry p.mhhe-pod--glos-title>em
+{
+ font-style: normal !important;
+}
+.mhhe-pod--margin-glos
+{
+ display: block;
+ font-weight: 8pt !important;
+ font-weight: normal !important;
+}
+figcaption
+{
+ 
+ page-before-inside: avoid;
+ 
+}
+figcaption .number
+{
+ padding-right: 6px;
+}
+.mhhe-pod--glos-entry p
+{
+ margin-top: 0.5em;
+}
+
+.mhhe-pod--eoc-2col-list,
+.mhhe-pod--co-2col-list
+{
+    column-count:2 !important;
+    column-gap:50px !important;
+    display: inherit!important;
+}
+
+/* div.mhhe-pod--introm div,*/  /* Judson 13-jul-19 */
+div.mhhe-pod--introm p,
+div.mhhe-pod--introm ol,
+div.mhhe-pod--introm ul,
+div.mhhe-pod--introm header,
+div.mhhe-pod--endm p,
+div.mhhe-pod--endm ol,
+div.mhhe-pod--endm ul,
+div.mhhe-pod--endm header
+{
+ width: auto !important;
+ margin-inside: auto !important;
+ margin-outside: auto !important;
+}
+
+/* Judson 13-Jul-19 */
+div.mhhe-pod--introm div
+{
+ margin-inside: auto !important;
+ margin-outside: auto !important;
+}
+
+
+.mhhe-pod--co-2col-list p,
+.mhhe-pod--co-2col-list li,
+.mhhe-pod--eoc-2col-list p,
+.mhhe-pod--eoc-2col-list li
+{
+ width: auto !important;
+}
+
+section.mhhe-pod-mtext-lo + .mhhe-pod--glos-entry{
+  margin-top:auto !important;
+}
+
+section.mhhe-pod-mtext-lo
+{
+margin-left: 0px !important;
+clear: both !important;
+position: relative !important;
+/*right: 0px !important;*/
+width:150px !important;
+border:solid 1px #333333!important;
+background-color:transparent!important;
+padding:0.5em !important;
+margin-bottom:0em !important;
+}
+section.mhhe-pod-mtext-lo p
+{
+text-align:left !important;
+font-size:9pt !important;
+width: 100% !important;
+margin-outside: auto !important;
+}
+
+section.mhhe-pod-mtext-lo
+{
+ float: outside !important;
+}
+
+
+
+div.mhhe-pod--introm-mtext
+{
+ margin-outside: 1.77in !important;
+ margin-inside: auto !important;
+}
+
+div.mhhe-pod--introm div.mhhe-pod--glos-entry,
+div.mhhe-pod--bodym div.mhhe-pod--glos-entry{
+  width: 150px!important;
+  float: outside!important;
+  /*margin-left: 10px!important;*/
+}
+
+.mhhe-pod--introm p.mhhe-pod--glos-p,
+.mhhe-pod--bodym p.mhhe-pod--glos-p{ 
+  margin-outside:1.77in !important;
+}
+
+/* New Updation - 11-Jun-19*/
+/* .mhhe-pod--big-img{
+  height: 860px;
+}
+** end */
+
+.mhhe-pod--hyper-link{
+  white-space: nowrap;
+}
+
+/*10-24-18*/
+/*start*/
+h1.mhhe-chapter_opener-chapter_title{
+margin-top:0px !important;
+}
+.mhhe-chapter_opener-chapter_number{margin-bottom:0em;}
+
+header.chapter-intro2
+{
+margin:0px;
+padding:10px;
+}
+
+
+/*h1 {
+  margin-top:0.7em !important;
+  margin-bottom:0.5em !important;
+}
+h2 {
+
+  margin-top:0.7em !important;
+  margin-bottom:0.5em !important;
+}
+h3 {
+  margin-top:0.7em !important;
+  margin-bottom:0.5em !important;
+}
+h4 {
+  margin-top:0.7em !important;
+  margin-bottom:0.5em !important;
+}
+h5 {
+  margin-top:0.7em !important;
+  margin-bottom:0.5em !important;
+}
+
+h6 {
+  margin-top:0.7em !important;
+  margin-bottom:0.5em !important;
+}
+*/
+.mhhe-chapter_opener h1{padding:0em;margin:0em;}
+
+.intro-img {
+    margin-top:0px !important;
+}
+.word-break {
+    white-space: normal!important;
+}
+
+/* Delete 01-Jul-19 */
+/*section .list-second-line-indent li
+{
+ margin-left: 1.2em !important;
+}*/
+
+.primary-2.feature-investigation{
+  width: 100%;
+  height:auto;
+}
+.mhhe-pod--stacked-parent-div{
+  margin-outside:auto!important;
+}
+.mhhe-pod--bodym table td {
+     *white-space: normal!important; /* Delete 06-Aug-19 */
+}
+
+/* new update 29-oct-18 */
+@media (min-width: 820px)
+{
+.full-bleed, .bleed {
+     margin-left: 0px !important; 
+     margin-right: 0px !important; 
+}
+}
+@media (min-width: 560px)
+{
+.full-bleed, .bleed {
+     margin-left: 0px !important; 
+     margin-right: 0px !important; 
+}
+}
+.full-bleed, .bleed {
+    margin-left: 0px !important;
+     margin-right: 0px !important; 
+}
+.primary-2.feature-investigation{
+ width: auto !important;
+}
+/* Judson 18-Jul-19 */
+/*ol.numbered-list {
+    font-size: 10pt !important;
+    margin-left: 10px !important;
+    padding-left: 12px !important;
+}
+ol.numbered-list > li{
+    font-size: 10pt !important;
+    margin-left: 10px !important;
+    padding-left: 0px !important;
+}*/
+div.learning-outcomes ol.numbered-list
+{
+    margin-left: 12px !important;
+    padding-left: 0px !important;
+}
+div.learning-outcomes ol.numbered-list > li
+{
+    margin-left: 12px !important;
+    padding-left: 0px !important;
+}
+.mhe-img-row .sbsleft
+{
+ padding-right: 7px !important;
+}
+.mhe-img-row .sbsright
+{
+ padding-left: 7px !important;
+}
+
+sup {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+  font-size: 8pt;
+  line-height: 0.9em;
+}
+sub {
+  vertical-align: baseline;
+  position: relative;
+  top: 0.3em !important;
+  font-size: 8pt;
+  line-height: 0.9em;
+}
+
+.list-step li p {
+  display: table-row!important;
+}
+.mhhe-pod--large-caption{
+  
+}
+div.mhhe-pod--bodym section figure.mhhe-pod--math-fig figcaption{
+  width: 20px !important;
+  white-space: nowrap !important;
+}
+
+math {
+    text-align: center;
+    display: inline-block;
+    clear: both;
+    font-size: 10pt;
+    white-space: normal!important;
+    word-break: break-word!important;
+}
+div.mhhe-pod--bodym .mhhe-pod--math-fig,
+div.mhhe-pod--bodym blockquote{
+  margin-outside: 1.77in !important;
+  margin-inside: auto !important;
+}
+.mhhe-pod--math-fig figcaption{
+  width: 10px !important;
+}
+table{
+  float: none !important;
+}
+.no-break:before{display: none !important;}
+.mhhe-pod--img-bot{
+float:bottom !important;
+}
+figure.mhhe-pod--image-75to50-wrap
+{
+ float: outside !important;
+ margin-outside: auto !important;
+ padding-left: 0px !important;
+ margin-inside: 15px !important;
+}
+
+.mhhe-pod--img-bot{
+float:bottom !important;
+}
+
+.mhhe-pod--img-bot{
+ padding-top: 0px !important;
+ margin-top: 0px !important;
+ padding-bottom: 0px !important;
+ margin-bottom: 0px !important;
+}
+
+figure.mhhe-pod--img-bot>img
+{
+ padding-top: 0px !important;
+ margin-top: 0px !important;
+ padding-bottom: 5px !important;
+ margin-bottom: 0px !important;
+}
+
+figure.mhhe-pod--img-bot-fig{
+  float: none!important;
+}
+.width_800 {
+    width: 100% !important;
+}
+
+/* Update 14-Nov-18 */
+
+div.mhhe-pod--bodym div[aria-label^="learning obj"]
+{
+    width:120px !important;
+    
+    
+  margin-top: 0px !important;
+  margin-left: 0px !important;
+  clear: both;
+  float: outside !important;
+}
+div.mhhe-pod--bodym div[aria-label^="learning obj"] section *
+{
+ margin-outside: auto !important;
+}
+div.mhhe-pod--bodym div[aria-label^="learning obj"] section > *
+{
+ font-size: 70% !important;
+}
+div.mhhe-pod--bodym div[aria-label^="learning obj"] + section,
+div.mhhe-pod--bodym div[aria-label^="learning obj"] + section header:first-child,
+div.mhhe-pod--bodym div[aria-label^="learning obj"] + section header:first-child h2
+{
+ display: inline !important;
+}
+div.mhhe-pod--bodym div[aria-label^="learning obj"]
+{
+ padding-top: 5px !important;
+}
+
+div.mhhe-pod--bodym div[aria-label^="learning obj"] + section header
+{
+ margin-outside: 20px !important;
+}
+div.mhhe-pod--bodym div[aria-label^="learning obj"] p
+{
+ text-align: left !important;
+}
+
+.mhhe-pod--img-bot{float: bottom;}
+
+div.mhhe-pod--bodym blockquote
+{
+ padding-left: 40px !important;
+ padding-right: 40px !important;
+ margin-left: 0px !important;
+ margin-right: 0px !important;
+}
+aside.progress-check
+{
+ padding-left: 1em;
+ padding-right: 1em;
+}
+
+
+figure.mhe-twentyfive-container img {
+    width: 25% !important;
+    margin: auto;
+    display: block;
+}
+figure.mhe-fifty-container img {
+    width: 50% !important;
+    margin: auto;
+    display: block;
+}
+
+figure.mhe-seventyfive-container img {
+    width: 75% !important;
+    margin: auto;
+    display: block;
+}
+
+
+/* new Updation 17-Jun-19*/
+
+/*figure.mhhe-pod--image-75{
+  width: 75%!important;
+  height: auto!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  max-height: 800px!important;
+  float: none!important;
+}*/
+
+figure.mhhe-pod--image-75to50-wrap{
+  float: outside !important;
+ padding-inside: 15px !important;
+ width: 50% !important;
+ margin-top: 5px !important;
+ padding-top: 0px !important;
+}
+/* new Updation 17-Jun-19*/
+
+/*figure.mhhe-pod--image-50-nowrap {
+  width:50% !important;
+  margin-left:auto !important;
+  margin-right:auto !important;
+  float:none!important;
+  clear: both;
+}
+
+figure.mhhe-pod--image-75 img{
+     width: 507px !important;
+}
+figure.mhhe-pod--image-50-nowrap img{
+    width: 336px !important;
+}
+*/
+
+figure.mhhe-pod--image-100{
+  width: 100%!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  height: auto!important;
+  max-height: 85%!important;
+  float: none!important;
+}
+figure.mhhe-pod--image-100 img{
+  width: 675px !important;
+  height: auto!important;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  max-height: 800px!important;
+  float: none!important;
+}
+
+/* New Updation 17-Jun-19 */
+/** start
+figure.mhhe-pod--large-cap-fig,
+.mhe-twentyfive-container
+{
+ width: 100% !important;
+}
+** end **/
+
+div.mhhe-pod--bodym .mhhe-pod--large-cap-fig,
+div.mhhe-pod--no-margin .mhhe-pod--large-cap-fig,
+div.mhhe-pod--introm .mhhe-pod--large-cap-fig,
+div.mhhe-pod--endm .mhhe-pod--large-cap-fig,
+div.mhhe-pod--bodym .mhhe-pod--large-cap-fig figcaption,
+div.mhhe-pod--no-margin .mhhe-pod--large-cap-fig figcaption,
+div.mhhe-pod--introm .mhhe-pod--large-cap-fig figcaption,
+div.mhhe-pod--endm .mhhe-pod--large-cap-fig figcaption
+{
+ width: 100% !important;
+}
+
+.sbsleft,.sbsright{display:table-cell!important;}
+.mhhe-link,.mhhe-pod--hyper-link,dfn{color: #000000 !important;}
+
+
+ol, ul
+{
+ font-size: 10pt;
+}
+ol li p,
+ul li p,
+ol li,
+ul li
+{
+    text-align: left!important;
+hyphens: none !important;
+}
+
+div.mhhe-pod--bodym section > h2,
+div.mhhe-pod--bodym section > h3,
+div.mhhe-pod--bodym section > h4,
+div.mhhe-pod--bodym section > h5,
+div.mhhe-pod--bodym section > h6
+
+/*,
+div.mhhe-pod--introm section > h2,
+div.mhhe-pod--introm section > h3,
+div.mhhe-pod--introm section > h4,
+div.mhhe-pod--introm section > h5,
+div.mhhe-pod--introm section > h6,
+div.mhhe-pod--endm section > h2,
+div.mhhe-pod--endm section > h3,
+div.mhhe-pod--endm section > h4,
+div.mhhe-pod--endm section > h5,
+div.mhhe-pod--endm section > h6 */ /* Judson 13-Jul-19 */
+{
+ margin-outside: 1.77in !important;
+ margin-inside: auto !important;
+}
+ol li,
+ul li
+{
+ margin-left: 1.5em;
+}
+ol > li li,
+ul > li li
+{
+ margin-left: 2em;
+}
+
+
+figure.mhhe-pod--large-cap-fig img
+{
+ margin: auto;
+}
+
+div.mhhe-pod--bodym span.mhhe-pod--majorcolumn-span
+{
+ margin-outside: 1.77in !important;
+ margin-inside: auto !important;
+}
+
+div.mhhe-pod--introm .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--bodym .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--endm .mhhe-pod--img-unnumbered-fig figcaption{
+  margin-outside: 1.77in !important;
+  margin-inside: auto !important;
+  width: auto !important;
+}
+
+
+figure.mhhe-pod--image-75to50-wrap figcaption{
+  margin-outside: auto !important;
+  margin-inside: auto !important;
+}
+
+ol > li li:first-child{
+    
+}
+section[aria-label^="Learning Objectives"] header + p,section[aria-label^="Learning Objectives"] li:first-child
+{
+    
+}
+.mhhe-pod--2col{
+    column-count:2 !important;
+    /*column-gap:auto !important;*/
+}
+
+.mhhe-pod--2col header.mhhe-chapter_opener{
+  column-span: all;
+}
+.mhhe-pod--2col figure.mhhe-pod--inline-fig{
+    width: 100% !important;
+}
+
+.mhhe-pod--2col figure.mhhe-pod--inline-fig img{
+    width: 100% !important;
+}
+
+/*.mhhe-pod--2col table.mhhe-pod--twocol-table{
+  font-size: 9pt !important; 
+}*/
+
+.mhhe-pod--2col table.mhhe-pod--twocol-table caption,
+.mhhe-pod--2col table.mhhe-pod--twocol-table caption div.enumeration
+{
+font-size:10pt !important;
+}
+
+.mhhe-pod--2col table.mhhe-pod--twocol-table caption p.caption{
+font-size:9pt !important;
+}
+
+.mhhe-pod--2col table.mhhe-pod--twocol-table thead tr th,
+.mhhe-pod--2col table.mhhe-pod--twocol-table thead tr th p,
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td p,
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td,
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td ol li,
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td ol li p,
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td ul li,
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td ul li p
+{
+font-size:8pt !important;
+text-align:left !important;
+}
+
+/*.mhhe-pod--2col div.genetic-tips{
+padding-top:0px !important;
+padding-bottom:0px !important;
+}*/
+
+.mhhe-pod--2col math{
+  font-size: 8pt !important; 
+}
+
+.mhhe-pod--2col .mhhe-pod--glos-entry-twocol{
+  border: 1px solid #000000!important;
+  
+  
+  padding: 5px;
+  margin: 7px 0 0 0 !important;
+}
+
+.mhhe-pod--2col .mhhe-pod--glos-p-twocol{
+  margin: 7px 0 0 0 !important;
+}
+
+
+.mhhe-pod--2col .mhhe-pod--glos-entry-twocol p.mhhe-pod--glos-title-twocol
+{
+  display: block;
+  text-align: left !important;
+  line-height:1.1;
+  border: 0;
+  width: 100% !important;
+  font-weight: 10pt !important;
+  font-weight: bold;
+  margin-top: 0px;
+}
+.mhhe-pod--2col .mhhe-pod--glos-entry-twocol p.mhhe-pod--glos-title-twocol>em
+{
+  font-style: normal !important;
+}
+.mhhe-pod--margin-glos-twocol
+{
+  display: block;
+  font-weight: 8pt !important;
+  font-weight: normal !important;
+}
+.mhhe-pod--2col .mhhe-pod--glos-entry-twocol p
+{
+  /*margin-top: 0.5em;*/
+}
+.mhhe-pod--2col .mhhe-pod--glos-entry-twocol p.mhhe-pod--glos-title-twocol{
+  font-size:10pt !important;
+  font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif;
+}
+
+span.mhhe-pod--margin-glos-twocol
+{
+  font-size:9pt !important;
+  font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif;
+}
+
+figcaption { 
+    
+}
+
+.mhhe-pod--2col .step-title{
+  padding-right: 0px !important;
+}
+
+.mhhe-pod--2col .step-info{
+  padding-left: 3px !important;
+  width: 280px !important;
+}
+
+.mhhe-pod--2col figure table.mhhe-pod--twocol-table tr td,
+.mhhe-pod--2col figure table.mhhe-pod--twocol-table tr th{
+padding-top: 3px !important;
+padding-bottom: 3px !important;
+}
+
+.mhhe-pod--2col figure,
+.mhhe-pod--2col .genetic-tips figure.mhhe-pod--math-fig
+{
+padding-top:5px !important;
+margin-top:0px !important;
+padding-bottom:5px !important;
+margin-bottom:0px !important;
+}
+figure.fgs
+{
+margin-top:0px !important;
+padding-top:0px !important;
+}
+.mhhe-pod--2col figure.mhhe-pod--twocol-math{
+column-span: all !important;
+}
+figure.mhhe-pod--bigfig-bigcap img{
+  width: 470px !important; 
+}
+
+.mhhe-pod--2col .genetic-tips ol{
+margin-left:0px !important;
+padding-left:0px !important;
+}
+
+.mhhe-pod--2col .genetic-tips ol ul{
+margin-left:0px !important;
+padding-left:0px !important;
+}
+
+/*.mhhe-pod--2col ol li:nth-last-of-type(2) {
+
+}*/
+
+.mhhe-pod--2col ol ol{
+
+/**/
+}
+.mhhe-pod--2col ol ol > li:first-child {
+
+}
+.mhhe-pod--2col ol ol > li:last-child {
+
+}
+table.mhhe-pod--twocol-table tr td.text-center p{
+text-align:center !important;
+}
+
+.mhhe-pod--2col math.mhhe-pod--twocol-mathft{
+font-size:8pt !important;
+}
+
+header + div[aria-label^="learning outcomes"] section,div[aria-label^="learning outcomes"] li:first-child
+{
+    
+}
+/*ol{
+    list-style-position: inside;
+}*/
+.mhhe-pod--chapter--stet{
+  column-span: all;
+}
+.mhhe-pod--eoc--stet{
+  column-span: all;
+}
+.mhhe-pod--img-top{
+  float: top;
+}
+.mhhe-pod--custom-fig-caption{
+  white-space: nowrap;
+}
+div.mhhe-pod--1--column,
+div.mhhe-pod--1--column .mhhe-pod--img-bot
+{
+  float:none !important;
+}
+
+
+h1{
+margin-top:30pt !important;
+}
+
+h2{
+margin-top:24pt !important;
+}
+
+h3{
+margin-top:18pt !important;
+}
+
+.mhhe-pod--2col table{
+margin-top:18pt !important;
+margin-bottom:18pt !important;
+}
+
+.mhhe-pod--2col figure.mhhe-pod--unnum-img,
+.mhhe-pod--2col figure.mhhe-pod--img-unnumbered-fig{
+margin-top:9pt !important;
+margin-bottom:9pt !important;
+}
+
+.mhhe-pod--2col figure{
+margin-top:12pt !important;
+margin-bottom:12pt !important;
+}
+
+figcaption p{
+  line-height:1.2;
+}
+
+aside, section.learningobjectives, section.learning-objectives, div.chapter-outline{
+margin-top:12pt !important;
+margin-bottom:12pt !important;
+}
+
+figure>aside, figure>table{
+margin-top:0px !important;
+}
+
+figure>aside, figure>table{
+margin-bottom:0px !important;
+padding-bottom:0px !important;
+}
+.mhhe-pod--math-rm-btm-space{
+  margin-bottom:0px !important;
+  padding-bottom:0px !important;
+}
+.mhhe--pod-moved-header{
+  
+  
+}
+
+aside,
+section
+{
+*padding-bottom:5px !important; /* Delete 06-Aug-19 */
+box-decoration-break:slice !important;
+}
+
+div.mhhe-pod--pri-gen p,
+div.mhhe-pod--pri-gen ul
+{
+margin-left:0px !important;
+padding-left:0px !important;
+}
+
+div.mhhe-pod--pri-gen ul.list-no-style li
+{
+margin-left:0px !important;
+padding-left:0px !important;
+}
+
+div.mhhe-pod--pri-gen ul.list-no-style
+{
+margin-left:7px !important;
+padding-left:0px !important;
+}
+
+div.mhhe-pod--pri-gen ol.numbered-list
+{
+margin-left:0px !important;
+padding-left:0px !important;
+}
+
+
+/*end*/
+
+/* New Updation - 11-Jun-19*/
+
+/** start **
+
+figure.mhhe-pod--wid15.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid15,
+figure.mhhe-pod--wid15.mhhe-pod--large-cap-fig img {width: 15% !important;margin:auto;}
+
+figure.mhhe-pod--wid20.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid20,
+figure.mhhe-pod--wid20.mhhe-pod--large-cap-fig img {width: 20% !important;margin:auto;}
+
+figure.mhhe-pod--wid25.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid25,
+figure.mhhe-pod--wid25.mhhe-pod--large-cap-fig img {width: 25% !important;margin:auto;}
+figure.mhhe-pod--wid30.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid30,
+figure.mhhe-pod--wid30.mhhe-pod--large-cap-fig img {width: 30% !important;margin:auto;}
+figure.mhhe-pod--wid35.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid35,
+figure.mhhe-pod--wid35.mhhe-pod--large-cap-fig img {width: 35% !important;margin:auto;}
+figure.mhhe-pod--wid40.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid40,
+figure.mhhe-pod--wid40.mhhe-pod--large-cap-fig img {width: 40% !important;margin:auto;}
+figure.mhhe-pod--wid45.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid45,
+figure.mhhe-pod--wid45.mhhe-pod--large-cap-fig img {width: 45% !important;margin:auto;}
+figure.mhhe-pod--wid55.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid55,
+figure.mhhe-pod--wid55.mhhe-pod--large-cap-fig img {width: 55% !important;margin:auto;}
+figure.mhhe-pod--wid60.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid60,
+figure.mhhe-pod--wid60.mhhe-pod--large-cap-fig img {width: 60% !important;margin:auto;}
+figure.mhhe-pod--wid65.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid65,
+figure.mhhe-pod--wid65.mhhe-pod--large-cap-fig img {width: 65% !important;margin:auto;}
+figure.mhhe-pod--wid70.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid70,
+figure.mhhe-pod--wid70.mhhe-pod--large-cap-fig img {width: 70% !important;margin:auto;}
+figure.mhhe-pod--wid80.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid80,
+figure.mhhe-pod--wid80.mhhe-pod--large-cap-fig img {width: 80% !important;margin:auto;}
+figure.mhhe-pod--wid85.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid85,
+figure.mhhe-pod--wid85.mhhe-pod--large-cap-fig img {width: 85% !important;margin:auto;}
+figure.mhhe-pod--wid90.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid90,
+figure.mhhe-pod--wid90.mhhe-pod--large-cap-fig img {width: 90% !important;margin:auto;}
+figure.mhhe-pod--wid100.mhhe-pod--img-unnumbered-fig,
+.mhhe-pod--2col figure.mhhe-pod--unnum-img.mhhe-pod--wid100,
+figure.mhhe-pod--wid100.mhhe-pod--large-cap-fig img {width: 100% !important;margin:auto;}
+
+figure.mhhe-pod--image-50-nowrap.mhhe-pod--img-unnumbered-fig,
+figure.mhhe-pod--image-50-nowrap.mhhe-pod--large-cap-fig img {width: 50% !important;margin:auto;}
+figure.mhhe-pod--image-75.mhhe-pod--large-cap-fig img {width: 75% !important;margin:auto;}
+
+.mhhe-pod--2col figure.mhhe-pod--large-cap-fig {width: 100% !important;padding-right: 5% !important;padding-left: 5% !important;}
+
+.mhhe-pod--2col figure.mhe-twentyfive-container.mhhe-pod--unnum-img {width: 50% !important;}
+.mhhe-pod--2col figure.mhe-thirtyfive-container.mhhe-pod--unnum-img,
+.mhhe-pod--2col figure.mhe-thirtyfive-container.mhhe-pod--img-unnumbered-fig {width: 75% !important;}
+.mhhe-pod--2col figure.mhe-thirtyfive-container img,
+.mhhe-pod--2col figure.mhe-thirtyfive-container {width:auto !important;margin: auto !important;}
+
+figure.mhhe-pod--wid15.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid20.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid25.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid30.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid35.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid40.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid45.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid55.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid55.mhe-seventyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid60.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid65.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid70.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid80.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid85.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid90.mhe-fifty-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid100.mhe-fifty-container {width: auto !important;margin:auto;}
+.mhhe-pod--2col figure.mhhe-pod--image-50-nowrap.mhe-fifty-container {width: auto !important;margin:auto;}
+.mhhe-pod--2col figure.mhhe-pod--image-75.mhe-fifty-container {width: auto !important;margin:auto;}
+
+
+figure.mhhe-pod--wid15.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid20.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid25.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid30.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid35.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid40.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid45.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid55.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid60.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid65.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid70.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid80.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid85.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid90.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+figure.mhhe-pod--wid100.mhe-thirtyfive-container {width: auto !important;margin:auto;}
+
+
+** end **/
+
+/*figure.mhhe-pod--unnum-img.mhhe-pod--wid30.mhe-fifty-container img,
+figure.mhhe-pod--unnum-img.mhhe-pod--wid40.mhe-fifty-container img{width: 100% !important;}*/
+
+figure figcaption p.source
+{
+  font-size:8pt !important;
+}
+
+figure .source{
+font-size:8pt !important;
+}
+figcaption cite {
+  font-size: 8pt !important;
+}
+blockquote p
+{
+  font-size: 9pt !important;
+}
+/*.sidenote-5 h4:first-child, .sidenote-5 h4.sidenote-title {
+  color: cmyk(0,0,0,0)!important;
+  padding: 12px 33px 12px 21px;
+  margin: -24px -25.2px 13px -25.2px!important;
+}
+.primary-5.genetic-tips h4:first-child {
+    color: #000000 !important;
+    margin: -27px -25.2px 13px -25.2px !important;
+   padding: 12px 33px 12px 21px !important;
+}*/
+
+.sidenote-icon1,
+.sidenote-icon2
+{
+ padding-right: 20px !important;
+}
+.sidenote-icon1 h4:first-child
+{
+ margin-right: -20px;
+}
+
+/* Judson 16-Jul-19 */
+
+/*.mhhe-pod--chapter--stet ol[start="1"] {
+  counter-reset: none !important;
+}
+
+.mhhe-pod--chapter--stet ol[start="2"] {
+  counter-reset: none !important;
+}
+
+.mhhe-pod--chapter--stet ol[start="3"] {
+  counter-reset: none !important;
+}
+
+.mhhe-pod--chapter--stet ol[start="4"] {
+  counter-reset: none !important;
+}
+
+.mhhe-pod--chapter--stet ol[start="5"] {
+  counter-reset: none !important;
+}
+
+.mhhe-pod--chapter--stet ol[start="6"] {
+  counter-reset: none !important;
+}
+
+.mhhe-pod--chapter--stet ol[start="7"] {
+  counter-reset: none !important;
+}
+
+.mhhe-pod--chapter--stet ol[start="8"] {
+  counter-reset: none !important;
+}
+
+.mhhe-pod--chapter--stet ol[start="9"] {
+  counter-reset: none !important;
+}
+
+.mhhe-pod--chapter--stet ol[start="10"] {
+  counter-reset: none !important;
+} */
+
+
+
+/* New Updation - 11-Jun-19 */
+
+/* figure.mhhe-pod--image-75to50-wrap.mhhe-pod--large-cap-fig
+{width:50% !important;}
+
+** end **/
+
+div.mhhe-pod--bodym section.mhhe-pod-mtext-lo + .mhhe-pod--glos-entry,
+div.mhhe-pod--bodym section.mhhe-pod-mtext-lo-list + .mhhe-pod--glos-entry,
+div.mhhe-pod--introm section.mhhe-pod-mtext-lo + .mhhe-pod--glos-entry,
+div.mhhe-pod--introm section.mhhe-pod-mtext-lo-list + .mhhe-pod--glos-entry
+{
+  margin-top:auto !important;
+}
+.mhhe-pod--bodym section.mhhe-pod-mtext-lo-list,
+.mhhe-pod--introm section.mhhe-pod-mtext-lo-list
+{
+margin-left: 0px !important;
+clear: both !important;
+position: relative !important;
+width:150px !important;
+background-color:transparent!important;
+padding:0em !important;
+margin-bottom:0em !important;
+margin-top:-20px !important;
+}
+.mhhe-pod--bodym section.mhhe-pod-mtext-lo p,
+.mhhe-pod--bodym section.mhhe-pod-mtext-lo-list p,
+.mhhe-pod--introm section.mhhe-pod-mtext-lo-list p
+{
+text-align:left !important;
+font-size:9pt !important;
+width: 100% !important;
+margin-outside: auto !important;
+}
+
+.mhhe-pod--bodym section.mhhe-pod-mtext-lo,
+.mhhe-pod--bodym section.mhhe-pod-mtext-lo-list,
+.mhhe-pod--introm section.mhhe-pod-mtext-lo-list
+{
+ float: outside !important;
+}
+.mhhe-pod--bodym section section.mhhe-pod-mtext-lo-list
+{
+ margin-outside: auto !important; 
+}
+
+.mhhe-pod-mtext-lo-list{
+
+}
+
+/* new 04-Jun-19 */
+
+.mhhe-pod--box-1-col
+{
+  column-span: all !important;
+}
+.mhhe-pod--box-1-col-bottom
+{
+  column-span: all !important;
+float:bottom;
+}
+.mhhe-pod--box-1-col-top
+{
+  column-span: all !important;
+float:top;
+}
+
+div.mhhe-pod--box-2-content{
+    column-count:2 !important;
+}
+.mhhe-pod--box-2-col{
+  column-span: all !important;
+}
+.mhhe-pod--box-2-col-bottom
+{
+ float: bottom;
+}
+.mhhe-pod--box-2-col-top
+{
+ float: top;
+}
+.mhhe-pod--pgbreak-after
+{
+ 
+}
+.mhhe-pod--pgbreak-before
+{
+ 
+}
+
+
+/* New updation - 11-Jun-19 */
+
+/** Start New Styles for Figure alignment **/
+
+figure.mhhe-pod--wid15 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid15 img.mhhe-pod--img-fig{width: 15% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid20 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid20 img.mhhe-pod--img-fig{width: 20% !important;margin-left:auto;margin-right:auto;}
+
+figure.mhhe-pod--wid25 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid25 img.mhhe-pod--img-fig{width: 25% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid30 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid30 img.mhhe-pod--img-fig{width: 30% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid35 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid35 img.mhhe-pod--img-fig{width: 35% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid40 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid40 img.mhhe-pod--img-fig{width: 40% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid45 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid45 img.mhhe-pod--img-fig{width: 45% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid55 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid55 img.mhhe-pod--img-fig{width: 55% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid60 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid60 img.mhhe-pod--img-fig{width: 60% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid65 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid65 img.mhhe-pod--img-fig{width: 65% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid70 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid70 img.mhhe-pod--img-fig{width: 70% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid80 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid80 img.mhhe-pod--img-fig{width: 80% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid85 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid85 img.mhhe-pod--img-fig{width: 85% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid90 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid90 img.mhhe-pod--img-fig{width: 90% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--wid100 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid100 img.mhhe-pod--img-fig,figure.mhhe-pod--image-100 img.mhhe-pod--img-fig, .mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--image-100 img.mhhe-pod--img-fig{width: 100% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--image-50-nowrap img.mhhe-pod--img-fig, .mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--image-50-nowrap img.mhhe-pod--img-fig{width: 50% !important;margin-left:auto;margin-right:auto;}
+figure.mhhe-pod--image-75 img.mhhe-pod--img-fig, .mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--image-75 img.mhhe-pod--img-fig{width: 75% !important;margin-left:auto;margin-right:auto;}
+
+.mhhe-pod--2col figure.mhhe-pod--wid15 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid15 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid15 img.mhhe-pod--img-fig{width: 30% !important;}
+.mhhe-pod--2col figure.mhhe-pod--wid20 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid20 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid20 img.mhhe-pod--img-fig{width: 40% !important;}
+
+.mhhe-pod--2col figure.mhhe-pod--wid25 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid25 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid25 img.mhhe-pod--img-fig{width: 50% !important;}
+.mhhe-pod--2col figure.mhhe-pod--wid30 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid30 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid30 img.mhhe-pod--img-fig{width: 60% !important;}
+.mhhe-pod--2col figure.mhhe-pod--wid35 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid35 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid35 img.mhhe-pod--img-fig{width: 70% !important;}
+.mhhe-pod--2col figure.mhhe-pod--wid40 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid40 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid40 img.mhhe-pod--img-fig{width: 80% !important;}
+.mhhe-pod--2col figure.mhhe-pod--wid45 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid45 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid45 img.mhhe-pod--img-fig{width: 90% !important;}
+.mhhe-pod--2col figure.mhhe-pod--wid55 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid55 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid55 img.mhhe-pod--img-fig,
+.mhhe-pod--2col figure.mhhe-pod--wid60 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid60 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid60 img.mhhe-pod--img-fig,
+.mhhe-pod--2col figure.mhhe-pod--wid65 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid65 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid65 img.mhhe-pod--img-fig,
+.mhhe-pod--2col figure.mhhe-pod--wid70 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid70 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid70 img.mhhe-pod--img-fig,
+.mhhe-pod--2col figure.mhhe-pod--wid80 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid80 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid80 img.mhhe-pod--img-fig,
+.mhhe-pod--2col figure.mhhe-pod--wid85 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid85 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid85 img.mhhe-pod--img-fig,
+.mhhe-pod--2col figure.mhhe-pod--wid90 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid90 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid90 img.mhhe-pod--img-fig,
+.mhhe-pod--2col figure.mhhe-pod--wid100 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid100 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--wid100 img.mhhe-pod--img-fig,
+.mhhe-pod--2col figure.mhhe-pod--image-100 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--image-100 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--image-100 img.mhhe-pod--img-fig,
+.mhhe-pod--2col figure.mhhe-pod--image-50-nowrap img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--image-50-nowrap img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--image-50-nowrap img.mhhe-pod--img-fig,
+.mhhe-pod--2col figure.mhhe-pod--image-75 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--image-75 img.mhhe-pod--img-fig,.mhhe-pod--2col .mhhe-pod--1--column mhhe-pod--img-bot figure.mhhe-pod--image-75 img.mhhe-pod--img-fig,.mhhe-pod--eoc--stet figure.mhhe-pod--image-75 img.mhhe-pod--img-fig{width: 100% !important;}
+
+/* New Updation 17-Jun-19 */
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--image-50-nowrap,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--image-75{width: 100% !important;}
+
+.mhhe-pod--2col figure.mhhe-pod--wid15,
+.mhhe-pod--2col figure.mhhe-pod--wid20,
+
+.mhhe-pod--2col figure.mhhe-pod--wid25,
+.mhhe-pod--2col figure.mhhe-pod--wid30,
+.mhhe-pod--2col figure.mhhe-pod--wid35,
+.mhhe-pod--2col figure.mhhe-pod--wid40,
+.mhhe-pod--2col figure.mhhe-pod--wid45,
+.mhhe-pod--2col figure.mhhe-pod--wid55,
+.mhhe-pod--2col figure.mhhe-pod--wid60,
+.mhhe-pod--2col figure.mhhe-pod--wid65,
+.mhhe-pod--2col figure.mhhe-pod--wid70,
+.mhhe-pod--2col figure.mhhe-pod--wid80,
+.mhhe-pod--2col figure.mhhe-pod--wid85,
+.mhhe-pod--2col figure.mhhe-pod--wid90,
+.mhhe-pod--2col figure.mhhe-pod--wid100,
+.mhhe-pod--2col figure.mhhe-pod--image-100,
+.mhhe-pod--2col figure.mhhe-pod--image-50-nowrap,
+.mhhe-pod--2col figure.mhhe-pod--image-75,
+.mhhe-pod--2col figure.mhhe-pod--image-75to50-wrap{padding-left: 15px !important;padding-right: 15px !important;}
+
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid15,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid20,
+
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid25,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid30,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid35,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid40,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid45,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid55,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid60,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid65,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid70,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid80,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid85,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid90,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--wid100,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--image-100,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--image-50-nowrap,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--image-75,
+.mhhe-pod--2col .mhhe-pod--img-bot figure.mhhe-pod--image-75to50-wrap{padding-left: 0px !important;padding-right: 0px !important;}
+
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid15,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid20,
+
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid25,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid30,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid35,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid40,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid45,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid55,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid60,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid65,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid70,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid80,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid85,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid90,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--wid100,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--image-100,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--image-50-nowrap,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--image-75,
+.mhhe-pod--2col .mhhe-pod--1--column figure.mhhe-pod--image-75to50-wrap{padding-left: 15px !important;padding-right: 15px !important;}
+
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid15,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid15{width: 15% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid20,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid20{width: 20% !important;padding-left: 0px !important;padding-right: 0px !important;}
+
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid25,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid25{width: 25% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid30,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid30{width: 30% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid35,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid35{width: 35% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid40,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid40{width: 40% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid45,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid45{width: 45% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid55,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid55{width: 55% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid60,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid60{width: 60% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid65,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid65{width: 65% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid70,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid70{width: 70% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid80,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid80{width: 80% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid85,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid85{width: 85% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid90,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid90{width: 90% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--wid100,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--wid100,.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--image-100,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--image-100{width: 100% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--image-50-nowrap,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--image-50-nowrap{width: 50% !important;padding-left: 0px !important;padding-right: 0px !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top figure.mhhe-pod--image-75,.mhhe-pod--2col .mhhe-pod--box-1-col-bottom figure.mhhe-pod--image-75{width: 75% !important;padding-left: 0px !important;padding-right: 0px !important;}
+
+
+.mhhe-pod--2col .fifty-figcaption{width: 100% !important;}
+.mhhe-pod--2col .mhhe-pod--box-1-col-top .fifty-figcaption,.mhhe-pod--2col .mhhe-pod--box-1-col-top .fifty-figcaption{width: 50% !important;}
+
+figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid15 img.mhhe-pod--img-fig{width: 30% !important;margin-right: auto;margin-left: auto;}
+figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid20 img.mhhe-pod--img-fig{width: 40% !important;margin-right: auto;margin-left: auto;}
+
+figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid25 img.mhhe-pod--img-fig{width: 50% !important;margin-right: auto;margin-left: auto;}
+figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid30 img.mhhe-pod--img-fig{width: 60% !important;margin-right: auto;margin-left: auto;}
+figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid35 img.mhhe-pod--img-fig{width: 70% !important;margin-right: auto;margin-left: auto;}
+figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid40 img.mhhe-pod--img-fig{width: 80% !important;margin-right: auto;margin-left: auto;}
+figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid45 img.mhhe-pod--img-fig{width: 90% !important;margin-right: auto;margin-left: auto;}
+
+/*figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid25 img.mhhe-pod--img-fig,
+figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid30 img.mhhe-pod--img-fig,
+figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid35 img.mhhe-pod--img-fig,
+figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid40 img.mhhe-pod--img-fig,
+figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid45 img.mhhe-pod--img-fig{width: auto !important;}*/
+
+.mhhe-pod--twocol-table img.mhhe-pod--wid15{width: 15% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid20{width: 20% !important; margin-left: auto !important;margin-right: auto !important;}
+
+.mhhe-pod--twocol-table img.mhhe-pod--wid25{width: 25% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid30{width: 30% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid35{width: 35% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid40{width: 40% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid45{width: 45% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid55{width: 55% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid60{width: 60% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid65{width: 65% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid70{width: 70% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid80{width: 80% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid85{width: 85% !important; margin-left: auto !important;margin-right: auto !important;}
+.mhhe-pod--twocol-table img.mhhe-pod--wid90{width: 90% !important; margin-left: auto !important;margin-right: auto !important;}
+
+/** End Figure alignment **/
+
+/* For Ghillyer 14-Jun-19 */ 
+section.mhhe-pod--box-2-col-top{margin-bottom: 15px;}
+
+/* For Brooker 14-Jun-19 */
+
+.mhhe-pod--img-bot figure
+{
+ 
+}
+.mhhe-pod--img-bot .sbscontain
+{
+ display: table;
+ vertical-align: text-top;
+ 
+ 
+ *
+}
+.mhhe-pod--img-bot .sbsleft,
+.mhhe-pod--img-bot .sbsright
+{
+ vertical-align: text-top;
+ 
+ 
+ *
+}
+.mhhe-pod--img-bot figcaption
+{
+ 
+ 
+ 
+}
+.mhhe-pod--img-bot .sbscontain p.source{text-align: left !important;}
+
+.mhhe-pod--box-2-col math,
+.mhhe-pod--box-2-col-top math,
+.mhhe-pod--box-2-col-bottom math,
+.mhhe-pod--eoc-2col-list math
+{
+  font-size: 8pt !important; 
+}
+
+.sbscontain p.source
+{
+ font-size:8pt !important;
+}
+
+math{
+  font-family: 'nimbus', Georgia, serif;
+}
+
+.mhhe-pod--img-bot figure figcaption .concept-check{
+ margin-bottom: 0px !important;
+}
+
+/* New Updation Tillery 17-Jun-19 */
+
+.mhhe-pod--2col .scrobile_container figure,
+.mhhe-pod--chapter--stet .scrobile_container figure,
+.mhhe-pod--eoc--stet .scrobile_container figure
+{
+ margin-top: 0px !important;
+}
+.mhhe-pod--2col .scrobile_container>*,
+.mhhe-pod--chapter--stet .scrobile_container>*,
+.mhhe-pod--eoc--stet .scrobile_container>*
+{
+ white-space: normal !important;
+}
+.mhhe-pod--2col .scrobile_container p,
+.mhhe-pod--chapter--stet .scrobile_container p,
+.mhhe-pod--eoc--stet .scrobile_container p,
+.mhhe-pod--2col .scrobile_container figure p,
+.mhhe-pod--2col .scrobile_container table p,
+.mhhe-pod--2col .scrobile_container figure table p,
+.mhhe-pod--2col .scrobile_container figure table caption p,
+.mhhe-pod--2col .scrobile_container caption p
+{
+ min-width: 0px !important;
+}
+
+p.source-tbl{}
+.scrobile_container p
+{
+ min-width: auto !important;
+}
+
+.mhhe-pod--chapter--stet .primary-5 > section
+{
+ margin-top: 0px !important;
+}
+
+
+.mhhe-pod--chapter--stet .list-step ul.list-no-style
+{
+ margin-left: 1.7em !important;
+}
+.mhhe-pod--chapter--stet .list-step ul.list-no-style ul.list-no-style
+{
+ margin-left: 1em !important;
+}
+.mhhe-pod--chapter--stet .list-step ul.list-no-style li
+{
+ margin-left: 0px !important;
+}
+
+/*
+h1 span.title:before{
+    content: "\3009";
+    margin-top: .12em;
+    margin-left: 0em;
+    color: cmyk(0.26, 0, 0.26, 0) !important;
+    font-size: 40px;
+    font-family: monospace;
+ vertical-align: middle;
+    top: -5px;
+ font-weight: bold;
+padding-right: 0px;
+padding-left: 0px;
+    text-shadow: 14px 0px 0px cmyk(0.26, 0, 0.26, 0) !important;
+}
+h1 span.number1:before{
+    content: "\3009";
+    margin-top: .12em;
+    margin-left: 0em;
+ margin-right: -16px;
+    color: cmyk(0.86, 0.29, 0.90, 0)!important;
+    font-size: 40px;
+    font-family: monospace;
+ vertical-align: middle;
+    top: -5px;
+ font-weight: bold;
+padding-right: 0px;
+padding-left: 20px;
+    text-shadow: 14px 0px 0px cmyk(0.26, 0, 0.26, 0) !important;
+}
+
+
+h1 span.number{
+    background: cmyk(0.86, 0.29, 0.90, 0)!important;
+    padding: 0.1em 0.1em 0.1em 0.1em;
+    color: cmyk(0,0,0,0)!important;
+    margin-right: 0em;
+    position: relative;
+}
+
+h1 span.title{
+    padding-left: 0em !important;
+margin-left: -.5em !important;
+}
+
+*/
+
+/*.mhhe-pod--chapter--stet .mhhe-chapter_opener
+{
+ padding-top: 10px !important;
+}*/
+label.cssshbutton
+{
+ font-size: 11px !important;
+ padding: 3px 5px 3px 5px !important;
+}
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr.tleft td
+{
+ text-align: left !important;
+}
+.mhhe-pod--math-fig
+{
+   font-family: 'nimbus', Georgia, serif !important;
+}
+.primary-1.example
+{
+ box-decoration-break: slice;
+ -webkit-box-decoration-break: slice;
+}
+caption p,
+p.text-left,
+body p.source-tbl,body p.source-tbl .equation{text-align: left !important;}
+.sidenote-icon1.myths h4 img.icon
+{
+ width: 50px;
+ float: left;
+}
+figcaption,
+figcaption p,
+table caption,
+table caption p
+{
+ font-size: 9pt !important;
+}
+figcaption cite,
+p.source-tbl,
+figure p.source-tbl,
+p.box-cite
+{
+ font-size: 8pt !important;
+}
+table.mhhe-pod--twocol-table tr td math
+{
+font-size:8pt !important;
+}
+figure figcaption p math{
+font-size:9pt !important;
+}
+
+.mhhe-pod--2col math.mhhe-pod--twocol-math9ft{
+font-size:9pt !important;
+}
+
+.til50542_tb0403{ max-width: 60px !important;  margin: 0 auto; }
+
+aside.concepts section p,
+aside.science section p,
+div[class^="primary-5"] section p,
+div[class^="primary-2"] section p {
+font-size: 9pt !important;
+}
+.table-a tr th math mtext, .table-a tr td math, .table-a tr th, .table-a tr td{
+    font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif;
+ font-size: 9pt !important;
+}
+
+.sidenote-icon1.peoplebehindthescience h4 img.icon,
+.sidenote-icon1.closer h4 img.icon,
+.sidenote-icon1.casestudy h4 img.icon
+{
+ width: 50px !important;
+}
+.sidenote-icon1.scienceandsociety h4 img.icon
+{
+ width: 50px !important;
+}
+.sidenote-icon1.myths h4 img.icon
+{
+ width: 40px !important;
+}
+
+
+/* Global */
+.mhhe-pod--2col aside > section,
+.mhhe-pod--chapter--stet aside > section,
+.mhhe-pod--eoc--stet aside > section,
+
+.mhhe-pod--2col aside > div.mhhe-pod--box-2-content > section,
+.mhhe-pod--chapter--stet aside > div.mhhe-pod--box-2-content > section,
+.mhhe-pod--eoc--stet aside > div.mhhe-pod--box-2-content > section
+{margin-top: 0px !important;}
+
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td.text-center p,
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td.text-center
+{
+text-align:center !important;
+}
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td.text-right,
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td.text-right p{
+text-align:right !important;
+}
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td.text-left,
+.mhhe-pod--2col table.mhhe-pod--twocol-table tr td.text-left p{
+text-align:left !important;
+}
+
+.mhhe-pod--2col .scrobile_container figure>table
+{
+ margin-top: 0px !important;
+ margin-bottom: 0px !important;
+}
+
+.mhhe-pod--box-2-col .mhhe-pod--box-2-content section h5
+{
+ margin-left: 0px !important;
+ margin-right: 0px !important;
+ padding-left: 0px !important;
+}
+div.cssshcontain{display: none;}
+.step-title{}
+
+.mhhe-pod--box-2-col-bottom .mhhe-pod--box-2-content section h4,
+.mhhe-pod--box-2-col-top .mhhe-pod--box-2-content section h4
+{
+ margin-right: 0px !important;
+}
+
+div.primary-1.example
+{
+ margin-bottom: 10px !important;
+}
+
+/* Deleted and Update 01-Jul-19 */
+/*.mhhe-pod--2col .sidenote-icon1 h4 .title-case
+{
+    margin-top: -0.2em !important;
+    padding-bottom: 0.2em !important;
+}*/
+
+/* Deleted and Update 01-Jul-19 */
+.sidenote-icon1.scienceandsociety h4 .title-case{
+    font-size: 11pt !important;
+}
+aside.sidenote-icon1.closer section h4 .title-case{
+    font-size: 10pt !important;
+}
+
+.primary-5 h4, .primary5-title {
+  *color: #ffffff !important;
+  *background-color: #666666!important;
+  *padding: .5em 1.4em .5em 1.1em;
+  margin: -1em -1.6em 1em -1.6em !important;
+}
+
+.primary-5 h5 {
+  *color: #000000!important;
+}
+
+/* end Tillery */
+
+/* New Updation for LINUX 22-Jun-19 */
+
+.mhhe-pod--2col .scrobile_container table,
+.mhhe-pod--2col .scrobile_container figure,
+.mhhe-pod--2col .scrobile_container div
+{
+ min-width: 100% !important;
+}
+
+/* New updation 26-Jun-2019 */
+
+/* New update for Judson chapter number */
+
+.mhhe-pod--introm .qtrcolcontain .qtrcol-left
+{
+ width: 45% !important;
+}
+
+/* New updation chapter number 'Cozby' */
+
+.mhhe-pod--introm .mhhe-pod--co-header-bg .qtrcol-right .mhhe-chapter_opener-chapter_number
+{
+  *padding: .7em .25em .4em 0.25em !important;
+ *font-size: 22pt !important;
+
+padding: .5em 0.5em .2em 0.5em !important;
+    font-size: 50pt !important;
+    margin-top: -31px !important;
+}
+.mhhe-pod--introm .mhhe-pod--co-header-bg .mhhe-chapter_opener-chapter_title
+{
+ margin-top: 22px !important;
+}
+.mhhe-pod--introm .mhhe-pod--co-header-bg div
+{
+ margin-top: 0px !important;
+}
+/* Cozby - 28-jul-19 */
+/*.mhhe-pod--introm .mhhe-pod--co-header-bg .qtrcol-right
+{
+ width: auto !important;
+}*/
+.mhhe-pod--introm .mhhe-pod--co-header-bg
+{
+ padding-top: 0px !important;
+}
+
+/* end */
+
+
+/* New update 25-jun-19 */
+
+.mhhe-pod--table-1-col
+{
+  column-span: all !important;
+}
+.mhhe-pod--table-1-col-bottom
+{
+  column-span: all !important;
+float:bottom;
+}
+.mhhe-pod--table-1-col-top
+{
+  column-span: all !important;
+float:top;
+}
+
+figure > table + p.source-tbl
+{
+ margin-top: 10px !important;
+ 
+}
+
+img.mhhe-pod--image-75to50-wrap
+{
+ float: outside !important;
+ margin-inside: 15px !important;
+ display: inline-block;
+}
+
+
+
+/* New update 25-jun-19 */
+
+div.mhhe-pod--introm .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--bodym .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--endm .mhhe-pod--img-unnumbered-fig figcaption{
+  margin-outside: auto !important;
+}
+
+.mhhe-footnote.dpg-bar--non_break
+{
+ white-space: normal !important;
+}
+figure table
+{
+ 
+}
+
+/* New update 25-jun-19 */
+.mhhe-pod--introm .mhhe-pod--img-bot .mhhe-pod--image-75to50-wrap,
+.mhhe-pod--bodym .mhhe-pod--img-bot .mhhe-pod--image-75to50-wrap
+{
+ float: outside !important;
+}
+
+/*div.mhhe-pod--introm .mhhe-pod--img-bot .mhhe-pod--image-75to50-wrap.mhhe-pod--large-cap-fig,
+div.mhhe-pod--bodym .mhhe-pod--img-bot .mhhe-pod--image-75to50-wrap.mhhe-pod--large-cap-fig
+{
+ width: auto !important;
+}*/
+
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid15,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid15{width: 15% !important;margin-right: auto;margin-left: auto;}
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid20,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid20{width: 20% !important;margin-right: auto;margin-left: auto;}
+
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid25,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid25{width: 25% !important;margin-right: auto;margin-left: auto;}
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid30,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid30{width: 30% !important;margin-right: auto;margin-left: auto;}
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid35,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid35{width: 35% !important;margin-right: auto;margin-left: auto;}
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid40,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid40{width: 40% !important;margin-right: auto;margin-left: auto;}
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid45,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid45{width: 45% !important;margin-right: auto;margin-left: auto;}
+
+
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid15 img.mhhe-pod--img-fig,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid15 img.mhhe-pod--img-fig,
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid20 img.mhhe-pod--img-fig,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid20 img.mhhe-pod--img-fig,
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid25 img.mhhe-pod--img-fig,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid25 img.mhhe-pod--img-fig,
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid30 img.mhhe-pod--img-fig,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid30 img.mhhe-pod--img-fig,
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid35 img.mhhe-pod--img-fig,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid35 img.mhhe-pod--img-fig,
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid40 img.mhhe-pod--img-fig,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid40 img.mhhe-pod--img-fig,
+.mhhe-pod--introm figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid45 img.mhhe-pod--img-fig,.mhhe-pod--bodym figure.mhhe-pod--image-75to50-wrap.mhhe-pod--wid45 img.mhhe-pod--img-fig{width: 100% !important;}
+
+.mhhe-pod--introm p.text-right,
+.mhhe-pod--bodym .text-right,
+.mhhe-pod--endm .text-right
+{
+ text-align: right !important;
+}
+
+/* New Update 27-Jun-19 */
+
+
+
+.sidenote-4 > header > h4:first-child,
+div.sidenote-4 > section > header > h4:first-child,
+section[class^="sidenote"] .sidenote-4 > header > h4:first-child,
+aside[class^="sidenote"] .sidenote-4 > header > h4:first-child
+{
+ margin-left: -27.6px !important;
+ margin-right: -27.6px !important;
+ margin-top: -19px !important;
+ padding-left: 27.6px !important;
+ padding-right: 27.6px !important;
+}
+
+aside[class^="sidenote"] > section:first-child
+{
+ margin-top: 0px !important;
+}
+
+.sidenote-5 > header > h4:first-child,
+div.sidenote-5 > section > header > h4:first-child,
+section[class^="sidenote"] .sidenote-5 > header > h4:first-child,
+aside[class^="sidenote"] .sidenote-5 > header > h4:first-child,
+aside.sidenote-5 > section > header > h4:first-child,
+aside.sidenote-4 > section > header > h4:first-child
+{
+ margin-left: -25.6px !important;
+ margin-right: -25.6px !important;
+ margin-top: -18px !important;
+ padding-left: 25.6px !important;
+ padding-right: 25.6px !important;
+}
+
+/* New update 02-Jul-19 */
+
+div.mhhe-pod--wrap-list
+{
+ display: inline !important;
+}
+div.mhhe-pod--wrap-list > p
+{
+ margin-outside: 1.77in !important;
+ left: 15px !important;
+ position: relative;
+ padding-right: 15px !important;
+}
+div.mhhe-pod--wrap-list > p span.mhhe-pod--ul-list
+{
+ margin-left: -15px;
+ position: absolute;
+ display: inline-block;
+}
+
+/* New style for figure 09-Jul-19 */
+
+.mhhe-pod--bodym .mhhe-pod--img-no-margin
+{
+ margin-outside: 1.77in !important;
+ margin-inside: auto !important;
+}
+/* New style for Chapter Opening 13-Jul-19 */
+
+.mhhe-pod--introm .qtrcol-right .mhhe-chapter_opener-chapter_number,
+.mhhe-pod--introm .qtrcol-large-right .mhhe-chapter_opener-chapter_number
+{
+ margin-top: 12px !important;
+}
+
+.mhhe-chapter_opener .qtrcol-left figure figcaption p.source
+{
+ font-size: 9pt !important;
+}
+
+/* Judson 19-Jul-19 for round caption table*/
+/*.mhhe-pod--rounded-caption
+{
+ border-collapse: separate !important;
+ border-spacing: 0 !important;
+}*/
+
+@media print
+{
+  p
+  {
+   widows: 2;
+   orphans: 2;
+  }
+}
+.mhhe-pod--introm .mhhe-pod--pgbreak-before,
+.mhhe-pod--bodym .mhhe-pod--pgbreak-before,
+.mhhe-pod--endm .mhhe-pod--pgbreak-before,
+.mhhe-pod--chapter--stet .mhhe-pod--pgbreak-before,
+.mhhe-pod--eoc--stet .mhhe-pod--pgbreak-before
+{
+ margin-top: 0px !important;
+}
+
+
+/* Gamble 23-jul-19 */
+
+.mhhe-pod--no-margin aside[class^="sidenote"],
+.mhhe-pod--no-margin section[class^="sidenote"],
+.mhhe-pod--bodym aside[class^="sidenote"],
+.mhhe-pod--bodym section[class^="sidenote"],
+.mhhe-pod--endm aside[class^="sidenote"],
+.mhhe-pod--endm section[class^="sidenote"],
+.mhhe-pod--2col aside[class^="sidenote"],
+.mhhe-pod--2col section[class^="sidenote"],
+.mhhe-pod--eoc--stet aside[class^="sidenote"],
+.mhhe-pod--eoc--stet section[class^="sidenote"]
+{
+ margin-top: 20px !important;
+}
+
+.mhhe-pod--no-margin aside.mhhe-pod--box-2-col-top,
+.mhhe-pod--no-margin section.mhhe-pod--box-2-col-top,
+.mhhe-pod--no-margin aside.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--no-margin section.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--no-margin aside.mhhe-pod--box-2-col-top,
+.mhhe-pod--no-margin section.mhhe-pod--box-2-col-top,
+.mhhe-pod--no-margin aside.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--no-margin section.mhhe-pod--box-2-col-bottom,
+
+.mhhe-pod--eoc--stet aside.mhhe-pod--box-2-col-top,
+.mhhe-pod--eoc--stet section.mhhe-pod--box-2-col-top,
+.mhhe-pod--eoc--stet aside.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--eoc--stet section.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--eoc--stet aside.mhhe-pod--box-2-col-top,
+.mhhe-pod--eoc--stet section.mhhe-pod--box-2-col-top,
+.mhhe-pod--eoc--stet aside.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--eoc--stet section.mhhe-pod--box-2-col-bottom,
+
+.mhhe-pod--bodym aside.mhhe-pod--box-2-col-top,
+.mhhe-pod--bodym section.mhhe-pod--box-2-col-top,
+.mhhe-pod--bodym aside.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--bodym section.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--bodym aside.mhhe-pod--box-2-col-top,
+.mhhe-pod--bodym section.mhhe-pod--box-2-col-top,
+.mhhe-pod--bodym aside.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--bodym section.mhhe-pod--box-2-col-bottom,
+
+.mhhe-pod--endm aside.mhhe-pod--box-2-col-top,
+.mhhe-pod--endm section.mhhe-pod--box-2-col-top,
+.mhhe-pod--endm aside.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--endm section.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--endm aside.mhhe-pod--box-2-col-top,
+.mhhe-pod--endm section.mhhe-pod--box-2-col-top,
+.mhhe-pod--endm aside.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--endm section.mhhe-pod--box-2-col-bottom,
+
+.mhhe-pod--2col aside.mhhe-pod--box-2-col-top,
+.mhhe-pod--2col section.mhhe-pod--box-2-col-top,
+.mhhe-pod--2col aside.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--2col section.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--2col aside.mhhe-pod--box-2-col-top,
+.mhhe-pod--2col section.mhhe-pod--box-2-col-top,
+.mhhe-pod--2col aside.mhhe-pod--box-2-col-bottom,
+.mhhe-pod--2col section.mhhe-pod--box-2-col-bottom
+
+{
+ margin-top: 0px !important;
+}
+
+.mhhe-pod--img-bot figure > figcaption:first-child > p:last-child
+{
+ margin-bottom: 10px !important;
+}
+
+.mhhe-pod--no-margin .mhhe-pod--box-40-wrap,
+.mhhe-pod--bodym .mhhe-pod--box-40-wrap,
+.mhhe-pod--2col .mhhe-pod--box-40-wrap,
+.mhhe-pod--introm .mhhe-pod--box-40-wrap,
+.mhhe-pod--endm .mhhe-pod--box-40-wrap,
+.mhhe-pod--eoc--stet .mhhe-pod--box-40-wrap,
+.mhhe-pod--ch--stet .mhhe-pod--box-40-wrap
+{
+ width: 40% !important;
+ float: outside !important;
+ margin-outside: auto !important;
+ margin-inside: 10px !important;
+}
+
+.mhhe-pod--no-margin aside[class^="sidenote"].mhhe-pod--box-40-wrap,
+.mhhe-pod--no-margin section[class^="sidenote"].mhhe-pod--box-40-wrap,
+.mhhe-pod--bodym aside[class^="sidenote"].mhhe-pod--box-40-wrap,
+.mhhe-pod--bodym section[class^="sidenote"].mhhe-pod--box-40-wrap,
+.mhhe-pod--endm aside[class^="sidenote"].mhhe-pod--box-40-wrap,
+.mhhe-pod--endm section[class^="sidenote"].mhhe-pod--box-40-wrap,
+.mhhe-pod--2col aside[class^="sidenote"].mhhe-pod--box-40-wrap,
+.mhhe-pod--2col section[class^="sidenote"].mhhe-pod--box-40-wrap,
+.mhhe-pod--eoc--stet aside[class^="sidenote"].mhhe-pod--box-40-wrap,
+.mhhe-pod--eoc--stet section[class^="sidenote"].mhhe-pod--box-40-wrap
+{
+ margin-top: 3px !important;
+}
+
+section.print{font-size: 9pt !important; margin-top: 1.25em !important;}
+.mhhe-pod--unflex{display: block !important;}
+
+div.scrobile_container figure:first-child table:first-child{}
+div.scrobile_container figure:first-child table:first-child + p{}
+.mhhe-pod--eoc--stet td.text-right,
+.mhhe-pod--chapter--stet td.text-right,
+.mhhe-pod--no-margin td.text-right,
+.mhhe-pod--eoc--stet td.text-right>p,
+.mhhe-pod--chapter--stet td.text-right>p,
+.mhhe-pod--no-margin td.text-right>p
+{
+ text-align: right !important;
+}
+
+/*table .dpg-bar--non_break
+{
+ white-space: normal !important;
+}*/
+
+/* New update Judson 26-Jul-19 */
+ol li,ul li{font-size: 10pt;}
+
+/* New update 28-Jul-19 */
+table td.text-center > p
+{text-align:center !important;}
+/* New update 28-Jul-19 */
+table td p
+{text-align: left !important;}
+
+table td.text-center > p,
+table td[align="center"] > p,
+table th.text-center > p,
+table th[align="center"] > p,
+.text-center > li > p
+{text-align:center !important;}
+
+ol.lower-alpha-list > li
+{
+ margin-left: 2em;
+}
+
+.mhhe-pod--bodym .mhhe-pod--large-cap-fig.mhhe-pod--img-no-margin
+{
+ width: auto !important;
+}
+
+/* New update Geringer 29-Jul-19 */
+h4 span.mhhe-pod--bgcolor
+{
+  padding-top: 9.5px !important;
+  padding-bottom: 9.5px !important;
+}
+.mhhe-blk--top_margin_ignore h1,
+.mhhe-blk--top_margin_ignore h2,
+.mhhe-blk--top_margin_ignore h3,
+.mhhe-blk--top_margin_ignore h4,
+.mhhe-blk--top_margin_ignore h5,
+.mhhe-blk--top_margin_ignore h6
+{
+ margin-top: 0px !important;
+}
+
+span.mhhe-pod--wdbrk .dpg-bar--non_break
+{
+ word-break: break-all !important;
+ white-space: normal !important;
+}
+
+/*.mhhe-pod--box-2-col .mhhe-pod--box-2-content h5
+{
+ margin-left: 0px !important;
+ margin-right: 0px !important;
+ padding-left: 0px !important;
+}
+.mhhe-pod--box-2-col .mhhe-pod--box-2-content>header> h5
+{
+ margin-right: 0px !important;
+}*/
+
+.mhhe-footnote{color: inherit !important;}
+
+/* New update Floyd 03-Aug-19 */
+
+.mhhe-pod--img-bot figure figcaption:last-child,
+figure figcaption:last-child
+{
+ 
+}
+.mhhe-pod--bodym .mhhe-pod--box-no-margin
+{
+ margin-outside: 1.77in !important;
+ margin-inside: auto !important;
+}
+div.mhhe-pod--bodym .mhhe-pod--glos-entry
+{
+ margin-bottom: 10px !important;
+}
+
+.mhhe-pod--eoc-3col-list
+{
+    column-count:3 !important;
+    column-gap:30px !important;
+}
+.mhhe-pod--eoc-2col-list p,
+.mhhe-pod--eoc-2col-list li
+{
+ width: auto !important;
+}
+span.mhhe-pod--majorcolumn-span{}
+
+/* New 12-Aug-19 - Rosenstand*/
+figure.mhhe-pod--image-75to50-wrap + .mhhe-pod--header-previous + header,
+figure.mhhe-pod--image-75to50-wrap + .mhhe-pod--header-previous + header > h2,
+figure.mhhe-pod--image-75to50-wrap + .mhhe-pod--header-previous + header > h3,
+figure.mhhe-pod--image-75to50-wrap + .mhhe-pod--header-previous + header > h4,
+figure.mhhe-pod--image-75to50-wrap + .mhhe-pod--header-previous + header > h5,
+figure.mhhe-pod--image-75to50-wrap + .mhhe-pod--header-previous + header > h6
+{
+ display: inline-block;
+}
+figure.mhhe-pod--image-75to50-wrap img.mhhe-pod--img-fig{margin-left: auto;margin-right: auto;}
+.mhhe-pod--box-2-col div.mhhe-pod--box-2-content .mhhe-pod--table-1-col,
+.mhhe-pod--box-2-col div.mhhe-pod--box-2-content .mhhe-pod--table-1-col figure
+{
+width:auto !important;
+ column-span: all !important;
+}
+
+.mhhe-pod--introm section.unit-info
+{
+ margin-left: 0px;
+ margin-right: 0px;
+ padding-left: 0px;
+ padding-right: 0px;
+}
+.mhhe-pod--introm section.unit-info>header
+{
+ margin-left: 0px;
+ margin-right: 0px;
+ padding-left: 10px;
+ padding-right: 10px;
+}
+.empty{ display: none;}
+
+.mhhe-pod--introm section.unit-info:last-child
+{
+ margin-bottom: 0px !important;
+}
+.mhhe-pod--image-75to50-wrap + span[style]
+{
+ padding-top: 24pt !important;
+}
+.mhhe-pod--no-margin div.mhhe-pod--wrap-list p,
+.mhhe-pod--eoc--stet div.mhhe-pod--wrap-list p,
+.mhhe-pod--chapter--stet div.mhhe-pod--wrap-list p
+{
+ margin-outside: auto !important;
+}
+.mhhe-pod--image-75to50-wrap.one-half img{width: auto !important;}
+
+/* New 12-Aug-19 - West */
+.mhhe-pod--glos-title
+{
+ 
+}
+div.mhhe-pod--glos-entry + p.mhhe-pod--glos-p,
+div.mhhe-pod--glos-entry + div.mhhe-pod--glos-entry 
+{
+ 
+}
+div.mhhe-pod--glos-entry
+{
+ margin-top: auto !important;
+}
+
+/* New 16-Aug-19 - West */
+
+div.mhhe-pod--introm .mhhe-pod--glos-entry
+{
+ margin-inside: 20px !important;
+}
+
+/* New 22-Aug-19 Cozby trim size */
+
+.mhhe-pod--introm .mhhe-pod--co-header-bg .qtrcol-right
+{
+ margin-right: 0px !important;
+ padding-right: 0px !important;
+}
+.mhhe-pod--introm .mhhe-pod--co-header-bg .qtrcol-right,
+.mhhe-pod--introm .mhhe-pod--co-header-bg .qtrcol-large-left
+{
+ width: auto !important;
+ *display: table-cell !important;
+}
+.mhhe-pod--introm .mhhe-pod--co-header-bg .qtrcolcontain
+{
+ border-collapse: collapse;
+ display: flex;
+}
+
+.mhhe-pod--introm .mhhe-pod--trim-1 .qtrcol-right .mhhe-chapter_opener-chapter_number
+{
+ padding: .7em 0.4em .15em 0.4em !important;
+    font-size: 38pt !important;
+    margin-top: -31px !important;
+}
+.mhhe-pod--introm .mhhe-pod--trim-1 .mhhe-chapter_opener-chapter_title
+{
+    margin-top: 18px !important;
+ font-size: 20pt !important;
+}
+table.mhhe-pod--font-9,
+table.mhhe-pod--font-9 td p,
+table.mhhe-pod--font-9 td,
+table.mhhe-pod--font-9 th p,
+table.mhhe-pod--font-9 th
+{font-size: 9pt !important;}
+
+table.mhhe-pod--font-8,
+table.mhhe-pod--font-8 td p,
+table.mhhe-pod--font-8 td,
+table.mhhe-pod--font-8 th p,
+table.mhhe-pod--font-8 th
+{font-size: 8pt !important;}
+
+/* New Update for Cozby 26-Aug-19 */
+
+.mhhe-pod--lower-head .sidenote-10 h4:first-child,
+.mhhe-pod--lower-head .sidenote10 h4.sidenote-title {
+  padding-left: 1.6em !important;
+  padding-right: 1.6em !important;
+  margin-right: -1.6em !important;
+  margin-left: -1.6em !important;
+}
+
+
+/* New update for Cozby FONT - 31-Aug-19 */
+
+@font-face {
+  font-family: 'proximanova-b';
+  src: url("../../../../../fonts/proxima-nova/Proxima_Nova_Bold.otf") format("opentype");
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'proximanova-bit';
+  src: url("../../../../../fonts/proxima-nova/Proxima_Nova_Bold_Italic.otf") format("opentype");
+  font-weight: 700;
+  font-style: italic;
+}
+.mhhe-pod--no-margin .mhhe-pod--proximanova-b,
+.mhhe-pod--bodym .mhhe-pod--proximanova-b,
+.mhhe-pod--endm .mhhe-pod--proximanova-b,
+.mhhe-pod--2col .mhhe-pod--proximanova-b,
+.mhhe-pod--introm .mhhe-pod--proximanova-b
+{
+ font-family: 'proximanova-b' !important;
+}
+.mhhe-pod--no-margin .mhhe-pod--proximanova-bit,
+.mhhe-pod--bodym .mhhe-pod--proximanova-bit,
+.mhhe-pod--endm .mhhe-pod--proximanova-bit,
+.mhhe-pod--2col .mhhe-pod--proximanova-bit,
+.mhhe-pod--introm .mhhe-pod--proximanova-bit
+{
+ font-family: 'proximanova-bit' !important;
+}
+
+span.mhhe-pod--wdbrk > .no-break,
+.no-break > span.mhhe-pod--wdbrk
+{
+ word-break: break-all !important;
+ white-space: normal !important;
+}
+figure table:last-child
+{
+ 
+}
+p.source
+{
+ font-size: 8pt !important;
+}
+
+.mhhe-pod--evenpage
+{
+ 
+}
+body
+{
+ margin: 0px !important;
+ padding: 0px !important;
+}
+
+/* 26-Sep-19 for Santrock */
+.mhhe-pod--introm img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid15,.mhhe-pod--bodym img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid15{width: 15% !important;margin-right: auto;margin-left: auto;}
+.mhhe-pod--introm img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid20,.mhhe-pod--bodym img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid20{width: 20% !important;margin-right: auto;margin-left: auto;}
+
+.mhhe-pod--introm img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid25,.mhhe-pod--bodym img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid25{width: 25% !important;margin-right: auto;margin-left: auto;}
+.mhhe-pod--introm img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid30,.mhhe-pod--bodym img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid30{width: 30% !important;margin-right: auto;margin-left: auto;}
+.mhhe-pod--introm img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid35,.mhhe-pod--bodym img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid35{width: 35% !important;margin-right: auto;margin-left: auto;}
+.mhhe-pod--introm img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid40,.mhhe-pod--bodym img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid40{width: 40% !important;margin-right: auto;margin-left: auto;}
+.mhhe-pod--introm img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid45,.mhhe-pod--bodym img.mhhe-pod--image-75to50-wrap.mhhe-pod--wid45{width: 45% !important;margin-right: auto;margin-left: auto;}
+div.wrapperpg { counter-reset: page attr(pagenum) }
+/* New update 31-Jul-19 */
+
+/*
+@page {
+*size: 7.63in 10in;
+marks: crop;
+prince-bleed: 0.25in;
+prince-trim: 0.25in;
+margin-top: 0.75in;
+margin-bottom: 0.375in;
+margin-inside: 1in;
+margin-outside: 0.50in;
+  @footnotes {
+    border-top: .1px solid #000000 !important;
+    padding-top: 10px !important;
+  }
+
+}
+
+@page:left {
+
+@top-left-corner {
+content: counter(page);
+*border-bottom: solid 1pt cmyk(0,0,0,0.8);
+margin: 0.2in 0in 0.2in 0.51in;
+text-align:left;
+vertical-align:bottom;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+color: prince-overprint(black);
+}
+
+@top-left {
+content: string(chapterNo) "   " string(chapterName);
+*content: string(partNo) "   " string(partName);
+border-bottom: solid 0.1pt #000000;
+*padding-bottom: 2pt;
+margin: 0.5in 0in 0.2in 0.002in;
+vertical-align:bottom;
+text-align:left;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+padding-left:30px !important;
+padding-right:30px !important;
+color: prince-overprint(black);
+*text-transform: uppercase;
+
+}
+}
+
+@page:right {
+
+@top-right-corner {
+content: counter(page);
+*border-bottom: solid 1pt #000000;
+margin: 0.2in 0.5in 0.2in -15px !important;
+text-align:right !important;
+vertical-align:bottom;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+color: prince-overprint(black);
+}
+
+@top-right {
+content: string(chapterNo) "   " string(chapterName);
+border-bottom: solid 0.1pt #000000;
+margin: 0.5in 0in 0.2in 0in !important;
+vertical-align:bottom;
+padding-right:30px !important;
+padding-left:30px !important;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+color: prince-overprint(black);
+*text-transform: uppercase;
+}
+}
+
+*/
+
+
+/* Del 21-aug-19 */
+/*@page {
+marks: crop;
+prince-bleed: 0.25in;
+prince-trim: 0.25in;
+margin-top: 0.5in;
+margin-bottom: 0.375in;
+margin-inside: 1in;
+margin-outside: 0.50in;
+padding-top: 5px !important;
+  @footnotes {
+    border-top: .1px solid #000000 !important;
+    padding-top: 10px !important;
+  }
+}
+
+@page:left {
+
+@top-left-corner {
+content: counter(page);
+margin: 0.1in 0in 0.1in 0.51in;
+text-align:left;
+vertical-align:bottom;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+color: prince-overprint(black);
+padding-bottom:2px !important;
+}
+
+@top-left {
+content: string(chapterNo) "   " string(chapterName);
+border-bottom: solid 0.1pt #000000;
+margin: 0.12in 0in 0.1in 0.002in;
+vertical-align:bottom;
+text-align:left;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+padding-left:30px !important;
+padding-right:30px !important;
+color: prince-overprint(black);
+padding-bottom:2px !important;
+}
+}
+
+@page:right {
+
+@top-right-corner {
+content: counter(page);
+margin: 0.01in 0.5in 0.1in -15px !important;
+text-align:right !important;
+vertical-align:bottom;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+color: prince-overprint(black);
+padding-bottom:2px !important;
+}
+
+@top-right {
+content: string(chapterNo) "   " string(chapterName);
+border-bottom: solid 0.1pt #000000;
+margin: 0.12in 0in 0.1in 0in !important;
+vertical-align:bottom;
+padding-right:30px !important;
+padding-left:30px !important;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+color: prince-overprint(black);
+padding-bottom:2px !important;
+}
+}*/
+
+@page {
+marks: crop;
+prince-bleed: 0.25in;
+prince-trim: 0.25in;
+margin-top: 0.5in;
+margin-bottom: 0.375in;
+margin-inside: 1in;
+margin-outside: 0.50in;
+padding-top: 5px !important;
+  @footnotes {
+    border-top: .1px solid #000000 !important;
+    padding-top: 10px !important;
+  }
+}
+
+@page:left {
+
+@top-left-corner {
+content: counter(page);
+margin: 0.1in 0in 0.1in 0.51in;
+text-align:left;
+vertical-align:bottom;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+color: prince-overprint(black);
+padding-bottom:2px !important;
+margin-outside: 0.50in !important;
+margin-inside: -0.50in !important;
+}
+
+@top-left {
+content: string(chapterNo) "   " string(chapterName);
+border-bottom: solid 0.1pt #000000;
+margin: 0.12in 0in 0.1in 0.002in;
+vertical-align:bottom;
+text-align:left;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+padding-left:30px !important;
+padding-right:0px !important;
+color: prince-overprint(black);
+padding-bottom:2px !important;
+}
+}
+
+@page:right {
+
+@top-right-corner {
+content: counter(page);
+margin: 0.1in 0.5in 0.1in -15px !important;
+text-align:right !important;
+vertical-align:bottom;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+color: prince-overprint(black);
+padding-bottom:2px !important;
+margin-outside: 0.50in !important;
+margin-inside: -0.50in !important;
+}
+
+@top-right {
+content: string(chapterNo) "   " string(chapterName);
+border-bottom: solid 0.1pt #000000;
+margin: 0.1in 0in 0.1in 0in !important;
+vertical-align:bottom;
+font-family: "TimesLTStd-Roman" !important;
+font-size:8pt;
+color: prince-overprint(black);
+padding-right:30px !important;
+padding-bottom:2px !important;
+padding-left:0px !important;
+text-align:right !important;
+}
+}
+
+  body {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+p{
+font-size:10pt !important;
+text-align:justify;
+hyphens: auto !important;
+hyphenate-after:3;
+hyphenate-before:3;
+}
+
+table tr td p,
+table tr td,
+table tr th p,
+table tr th,
+table.table-f tr td p,
+table.table-f tr td,
+table.table-f tr th p,
+table.table-f tr th,
+table.table-e tr td p,
+table.table-e tr td,
+table.table-e tr th p,
+table.table-e tr th
+
+{
+font-size:10pt !important;
+}
+
+sup, sub {
+  vertical-align: baseline;
+  position: relative;
+  top: -0.4em;
+  font-size: 8pt;
+  line-height: 0.9em;
+}
+
+  aside, blockquote, figure, header, iframe,
+  nav, object, pre, section, table, img {
+    page-break-inside: avoid;
+  }
+
+  .section-info, .part-info, .unit-info {
+    display: block;
+    margin-top: 0em;
+  }
+
+h1 {
+  font-size: 19pt;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 17pt;
+}
+
+h3 {
+  font-size: 15pt;
+}
+
+h4 {
+  font-size: 13pt;
+}
+
+h5 {
+  font-size: 11pt;
+}
+
+h6 {
+  font-size: 10pt;
+}
+
+section,aside,div,header{margin-top:0mm !important;
+    -webkit-print-color-adjust: exact;
+    display: block;
+}
+
+.mhhe-link:before{
+display:none;
+}
+
+/*header.mhhe-chapter_opener p.mhhe-chapter_opener-chapter_number {
+string-set: chapterNo content();
+}*/
+header.mhhe-chapter_opener h1 {
+string-set: chapterName content(); 
+}
+
+/*header.mhhe-chapter_opener p.mhhe-chapter_opener-chapter_number {
+string-set: chapterNo content();
+}*/
+header.mhhe-chapter_opener h1 {
+string-set: chapterName content(); 
+}
+
+.mhhe-chapter_opener-chapter_number{
+font-size:22pt !important;
+}
+
+.mhhe-chapter_opener-chapter_title{
+font-size:22pt !important;
+}
+
+section.mhhe-blk-header header h1.mhhe-chapter_opener-chapter_title, p.mhhe-chapter_opener-chapter_number{
+padding-left:0px !important;
+margin-left:0px !important;
+}
+
+body {
+  line-height: 1.2 !important;
+}
+
+
+section, aside, div
+{-webkit-print-color-adjust:exact;
+margin-top:10px !important;clear:both;display:block}
+header
+{
+-webkit-print-color-adjust:exact;
+clear:both;display:block;
+}
+
+
+.page-number{
+  display: none!important;
+}
+
+@page bigpage {
+prince-rotate-body: -90deg;
+}
+
+section.big { page: bigpage;
+width:100% !important;
+height:100% !important;
+prince-shrink-to-fit: auto !important;
+ }
+
+
+aside,
+section
+{
+*padding-bottom:5px !important; /* Delete 06-Aug-19 */
+box-decoration-break:slice !important;
+}
+
+
+aside, blockquote, header, section, table, img{
+    page-break-inside: auto !important;
+}
+
+@page:first { 
+    *margin-top: 0.50in !important; /* New update 31-Jul-19 */
+margin-top: 0 !important;
+
+  @top-left-corner {
+    content: normal;
+    border-bottom: 0;
+  }
+
+  @top-left {
+    content: normal;
+    border-bottom: 0;
+  }
+
+  @top-right-corner {
+    content: normal;
+    border-bottom: 0;
+  }
+
+  @top-right {
+    content: normal;
+    border-bottom: 0;
+  }
+
+  @bottom-right-corner {
+    content: normal;
+    border-bottom: 0;
+  }
+}
+.tab-fn {
+    float: footnote!important;
+    margin-left:1em!important;
+  font-family: "stix", Georgia, serif!important;
+  font-size: 8pt !important;
+      font-weight: normal;
+  color: #000000 !important;
+}
+
+.tab-fn::footnote-call {
+    content: none!important;
+    font-size: 8pt !important;
+        font-weight: normal;
+    vertical-align: super!important;
+    line-height: none!important;
+  color: #000000 !important;
+}
+
+.tab-fn::footnote-marker {
+font-weight: normal!important;
+    content: none!important;
+font-size: 8pt!important;
+    font-weight: normal;
+*position:absolute!important;
+*margin-top:-10px !important;
+  color: #000000 !important;
+}
+
+.footnote-nobrk{
+  white-space: normal!important;
+}
+
+
+
+
+
+div.chp-no {
+string-set: chapterNo content();
+}
+
+.hide{
+  display: none!important;
+}
+
+div.part-no {
+string-set: chapterNo content();
+}
+
+
+
+table tr:nth-of-type(1),
+table tr:nth-of-type(2) {
+page-break-after: avoid!important;
+page-break-inside: avoid!important;
+}
+table tr:nth-last-of-type(1),
+table tr:nth-last-of-type(2) {
+page-break-before: avoid!important;
+page-break-inside: avoid!important;
+}
+
+
+table.mhhe-pod--additional>tbody>tr:nth-of-type(1),
+table.mhhe-pod--additional>tbody>tr:nth-of-type(2) {
+page-break-inside: auto!important;
+page-break-after: auto!important;
+page-break-before: auto!important;
+}
+table.mhhe-pod--additional>tbody>tr:nth-last-of-type(1),
+table.mhhe-pod--additional>tbody>tr:nth-last-of-type(2) {
+page-break-inside: auto!important;
+page-break-after: auto!important;
+page-break-before: auto!important;
+}
+
+header.chapter-intro5 title + h1 {
+string-set: chapterName content(); 
+}
+
+header.chaptit {
+string-set: chapterName content();
+text-transform:uppercase !important;
+}
+
+div.chaptit h1 {
+string-set: chapterName content();
+text-transform:uppercase !important;
+}
+
+/*header.chapter-intro5 {
+string-set: chapterNo content();
+}*/
+header.chapter-intro5 title + h1 {
+string-set: chapterName content(); 
+}
+
+header.chapter-name {
+string-set: chapterName content(); 
+}
+div.part-number{
+string-set: partNo content();
+}
+
+div.part-name {
+string-set: partName content(); 
+}
+
+header.chapter-intro4 h1{
+string-set: chapterName content();
+}
+
+header{
+  page-break-after: avoid !important;
+  page-break-inside: avoid !important;
+}
+
+/*.cclearfix{
+    float: none;
+    clear: both;
+    opacity: 0;
+    width: 650px!important;
+    height: 2px!important;
+}*/
+
+p{
+font-size:10pt !important;
+text-align:justify;      /* New update 31-Jul-19 - for Mcconnell*/
+}
+
+table tr td p,
+table tr td,
+table tr th p,
+table tr th,
+table.table-f tr td p,
+table.table-f tr td,
+table.table-f tr th p,
+table.table-f tr th,
+table.table-e tr td p,
+table.table-e tr td,
+table.table-e tr th p,
+table.table-e tr th
+{
+font-size:10pt !important;
+}
+
+h1 {
+  font-size: 19pt!important;
+}
+h2 {
+  font-size: 17pt!important;
+}
+h3 {
+  font-size: 15pt!important;
+}
+h4 {
+  font-size: 13pt!important;
+}
+h5 {
+  font-size: 11pt!important;
+}
+h6 {
+  font-size: 10pt!important;
+}
+
+.longdesc-icon{
+  display: none!important;
+}
+
+span.mhhe-pod--wdbrk
+{
+word-break: break-all !important;
+}
+
+
+.mhhe-pod--eoc-2col-list
+{
+    column-count:2 !important;
+    column-gap:50px !important;
+}
+p.text-center
+{text-align:center !important;}
+ul.list-image-checkbox li:before
+{
+  content:"\2610" !important;
+  position:absolute !important;
+  left:-1em !important;
+  top:0em !important;
+  
+}
+section.digital:before {
+    display: none!important;
+}
+h1,h2,h3,h4,h5{
+  page-break-after: avoid !important;
+}
+.mhhe-pod--stacked-div{
+  width: 100% !important;
+  display: table !important;
+  border-spacing: 5px !important;
+  margin-inside: auto !important;
+  margin-outside: auto !important;
+}
+.mhhe-pod--stacked-fig,.mhhe-pod--stacked-parent-div{
+  width: 100% !important;
+  margin-inside: auto !important;
+    margin-outside: auto !important;
+}
+body.pagebreak_spi_odd div.mhhe-pod--introm div.mhhe-pod--glos-entry,body.pagebreak_spi_odd div.mhhe-pod--bodym div.mhhe-pod--glos-entry {
+    width: 150px!important;
+    float: right!important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--introm div.mhhe-pod--glos-entry,body.pagebreak_spi_even div.mhhe-pod--bodym div.mhhe-pod--glos-entry {
+    width: 150px!important;
+    float: left!important;
+}
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > p,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > header,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > ol,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > ul,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section section > p
+{
+ margin-right: 1.77in !important;
+ margin-left: auto !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym figure,
+body.pagebreak_spi_odd div.mhhe-pod--bodym .mhhe-pod--glos-entry,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[role="region"] > section,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[role="region"] > section header,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[role="region"] > section ol,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[role="region"] > section ul,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[role="region"] > section p,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[role="region"] > section figure,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[role="region"] > section div,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section[role="region"] p,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section[role="region"] div,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section[role="region"] header,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section[role="region"] figure,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section[role="region"] ol,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section[role="region"] ul,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section[role="region"] header,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section[role="region"] section,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class~="genetic-tips"] > section ol,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class~="genetic-tips"] > section ul,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class~="genetic-tips"] > section header,
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class~="primary-"] > section header,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class~="primary-"] > section p,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class~="primary-"] > section ol,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class~="primary-"] > section ul,
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class^="primary-"] > section header,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class^="primary-"] > section p,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class^="primary-"] > section ol,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class^="primary-"] > section ul,
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class~="learning-outcomes"] section > *,
+body.pagebreak_spi_odd div.mhhe-pod--bodym aside p,
+body.pagebreak_spi_odd div.mhhe-pod--bodym aside ol,
+body.pagebreak_spi_odd div.mhhe-pod--bodym aside section,
+body.pagebreak_spi_odd div.mhhe-pod--bodym aside ul,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section .lookingahead,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section .lookingahead p,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section .lookingahead ol,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section .lookingahead li,
+body.pagebreak_spi_odd div.mhhe-pod--bodym header.mhhe-chapter_opener,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > cite,
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym aside section header,
+body.pagebreak_spi_odd div.mhhe-pod--bodym aside section p,
+body.pagebreak_spi_odd div.mhhe-pod--bodym aside section ol,
+body.pagebreak_spi_odd div.mhhe-pod--bodym aside section ul,
+body.pagebreak_spi_odd div.mhhe-pod--bodym .exhibit section,
+body.pagebreak_spi_odd div.mhhe-pod--bodym .exhibit section p,
+body.pagebreak_spi_odd div.mhhe-pod--bodym .exhibit section ol,
+body.pagebreak_spi_odd div.mhhe-pod--bodym .exhibit section ul,
+body.pagebreak_spi_odd div.mhhe-pod--bodym .exhibit section table
+{
+ margin-right: auto !important;
+}
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[class~="learning-outcomes"]
+{
+ margin-right: 1.77in !important;
+ margin-left: auto !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym span.mhhe-pod--majorcolumn-span
+{
+ margin-right: 1.77in !important;
+ margin-left: auto !important;
+}
+body.pagebreak_spi_odd section figure
+{
+ margin-right: auto !important;
+}
+body.pagebreak_spi_odd div.mhhe-pod--bodym section figure figcaption,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section figure figcaption>p.figure-font,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section p.concept-check,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div.mhhe-pod--stacked-parent-div
+{
+ width: 100% !important;
+ margin-right: auto !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--introm p,
+body.pagebreak_spi_odd div.mhhe-pod--introm ol,
+body.pagebreak_spi_odd div.mhhe-pod--introm ul,
+body.pagebreak_spi_odd div.mhhe-pod--introm div,
+body.pagebreak_spi_odd div.mhhe-pod--introm header,
+body.pagebreak_spi_odd div.mhhe-pod--endm p,
+body.pagebreak_spi_odd div.mhhe-pod--endm ol,
+body.pagebreak_spi_odd div.mhhe-pod--endm ul,
+body.pagebreak_spi_odd div.mhhe-pod--endm header
+{
+ width: auto !important;
+ margin-left: auto !important;
+ margin-right: auto !important;
+}
+
+body.pagebreak_spi_odd section.mhhe-pod-mtext-lo p
+{
+text-align:left !important;
+font-size:9pt !important;
+width: 100% !important;
+margin-right: auto !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--introm-mtext
+{
+ margin-right: 1.77in !important;
+ margin-left: auto !important;
+}
+
+body.pagebreak_spi_odd.mhhe-pod--introm p.mhhe-pod--glos-p,
+body.pagebreak_spi_odd .mhhe-pod--bodym p.mhhe-pod--glos-p{ 
+  margin-right:1.77in !important;
+}
+
+body.pagebreak_spi_odd .mhhe-pod--stacked-parent-div{
+  margin-right:auto!important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym .mhhe-pod--math-fig,
+body.pagebreak_spi_odd div.mhhe-pod--bodym blockquote{
+  margin-right: 1.77in !important;
+  margin-left: auto !important;
+}
+
+body.pagebreak_spi_odd figure.mhhe-pod--image-75to50-wrap
+{
+ float: right !important;
+ margin-right: auto !important;
+ padding-left: 0px !important;
+ margin-left: 15px !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[aria-label^="learning obj"] section *
+{
+ margin-right: auto !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[aria-label^="learning obj"] + section header
+{
+ margin-right: 20px !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > h2,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > h3,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > h4,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > h5,
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > h6,
+
+body.pagebreak_spi_odd div.mhhe-pod--introm section > h2,
+body.pagebreak_spi_odd div.mhhe-pod--introm section > h3,
+body.pagebreak_spi_odd div.mhhe-pod--introm section > h4,
+body.pagebreak_spi_odd div.mhhe-pod--introm section > h5,
+body.pagebreak_spi_odd div.mhhe-pod--introm section > h6,
+body.pagebreak_spi_odd div.mhhe-pod--endm section > h2,
+body.pagebreak_spi_odd div.mhhe-pod--endm section > h3,
+body.pagebreak_spi_odd div.mhhe-pod--endm section > h4,
+body.pagebreak_spi_odd div.mhhe-pod--endm section > h5,
+body.pagebreak_spi_odd div.mhhe-pod--endm section > h6
+{
+ margin-right: 1.77in !important;
+ margin-left: auto !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym span.mhhe-pod--majorcolumn-span
+{
+ margin-right: 1.77in !important;
+ margin-left: auto !important;
+}
+
+/*body.pagebreak_spi_odd div.mhhe-pod--introm .mhhe-pod--img-unnumbered-fig figcaption,body.pagebreak_spi_odd div.mhhe-pod--bodym .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--endm .mhhe-pod--img-unnumbered-fig figcaption{
+  margin-right: 1.77in !important;
+  margin-left: auto !important;
+  width: auto !important;
+}*/
+
+
+body.pagebreak_spi_odd figure.mhhe-pod--image-75to50-wrap figcaption{
+  margin-right: auto !important;
+  margin-left: auto !important;
+}
+
+body.pagebreak_spi_odd .mhhe--pod-moved-header{
+  margin-right: 1.77in !important;
+  margin-left: auto !important;
+}
+
+ body.pagebreak_spi_odd div.mhhe-pod--introm .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--bodym .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--endm .mhhe-pod--img-unnumbered-fig figcaption{
+  margin-left: auto !important;
+}
+body.pagebreak_spi_odd .mhhe-pod--bodym section.mhhe-pod-mtext-lo p,
+body.pagebreak_spi_odd .mhhe-pod--bodym section.mhhe-pod-mtext-lo-list p,
+body.pagebreak_spi_odd .mhhe-pod--introm section.mhhe-pod-mtext-lo-list p
+{
+margin-right: auto !important;
+}
+
+body.pagebreak_spi_odd .mhhe-pod--bodym section.mhhe-pod-mtext-lo,
+body.pagebreak_spi_odd .mhhe-pod--bodym section.mhhe-pod-mtext-lo-list,
+body.pagebreak_spi_odd .mhhe-pod--introm section.mhhe-pod-mtext-lo-list
+{
+ float: right !important;
+}
+body.pagebreak_spi_odd .mhhe-pod--bodym section section.mhhe-pod-mtext-lo-list
+{
+ margin-right: auto !important; 
+}
+body.pagebreak_spi_odd img.mhhe-pod--image-75to50-wrap
+{
+ float: right !important;
+ margin-left: 15px !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--introm .mhhe-pod--img-unnumbered-fig figcaption,body.pagebreak_spi_odd div.mhhe-pod--bodym .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--endm .mhhe-pod--img-unnumbered-fig figcaption{
+  margin-right: auto !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--wrap-list > p
+{
+ margin-right: 1.77in !important;
+}
+body.pagebreak_spi_odd .mhhe-pod--bodym .mhhe-pod--img-no-margin
+{
+ margin-right: 1.77in !important;
+ margin-left: auto !important;
+}
+body.pagebreak_spi_odd .mhhe-pod--no-margin .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_odd .mhhe-pod--bodym .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_odd .mhhe-pod--2col .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_odd .mhhe-pod--introm .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_odd .mhhe-pod--endm .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_odd .mhhe-pod--eoc--stet .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_odd .mhhe-pod--ch--stet .mhhe-pod--box-40-wrap
+{
+ float: right !important;
+ margin-right: auto !important;
+ margin-left: 10px !important;
+}
+body.pagebreak_spi_odd  .mhhe-pod--bodym .mhhe-pod--box-no-margin
+{
+ margin-right: 1.77in !important;
+ margin-left: auto !important;
+}
+body.pagebreak_spi_odd div.mhhe-pod--introm .mhhe-pod--glos-entry
+{
+ margin-left: 20px !important;
+}
+
+
+
+
+
+body.pagebreak_spi_even div.mhhe-pod--bodym section > p,
+body.pagebreak_spi_even div.mhhe-pod--bodym section > header,
+body.pagebreak_spi_even div.mhhe-pod--bodym section > ol,
+body.pagebreak_spi_even div.mhhe-pod--bodym section > ul,
+body.pagebreak_spi_even div.mhhe-pod--bodym section section > p
+{
+ margin-left: 1.77in !important;
+ margin-right: auto !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--bodym figure,
+body.pagebreak_spi_even div.mhhe-pod--bodym .mhhe-pod--glos-entry,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[role="region"] > section,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[role="region"] > section header,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[role="region"] > section ol,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[role="region"] > section ul,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[role="region"] > section p,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[role="region"] > section figure,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[role="region"] > section div,
+body.pagebreak_spi_even div.mhhe-pod--bodym section[role="region"] p,
+body.pagebreak_spi_even div.mhhe-pod--bodym section[role="region"] div,
+body.pagebreak_spi_even div.mhhe-pod--bodym section[role="region"] header,
+body.pagebreak_spi_even div.mhhe-pod--bodym section[role="region"] figure,
+body.pagebreak_spi_even div.mhhe-pod--bodym section[role="region"] ol,
+body.pagebreak_spi_even div.mhhe-pod--bodym section[role="region"] ul,
+body.pagebreak_spi_even div.mhhe-pod--bodym section[role="region"] header,
+body.pagebreak_spi_even div.mhhe-pod--bodym section[role="region"] section,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class~="genetic-tips"] > section ol,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class~="genetic-tips"] > section ul,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class~="genetic-tips"] > section header,
+
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class~="primary-"] > section header,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class~="primary-"] > section p,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class~="primary-"] > section ol,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class~="primary-"] > section ul,
+
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class^="primary-"] > section header,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class^="primary-"] > section p,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class^="primary-"] > section ol,
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class^="primary-"] > section ul,
+
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class~="learning-outcomes"] section > *,
+body.pagebreak_spi_even div.mhhe-pod--bodym aside p,
+body.pagebreak_spi_even div.mhhe-pod--bodym aside ol,
+body.pagebreak_spi_even div.mhhe-pod--bodym aside section,
+body.pagebreak_spi_even div.mhhe-pod--bodym aside ul,
+body.pagebreak_spi_even div.mhhe-pod--bodym section .lookingahead,
+body.pagebreak_spi_even div.mhhe-pod--bodym section .lookingahead p,
+body.pagebreak_spi_even div.mhhe-pod--bodym section .lookingahead ol,
+body.pagebreak_spi_even div.mhhe-pod--bodym section .lookingahead li,
+body.pagebreak_spi_even div.mhhe-pod--bodym header.mhhe-chapter_opener,
+body.pagebreak_spi_even div.mhhe-pod--bodym section > cite,
+
+body.pagebreak_spi_even div.mhhe-pod--bodym aside section header,
+body.pagebreak_spi_even div.mhhe-pod--bodym aside section p,
+body.pagebreak_spi_even div.mhhe-pod--bodym aside section ol,
+body.pagebreak_spi_even div.mhhe-pod--bodym aside section ul,
+body.pagebreak_spi_even div.mhhe-pod--bodym .exhibit section,
+body.pagebreak_spi_even div.mhhe-pod--bodym .exhibit section p,
+body.pagebreak_spi_even div.mhhe-pod--bodym .exhibit section ol,
+body.pagebreak_spi_even div.mhhe-pod--bodym .exhibit section ul,
+body.pagebreak_spi_even div.mhhe-pod--bodym .exhibit section table
+{
+ margin-left: auto !important;
+}
+body.pagebreak_spi_even div.mhhe-pod--bodym div[class~="learning-outcomes"]
+{
+ margin-left: 1.77in !important;
+ margin-right: auto !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--bodym span.mhhe-pod--majorcolumn-span
+{
+ margin-left: 1.77in !important;
+ margin-right: auto !important;
+}
+body.pagebreak_spi_even section figure
+{
+ margin-left: auto !important;
+}
+body.pagebreak_spi_even div.mhhe-pod--bodym section figure figcaption,
+body.pagebreak_spi_even div.mhhe-pod--bodym section figure figcaption>p.figure-font,
+body.pagebreak_spi_even div.mhhe-pod--bodym section p.concept-check,
+body.pagebreak_spi_even div.mhhe-pod--bodym div.mhhe-pod--stacked-parent-div
+{
+ width: 100% !important;
+ margin-left: auto !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--introm p,
+body.pagebreak_spi_even div.mhhe-pod--introm ol,
+body.pagebreak_spi_even div.mhhe-pod--introm ul,
+body.pagebreak_spi_even div.mhhe-pod--introm div,
+body.pagebreak_spi_even div.mhhe-pod--introm header,
+body.pagebreak_spi_even div.mhhe-pod--endm p,
+body.pagebreak_spi_even div.mhhe-pod--endm ol,
+body.pagebreak_spi_even div.mhhe-pod--endm ul,
+body.pagebreak_spi_even div.mhhe-pod--endm header
+{
+ width: auto !important;
+ margin-right: auto !important;
+ margin-left: auto !important;
+}
+
+body.pagebreak_spi_even section.mhhe-pod-mtext-lo p
+{
+text-align:left !important;
+font-size:9pt !important;
+width: 100% !important;
+margin-left: auto !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--introm-mtext
+{
+ margin-left: 1.77in !important;
+ margin-right: auto !important;
+}
+
+body.pagebreak_spi_even.mhhe-pod--introm p.mhhe-pod--glos-p,
+body.pagebreak_spi_even .mhhe-pod--bodym p.mhhe-pod--glos-p{ 
+  margin-left:1.77in !important;
+}
+
+body.pagebreak_spi_even .mhhe-pod--stacked-parent-div{
+  margin-left:auto!important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--bodym .mhhe-pod--math-fig,
+body.pagebreak_spi_even div.mhhe-pod--bodym blockquote{
+  margin-left: 1.77in !important;
+  margin-right: auto !important;
+}
+
+body.pagebreak_spi_even figure.mhhe-pod--image-75to50-wrap
+{
+ float: left !important;
+ margin-left: auto !important;
+ padding-left: 0px !important;
+ margin-right: 15px !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--bodym div[aria-label^="learning obj"] section *
+{
+ margin-left: auto !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--bodym div[aria-label^="learning obj"] + section header
+{
+ margin-left: 20px !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--bodym section > h2,
+body.pagebreak_spi_even div.mhhe-pod--bodym section > h3,
+body.pagebreak_spi_even div.mhhe-pod--bodym section > h4,
+body.pagebreak_spi_even div.mhhe-pod--bodym section > h5,
+body.pagebreak_spi_even div.mhhe-pod--bodym section > h6,
+
+body.pagebreak_spi_even div.mhhe-pod--introm section > h2,
+body.pagebreak_spi_even div.mhhe-pod--introm section > h3,
+body.pagebreak_spi_even div.mhhe-pod--introm section > h4,
+body.pagebreak_spi_even div.mhhe-pod--introm section > h5,
+body.pagebreak_spi_even div.mhhe-pod--introm section > h6,
+body.pagebreak_spi_even div.mhhe-pod--endm section > h2,
+body.pagebreak_spi_even div.mhhe-pod--endm section > h3,
+body.pagebreak_spi_even div.mhhe-pod--endm section > h4,
+body.pagebreak_spi_even div.mhhe-pod--endm section > h5,
+body.pagebreak_spi_even div.mhhe-pod--endm section > h6
+{
+ margin-left: 1.77in !important;
+ margin-right: auto !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--bodym span.mhhe-pod--majorcolumn-span
+{
+ margin-left: 1.77in !important;
+ margin-right: auto !important;
+}
+
+/*body.pagebreak_spi_even div.mhhe-pod--introm .mhhe-pod--img-unnumbered-fig figcaption,body.pagebreak_spi_even div.mhhe-pod--bodym .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--endm .mhhe-pod--img-unnumbered-fig figcaption{
+  margin-left: 1.77in !important;
+  margin-right: auto !important;
+  width: auto !important;
+}
+*/
+
+body.pagebreak_spi_even figure.mhhe-pod--image-75to50-wrap figcaption{
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+body.pagebreak_spi_even .mhhe--pod-moved-header{
+  margin-left: 1.77in !important;
+  margin-right: auto !important;
+}
+
+body.pagebreak_spi_odd section.mhhe-pod-mtext-lo
+{
+    float: right !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--introm div.mhhe-pod--glos-entry,
+body.pagebreak_spi_odd div.mhhe-pod--bodym div.mhhe-pod--glos-entry{
+    float: outside!important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym .mhhe-pod--glos-entry
+{               
+    float: right !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym div[aria-label^="learning obj"]
+{
+    float: right !important;
+}
+
+body.pagebreak_spi_odd figure.mhhe-pod--image-75to50-wrap{
+    float: right !important;
+    padding-left: 15px !important;
+}
+
+body.pagebreak_spi_even section.mhhe-pod-mtext-lo
+{
+    float: left !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--introm div.mhhe-pod--glos-entry,
+body.pagebreak_spi_even div.mhhe-pod--bodym div.mhhe-pod--glos-entry{
+    float: outside!important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--bodym .mhhe-pod--glos-entry
+{               
+    float: left !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--bodym div[aria-label^="learning obj"]
+{
+    float: left !important;
+}
+
+body.pagebreak_spi_even figure.mhhe-pod--image-75to50-wrap{
+    float: left !important;
+    padding-right: 15px !important;
+}
+
+.list-second-line-indent{
+    text-indent: 0 !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--introm .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--bodym .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--endm .mhhe-pod--img-unnumbered-fig figcaption{
+  margin-right: auto !important;
+}
+
+body.pagebreak_spi_even .mhhe-pod--bodym section.mhhe-pod-mtext-lo p,
+body.pagebreak_spi_even .mhhe-pod--bodym section.mhhe-pod-mtext-lo-list p,
+body.pagebreak_spi_even .mhhe-pod--introm section.mhhe-pod-mtext-lo-list p
+{
+margin-right: auto !important;
+}
+
+body.pagebreak_spi_even .mhhe-pod--bodym section.mhhe-pod-mtext-lo,
+body.pagebreak_spi_even .mhhe-pod--bodym section.mhhe-pod-mtext-lo-list,
+body.pagebreak_spi_even .mhhe-pod--introm section.mhhe-pod-mtext-lo-list
+{
+ float: right !important;
+}
+body.pagebreak_spi_even .mhhe-pod--bodym section section.mhhe-pod-mtext-lo-list
+{
+ margin-right: auto !important; 
+}
+body.pagebreak_spi_even img.mhhe-pod--image-75to50-wrap
+{
+ float: right !important;
+ margin-left: 15px !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--introm .mhhe-pod--img-unnumbered-fig figcaption,body.pagebreak_spi_even div.mhhe-pod--bodym .mhhe-pod--img-unnumbered-fig figcaption,div.mhhe-pod--endm .mhhe-pod--img-unnumbered-fig figcaption{
+  margin-right: auto !important;
+}
+
+body.pagebreak_spi_even div.mhhe-pod--wrap-list > p
+{
+ margin-right: 1.77in !important;
+}
+body.pagebreak_spi_even .mhhe-pod--bodym .mhhe-pod--img-no-margin
+{
+ margin-right: 1.77in !important;
+ margin-left: auto !important;
+}
+body.pagebreak_spi_even .mhhe-pod--no-margin .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_even .mhhe-pod--bodym .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_even .mhhe-pod--2col .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_even .mhhe-pod--introm .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_even .mhhe-pod--endm .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_even .mhhe-pod--eoc--stet .mhhe-pod--box-40-wrap,
+body.pagebreak_spi_even .mhhe-pod--ch--stet .mhhe-pod--box-40-wrap
+{
+ float: right !important;
+ margin-right: auto !important;
+ margin-left: 10px !important;
+}
+body.pagebreak_spi_even  .mhhe-pod--bodym .mhhe-pod--box-no-margin
+{
+ margin-right: 1.77in !important;
+ margin-left: auto !important;
+}
+body.pagebreak_spi_even div.mhhe-pod--introm .mhhe-pod--glos-entry
+{
+ margin-left: 20px !important;
+}

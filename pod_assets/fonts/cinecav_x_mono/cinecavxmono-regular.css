@@ -1,0 +1,12 @@
+/* Webfont: CinecavXMono-Regular */@font-face {
+    font-family: 'CinecavXMono';
+    src: url('CinecavXMono-Regular.eot'); /* IE9 Compat Modes */
+    src: url('CinecavXMono-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('CinecavXMono-Regular.woff') format('woff'), /* Modern Browsers */
+         url('CinecavXMono-Regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('CinecavXMono-Regular.svg#CinecavXMono-Regular') format('svg'); /* Legacy iOS */
+    font-style: normal;
+    font-weight: normal;
+    text-rendering: optimizeLegibility;
+}
+

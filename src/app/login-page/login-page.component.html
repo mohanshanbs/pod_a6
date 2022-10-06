@@ -1,0 +1,167 @@
+<div *ngIf="condition; else elseBlock">
+    <ng-template #login [ngIf]="showlogin == true" id="hide">
+        <div class="container login">
+            <div class="row">
+                <div class="col-md-6 login-left">
+                    <img src="assets/images/MHE_Logo_RGB1.png" class="login-logo">
+                    <img src="assets/images/pod_logo.PNG" class="podLogo" alt="">
+                </div>
+                <div class="col-md-6 login-right">
+                    <!-- ##LOGIN -->
+                    <div *ngIf="!isForgotPassword" class="login-container">
+                        <!-- Message Model -->
+                        <div class="messagemodal">
+                            <app-message-modal *ngIf="showAlert" (modalClose)="showAlert=false"
+                                [message]="alertMessage">
+                            </app-message-modal>
+                        </div>
+                        <div class="login-header">Login</div>
+                        <div class="body-login">
+                            <form [formGroup]="Cognitosignin" (ngSubmit)="signInWithCognito()">
+                                <div class="form-group">
+                                    <input type="text" type="email" name="email" id="email" class="form-control"
+                                        formControlName="email" (keyup)="loginmsg = false"
+                                        placeholder="Email Address" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" id="password" name="password" class="form-control"
+                                        formControlName="password" (keyup)="loginmsg = false" placeholder="Password" />
+                                    <br>
+                                    <span>
+                                        <span class="forgot-password anchor" (click)="forgotPasswordClicked()">Forgot
+                                            Password?</span>
+                                    </span>
+                                    <ngb-alert *ngIf="loginmsg==true" type="danger" [dismissible]="true"
+                                        (close)="loginmsg = false">
+                                        {{loginerrmsg}}
+                                        <div class="bar">
+                                            <div class="in"></div>
+                                        </div>
+                                    </ngb-alert>
+                                </div>
+                                <div class="form-group">
+                                    <button id="loginbutton" class="btn btn-primary" type="submit">Login</button>&nbsp;
+                                    <button id="signupbutton" class="btn btn-primary" (click)="signupPage()">Sign
+                                        Up</button>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <!-- ##FORGOT PASSWORD -->
+                    <div class="login-container" *ngIf="isForgotPassword">
+                        <!-- Message Model -->
+                        <div class="messagemodal">
+                            <app-message-modal *ngIf="showAlert" (modalClose)="showAlert=false"
+                                [message]="alertMessage">
+                            </app-message-modal>
+                        </div>
+                        <h2>Forgot Password</h2>
+                        <h4 style="color: green; font-size: 16px;margin-bottom: 50px;">It's Okay! Reset your password
+                            Verification code sent to
+                            <strong>{{Cognitosignin.value.email}}</strong></h4>
+                        <div class="body-login">
+                            <form [formGroup]="Cognitoforgotlogin" (ngSubmit)="newPasswordSubmit()">
+                                <div class="form-group">
+                                    <input class="form-control" type="text" name="verificationCode"
+                                        formControlName="code" placeholder="Enter verification code">
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control"
+                                        [type]="Cognitoforgotlogin.showPassword ? 'text' : 'password'" name="password"
+                                        placeholder="Enter New Password" formControlName="newPassword">
+                                    <div style="font-size: 12px; margin:8px 0px;">
+                                        <input type="checkbox" [checked]="Cognitoforgotlogin.showPassword"
+                                            (change)="Cognitoforgotlogin.showPassword = !Cognitoforgotlogin.showPassword">
+                                        show Password
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">SUBMIT NEW PASSWORD</button>&nbsp;
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</div>
+
+<!-- ##SIGNUP -->
+<ng-template #elseBlock>
+    <div class="container login">
+        <div class="row">
+            <div class="col-md-6 login-left">
+                <img src="assets/images/MHE_Logo_RGB1.png" class="login-logo">
+                <img src="assets/images/pod_logo.PNG" class="podLogo" alt="">
+            </div>
+            <div class="col-md-6 login-right">
+                <div *ngIf="!isConfirm" class="login-container">
+                    <!-- Message Model -->
+                    <div class="messagemodal">
+                        <app-message-modal *ngIf="showAlert" (modalClose)="showAlert=false" [message]="alertMessage">
+                        </app-message-modal>
+                    </div>
+                    <div class="login-header">
+                        <h2>Register</h2>
+                    </div>
+                    <div class="body-login">
+                        <form [formGroup]="Cognitosignup" (ngSubmit)="signUpWithCognito()">
+                            <div class="form-group">
+                                <input class="form-control" formControlName="givenName" type="text" name="givenName"
+                                    placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" formControlName="familyName" type="text" name="familyName"
+                                    placeholder="Last Name">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" formControlName="email" type="email" name="email"
+                                    placeholder="Email Address" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" formControlName="password"
+                                    [type]="Cognitosignup.showPassword ? 'text' : 'password'" name="password"
+                                    placeholder="Password">
+                                <div style="font-size: 12px; margin:8px;">
+                                    <input type="checkbox" [checked]="Cognitosignup.showPassword"
+                                        (change)="Cognitosignup.showPassword= !Cognitosignup.showPassword">
+                                    show Password
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Register</button> &nbsp;
+                                <span><a class="anchor" (click)="showloginfn()">Login?</a></span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ##CONFIRM SIGNUP -->
+                <div *ngIf="isConfirm" class="login-container">
+                    <!-- Message Model -->
+                    <div class="messagemodal">
+                        <app-message-modal *ngIf="showAlert" (modalClose)="showAlert=false" [message]="alertMessage">
+                        </app-message-modal>
+                    </div>
+                    <div class="login-header">
+                        <h2>Enter Code</h2>
+                        <h4 style="color: green; font-size: 16px;">A verification code is sent to {{user.email}}</h4>
+                    </div>
+                    <div class="body-login">
+                        <form [formGroup]="Cognitoconfirmsignup" (ngSubmit)="confirmSignUp()">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="verificationCode" formControlName="code"
+                                    placeholder="Enter verification code">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">CONFIRM</button>&nbsp;
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

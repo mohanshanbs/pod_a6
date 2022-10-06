@@ -1,0 +1,741 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+.frameBorders{
+  margin: 0px !important;
+}
+.head_line{
+    border-bottom: 1px solid #000;
+    display: inline-block;
+    width: 100%;
+    margin: 5px 0px 10px !important;
+    font-size: 12px;
+    text-transform: capitalize;
+  }
+  
+  body{
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: 0 !important;
+    padding-bottom: 49px !important;
+  /*  padding-right:73px !important;
+    padding-left: 73px !important;*/
+ /*   width: 673px;*/
+ /*width:8.5in !important;*/
+    /*max-height: 972px;*/
+   /* padding: 0 24.5px !important;*/
+    overflow-x: hidden;
+    /* border:1px solid red !important; */
+  }
+  .full-bleed, .bleed {
+    margin: 0px !important;
+    padding-left:8px !important;
+}
+
+.ql-editor{
+  font-size: inherit!important;
+  color: inherit!important;
+  font-family: inherit!important;
+  margin: inherit!important;
+  margin-top: 0px !important;
+/*  padding: 0px !important;*/
+  font-weight: inherit!important;
+  vertical-align: inherit!important;
+  text-align: inherit !important;
+  white-space:  inherit !important; 
+  line-height: inherit !important;
+}
+.ql-editor p{
+  text-align: inherit !important;
+  white-space:  inherit !important; 
+  font-size: inherit!important;
+  color: inherit!important;
+  font-family: inherit!important;
+  margin: inherit!important;
+  margin-top: 0px !important;
+  padding: 0px !important;
+  font-weight: inherit!important;
+  vertical-align: inherit!important;
+  line-height: inherit !important;
+}
+
+.para_decorator{
+   text-align-last: justify!important;
+}
+/* p{
+  line-height: 1.3!important;
+}
+
+div, p {
+  overflow: hidden !important;
+} */
+
+
+
+body.pagebreak_spi_odd{
+
+ /* padding: 0px 0px 0px 48.5px !important;*/
+  overflow: hidden;
+ /* margin-left: 0.5in !important;*/
+ /* width:calc(673px - 48.5px);*/
+/* width:8.5in !important;*/
+}
+body.pagebreak_spi_even{
+ /* margin-left: 1.77in !important;*/
+/*  padding: 0px 48.5px 0px 0px !important;*/
+  overflow: hidden;/*
+  margin-right: 0.5in !important;*/
+  /*width:calc(673px - 48.5px);*/
+  /*width:8.5in !important;*/
+  /* overflow: hidden; */
+}
+body.pagebreak_spi_odd .sidenote-2 .fyi-box .mhhe-pod--box-no-margin{
+
+  margin-right: 0in !important;
+    margin-left: auto !important;
+}
+
+body.pagebreak_spi_odd .mhhe-pod--bodym .mhhe-pod--box-no-margin, body.pagebreak_spi_odd div.mhhe-pod--bodym section > p,body.pagebreak_spi_odd div.mhhe-pod--wrap-list > p {
+    margin-right: 0in !important;
+    margin-left: auto !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > p, body.pagebreak_spi_odd div.mhhe-pod--bodym section > header, body.pagebreak_spi_odd div.mhhe-pod--bodym section > ol, body.pagebreak_spi_odd div.mhhe-pod--bodym section > ul, body.pagebreak_spi_odd div.mhhe-pod--bodym section section > p{
+      margin-right: 0in !important;
+    margin-left: auto !important;
+}
+
+body.pagebreak_spi_even .mhhe-pod--bodym .mhhe-pod--box-no-margin, body.pagebreak_spi_even div.mhhe-pod--bodym section > p,body.pagebreak_spi_even div.mhhe-pod--bodym section > header, body.pagebreak_spi_even div.mhhe-pod--bodym section > ol, body.pagebreak_spi_even div.mhhe-pod--bodym section > ul, body.pagebreak_spi_even div.mhhe-pod--bodym section section > p,body.pagebreak_spi_even div.mhhe-pod--wrap-list > p{
+    margin-right: 0in !important;
+    margin-left: auto !important;
+}
+
+body > div:first-child{
+  margin: 0px !important;
+}
+
+body > div:first-child > div, body > div:first-child > div > section{
+  margin: 0px !important;
+}
+
+body > div:last-child{
+  margin: 0px !important;
+}
+
+.dont_remove {
+  max-height: 900px !important;
+}
+
+.break_condition{
+  page-break-after: always
+}
+
+.float-bottom-img{
+  position: absolute;
+  bottom: 0;
+}
+
+
+/*Sidenote full width*/
+
+.mhhe-pod--no-margin aside[class^="sidenote"], .mhhe-pod--bodym aside[class^="sidenote"], .mhhe-pod--endm aside[class^="sidenote"], .mhhe-pod--2col aside[class^="sidenote"], .mhhe-pod--eoc--stet aside[class^="sidenote"] {
+  width: 50% !important;
+    margin-right: 20px !important;
+}
+
+.mhhe-pod--no-margin aside[class^="sidenote"].tax_box { 
+  width: 100% !important; 
+}
+
+ .mhhe-pod--no-margin section[class^="sidenote"], 
+ .mhhe-pod--bodym section[class^="sidenote"], 
+ .mhhe-pod--endm section[class^="sidenote"], 
+ .mhhe-pod--2col section[class^="sidenote"], 
+ .mhhe-pod--eoc--stet section[class^="sidenote"],
+  .mhhe-pod--introm section[class^="sidenote"]{
+     width: 100% !important;
+    margin-right: 20px !important;
+  }
+
+body[isbelongto='page_0'] {
+/*width:8.5in !important;*/
+margin-left: 0in !important;
+}
+
+/*.sidenote-5{
+  width:6.73in !important;
+}*/
+
+.mhhe-pod--margin-glos{
+    padding-left: 10px !important!;
+    padding-right: 10px !important!;
+        
+}
+.mhhe-pod--glos-entry p.mhhe-pod--glos-title{
+     padding-left: 10px !important!;
+    padding-right: 10px !important!;
+    
+}
+
+div[class^="mhhe-pod--"] section[class^="sidenote"]>header>h4:first-child em {
+    margin-right: 5px;
+}
+
+#MathJax_Message, .MathJax_Processed, mjx-assistive-mml {
+  visibility:hidden !important;
+   display: none !important;
+}
+body[class^="pagebreak_spi"] div.mhhe-pod--endm .mhhe-blk-header ol {
+      margin-left: 0px !important;
+}
+
+body[class^="pagebreak_spi"] div.mhhe-pod--endm .mhhe-blk-header .sidenote-2 ol{
+  padding-left: 1em;
+}
+
+body[class^="pagebreak_spi"] .mhhe-blk-header div.scrobile_container table.blue-background-table_chart tbody tr td figure.mhhe-pod--img-unnumbered-fig img {
+  margin: 0 auto;
+}
+mjx-container * {
+  pointer-events: none !important;  
+}
+#matheditor_input {
+  background: white;
+}
+  td * {
+  pointer-events: none;
+  }
+body p span {
+  font:inherit !important;
+}
+mjx-container {
+  display: inline-block !important;
+  font-size: 13px !important;
+}
+.mhhe-pod--math-fig{
+ padding-top: 0px !important;
+}
+/*div.scrobile_container table *, table *{
+  font-size: 13px !important;
+  white-space: normal !important;
+}*/
+div.scrobile_container table:not(.mhhe-pod--additional):not(.exhibit_table):not(.table_cls0) *, table:not(.mhhe-pod--additional):not(.exhibit_table) *{
+  font-size: 13px !important;
+}
+div.scrobile_container table *, table * {
+  white-space: normal !important;
+   empty-cells: show !important;
+}
+.scrobile_container{
+  overflow-x: hidden !important;
+  overflow-y: hidden !important;
+}
+table td.td_indent-2 {
+    padding-left: 45px !important;
+}
+div.scrobile_container table caption *{
+  white-space: nowrap !important;
+}
+.scrobile_container>*{
+  white-space: normal !important;
+}
+
+td.dpg-bar--sans-serif_font {
+  width: 15%;
+}
+
+aside {
+  page-break-inside: avoid !important;
+}
+.list-step > li {
+ display: table-row !important;
+}
+
+.list-step > li:not(.mhhe-pod--para-9pt) > div {
+ padding-bottom: 2px;
+ padding-top: 2px;
+}
+
+.sidenote-3.lo_box {
+    margin-bottom: 1rem !important;
+}
+
+figure figcaption p.source {
+    text-align:center !important;
+}
+
+.tableLandscape caption * {
+    padding: 0 0 1px 0;
+}
+.tableLandscape caption * {
+    padding: 0 0 1px 0;
+}
+.dynamicSection {
+  margin-top: 0!important;
+}
+.list-step-center li{
+  display: table-row !important;
+}
+.mhhe-pod--introm section.unit-info>header{
+padding-bottom:10px;
+}
+
+span.unit_label.unit_title {
+white-space: break-spaces !important;
+}
+.mhhe-pod--no-margin aside[class^="sidenote"] {width: 100% !important;}
+
+h3 {margin-top:1px !important}
+
+.list-step-center .step-info ol {
+  margin-left: 0px !important;
+}
+.sidenote-4.learning_outcomes span.step-info, header .unit_title {
+  white-space: normal !important;
+}
+.unit-info.unit_banner header~ol.list-step {
+    width: auto !important;
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+.mhhe-link .mhhe-pod--wdbrk {
+    color: #000000 !important;
+    font-weight: bold !important;
+}
+div.mhhe-pod--endm p{
+  /*width: 110% !important;*/
+}
+p {
+  letter-spacing: 0.1px;
+}
+
+li.hidden-marker::marker{ content:none !important;  }
+
+/*section[class^="sidenote"].learning_outcome, section[class^="sidenote"].work_application{
+  width: 50% !important;
+  float: left !important;
+  display: inline-block;
+}
+section[class^="sidenote"].learning_outcome+p, section[class^="sidenote"].work_application+p {
+  width: 46% !important;
+  display: inline-block;
+  margin-top: 4% !important;
+}
+section[class^="sidenote"].learning_outcome~p+section, 
+section[class^="sidenote"].work_application~p+section {
+  display:block;
+  clear: both !important;
+}
+section[class^="sidenote"].work_application+section{
+  width: 100% !important;
+  display: block !important;
+  clear: both !important;
+}
+section:not(.work_application) {
+  clear: both !important;
+}*/
+p { 
+  letter-spacing: 0.1px;  
+  hyphens: inherit !important;  
+} 
+li.hidden-marker::marker,li.hidden-marker::before{ content:none !important;  }   
+.list-step-center .list-no-indent { 
+ padding: 0 !important; 
+ margin: 0 !important;  
+} 
+ul li p, ol li p {  
+    font-size: 10pt !important;  
+} 
+.list-no-style {  
+    padding-top: 0.5px !important;  
+}
+.list-no-indent {
+   padding-top: 0.4em !important;
+} 
+.self-assessment{ 
+  page-break-inside: avoid !important;  
+} 
+.medium-icon {  
+    max-width: 50px !important; 
+    margin-right: 0.5em !important; 
+    vertical-align: middle !important;  
+} 
+ol li p span.mhhe-link.word_no_break span.mhhe-pod--wdbrk {
+  white-space: normal !important;
+}
+
+.mhhe-pod--chapter--stet .list-step ul.list-no-style {
+    margin-top: 5px !important;
+}
+section figure > img {
+    text-align: center !important;
+    margin: 0 auto;
+}
+
+/*.mhhe-pod--minor-float, img.longdesc-icon {
+  display: none !important;
+}
+section[class^="sidenote"].communication_skills, section[class^="sidenote"].skill_building {
+ display:none !important;
+}
+section[class^="sidenote"].learning_outcome, section[class^="sidenote"].work_application{
+  display: none !important;
+}
+*/
+.learning_outcomes > p {
+ font-size:9pt !important;
+}
+
+.mhhe-pod--eoc-2col-list {
+  display: block !important;
+}
+
+.self-assessment p, .self-assessment ol li, .application_situations p, .application_situations ol li {
+  font-size: 9pt !important;
+}
+.self-assessment table *, .application_situations table *{
+    font-size: 9pt !important;
+}
+table.exhibit_table ul li > p, table.exhibit_table * {
+  font-size: 8pt !important;
+}
+p {
+  letter-spacing: 0.1px !important;
+  hyphens: inherit !important;
+}
+section.unit-info header h1 span {
+    color: #ffffff !important;
+}
+/*section.print ol li, .list-square li{
+  padding-bottom: 0.1em !important;
+}*/
+
+.list-square li,.bulleted-list li{
+  padding-bottom: 0.1em !important;
+}
+
+.colored-numbered-list li *{
+  word-break: normal !important;
+}
+
+.mhhe--layout_table_non_data td {
+    padding: 7.125px !important;
+}
+
+.rounded h4, .blue_box h4{
+    font-size: 18pt !important;
+}
+.numbered-list ol li,table .hanging {
+  font-size: 10pt !important;
+}
+.mhhe-chapter_opener-chapter_number {
+    font-size: 19pt !important;
+    }
+
+.key-hanging-indent {
+  text-indent: 0px !important;
+}
+
+.numbered-table td {
+    text-indent: 0px !important;
+}
+
+h1{
+  margin-top: 25pt !important;
+}
+
+.step-title>.small-icon {
+    max-width: 10px !important;
+}
+.step-title>.mhhe-link {
+    margin-left: 10px !important;
+}
+.try-it p {
+    font-size: 9pt !important;
+}
+.list-arrow > li:before {
+    top: -0.1em !important;
+}
+.list-arrow > li:marker {
+    top: -0.1em !important;
+}
+.mhe-fifty-container figcaption {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.sidenote-title em {
+  padding-right: 5px;
+}
+
+.speaking em {
+  padding-right: 5px;
+}
+
+.list-arrow li p {
+  /*margin-top: 0.3px !important;*/
+  margin-top: 0.50em !important;
+}
+
+.source {
+  text-align: center !important;
+}
+
+.speaking .mhe-twentyfive-container {
+    margin-right: auto !important;
+    margin-left: 0px !important;
+}
+.mhhe--basic_table.alternating_stripe-1 tbody tr:nth-child(odd) {
+    background: #EAE5DB;
+}
+.mhhe--basic_table.alternating_stripe-1 tbody tr:nth-child(even) {
+  background: #EEDCC5;
+}
+/*.add_float {
+  float:right !important;
+  clear:none !important;
+  /*width: 75% !important;*/
+
+  .dpg-bar--quarter_size {
+    width: 45%;
+    /* float: right !important; */
+}
+
+ol li, ul li {
+    margin-left: 1.9em !important;
+}
+
+.mhhe-chapter_opener-chapter_number {
+    font-family: Verdana, Helvetica, sans !important;
+}
+
+.learning h4, .try-it h4,h5,h6 {
+    font-style: normal !important;
+    font-family: Verdana, Helvetica, sans-serif !important;
+}
+
+.primary-3.course {
+    
+    padding: 0.5em 1.5em !important;
+   
+}
+th:empty {
+ vertical-align: baseline !important;
+}
+
+/* Math Editor - 05-01-2022*/
+
+mjx-container > svg + mjx-assistive-mml {
+  display: none;
+}
+
+.angular-editor-wrapper mjx-container > svg + mjx-assistive-mml {
+ display: inline !important;  
+ position: relative !important;
+}
+
+.angular-editor-wrapper mjx-container.MathJax {
+  text-align: left !important;
+}
+
+/* Math Editor End - 05-01-2022*/
+
+/* ETS */
+div.sum>div {
+	padding-left: 50px;
+	position: relative;
+	margin-bottom: 15px;
+	font-family: open-sans, sans-serif;
+	font-size: 15px;
+	letter-spacing: 0.0px;
+	font-weight: normal;
+	line-height: 20px;
+}
+
+div.sum>div>p {
+	margin: 5px 0 20px 0;
+}
+
+div.sum>div>p span.questionNo {
+	position: absolute;
+	left: 0;
+	top: 0px;
+	text-align: right;
+	min-width: 40px;
+	font-weight: 600;
+	font-size: 20px;
+	letter-spacing: 0.0px;
+}
+
+div.sum>div>p b {
+	font-family: open-sans, sans-serif;
+	font-size: 15px;
+	letter-spacing: 0.0px;;
+	font-weight: normal;
+	line-height: 20px;
+}
+
+div.sum>div>div>ol {
+	font-family: open-sans, sans-serif;
+	padding-left: 0px;
+	font-size: 15px;
+	letter-spacing: 0.0px;
+	font-weight: normal !important;
+	line-height: 25px;
+	margin: 20px 0 0 0 !important;
+}
+
+div.sum>div>div>ol li {
+	padding-left: 1px;
+}
+
+ol {
+	list-style-type: none;
+	margin-left: 0;
+}
+
+ol li {
+	counter-increment: customlistcounter;
+}
+
+ol>li:before {
+	content: counter(customlistcounter, upper-alpha);
+	font-weight: bold;
+	float: left;
+	width: 1.5em;
+}
+
+ol :first-child {
+	counter-reset: customlistcounter;
+}
+
+ol[start='6'] li:first-of-type::before {
+	counter-set: customlistcounter 6;
+}        
+
+img{
+	max-width: 540px;
+}
+
+ol li img{
+	max-height: 180px;
+	position: relative;
+	top: -21px;
+}
+
+.sum ol li {
+	margin-left: 0em !important;
+}
+
+/* Gokul */
+li img {
+	vertical-align: top;
+	margin-bottom: 10px;
+}
+
+.ets-table {
+	width: 65%;
+}
+
+.ets-tgroup {
+	border: 3px solid #000;
+	margin-bottom: 20px;
+}
+
+.ets-table th {
+	font-weight: 500;
+	background: #e7e7e9;
+	border-bottom: 3px solid #000;
+	text-align: center;
+}
+
+.ets-tgroup td:first-child {
+	border-right: 3px solid #000;
+}
+
+.ets-tgroup th {
+	border-bottom: 3px solid #000;
+}
+
+.ets-tgroup th:first-child {
+	border-right: 3px solid #000;
+}
+
+.ets-entry {
+	border-bottom: 2px solid #000;
+}
+
+.ets-row:last-child .ets-entry {
+	border-bottom: none;
+}
+
+.ets-row .ets-entry {
+	border-right: 2px solid #000;
+}
+
+.ets-row .ets-entry:last-child {
+	border-right: none;
+}
+
+div.sum>div>div>ol li {
+	padding-left: 25px;
+	vertical-align: top;
+	position: relative;
+	width: auto;
+}
+
+div.sum>div>div>ol li:before {
+	position: absolute;
+	left: 0;
+}
+
+.ets-unordered_list ul li {
+	padding: 0 !important;
+}
+
+.para1 ~ .list_column {
+	border: 2px solid #000;
+	padding: 15px 30px;
+	line-height: 25px;
+	display: inline-block;
+}
+
+.two_column {
+	display: inline-block;
+	width: 32% !important;
+}
+
+.two_column p:last-child {
+    margin: -4px 0 5px 0;
+}
+
+div.sum>div>div>ol li.two_column:before {
+	top: 15px !important;
+}
+
+p + p {
+    margin: -18px 0px 0 0;
+}
+
+.stim_img {
+	padding: 10px 0 0 0;
+	margin: 0 10%;
+}
+
+.heading1 {
+	font-weight: bold !important;
+}
+
+hr {
+	margin: 20px 0 0 0;
+}
+
+.root-container .ets-direction_paragraph {
+    font-weight: bold;
+}
+
+.ques_img {
+	padding-bottom: 10px;
+}
+
+/* ETS */
+

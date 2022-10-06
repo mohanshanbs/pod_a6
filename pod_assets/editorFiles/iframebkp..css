@@ -1,0 +1,160 @@
+.frameBorders{
+  margin: 0px !important;
+}
+.head_line{
+    border-bottom: 1px solid #000;
+    display: inline-block;
+    width: 100%;
+    margin: 5px 0px 10px !important;
+    font-size: 12px;
+    text-transform: capitalize;
+  }
+  
+  body{
+    margin: 0px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-top: 0 !important;
+    padding-bottom: 49px !important;
+    padding-right:73px !important;
+    padding-left: 73px !important;
+ /*   width: 673px;*/
+ width:8.5in !important;
+    max-height: 972px;
+   /* padding: 0 24.5px !important;*/
+    overflow-x: hidden;
+    /* border:1px solid red !important; */
+  }
+  .full-bleed, .bleed {
+    margin: 0px !important;
+    padding-left:8px !important;
+}
+
+.ql-editor{
+  font-size: inherit!important;
+  color: inherit!important;
+  font-family: inherit!important;
+  margin: inherit!important;
+  margin-top: 0px !important;
+/*  padding: 0px !important;*/
+  font-weight: inherit!important;
+  vertical-align: inherit!important;
+  text-align: inherit !important;
+  white-space:  inherit !important; 
+  line-height: inherit !important;
+}
+.ql-editor p{
+  text-align: inherit !important;
+  white-space:  inherit !important; 
+  font-size: inherit!important;
+  color: inherit!important;
+  font-family: inherit!important;
+  margin: inherit!important;
+  margin-top: 0px !important;
+  padding: 0px !important;
+  font-weight: inherit!important;
+  vertical-align: inherit!important;
+  line-height: inherit !important;
+}
+
+.para_decorator{
+   text-align-last: justify!important;
+}
+/* p{
+  line-height: 1.3!important;
+}
+
+div, p {
+  overflow: hidden !important;
+} */
+
+
+
+body.pagebreak_spi_odd{
+
+ /* padding: 0px 0px 0px 48.5px !important;*/
+  overflow: hidden;
+ /* width:calc(673px - 48.5px);*/
+ width:8.5in !important;
+}
+body.pagebreak_spi_even{
+ /* margin-left: 1.77in !important;*/
+/*  padding: 0px 48.5px 0px 0px !important;*/
+  overflow: hidden;
+  /*width:calc(673px - 48.5px);*/
+  width:8.5in !important;
+  /* overflow: hidden; */
+}
+body.pagebreak_spi_odd .sidenote-2 .fyi-box .mhhe-pod--box-no-margin{
+
+  margin-right: 0in !important;
+    margin-left: auto !important;
+}
+
+body.pagebreak_spi_odd .mhhe-pod--bodym .mhhe-pod--box-no-margin, body.pagebreak_spi_odd div.mhhe-pod--bodym section > p,body.pagebreak_spi_odd div.mhhe-pod--wrap-list > p {
+    margin-right: 0in !important;
+    margin-left: auto !important;
+}
+
+body.pagebreak_spi_odd div.mhhe-pod--bodym section > p, body.pagebreak_spi_odd div.mhhe-pod--bodym section > header, body.pagebreak_spi_odd div.mhhe-pod--bodym section > ol, body.pagebreak_spi_odd div.mhhe-pod--bodym section > ul, body.pagebreak_spi_odd div.mhhe-pod--bodym section section > p{
+      margin-right: 0in !important;
+    margin-left: auto !important;
+}
+
+body.pagebreak_spi_even .mhhe-pod--bodym .mhhe-pod--box-no-margin, body.pagebreak_spi_even div.mhhe-pod--bodym section > p,body.pagebreak_spi_even div.mhhe-pod--bodym section > header, body.pagebreak_spi_even div.mhhe-pod--bodym section > ol, body.pagebreak_spi_even div.mhhe-pod--bodym section > ul, body.pagebreak_spi_even div.mhhe-pod--bodym section section > p,body.pagebreak_spi_even div.mhhe-pod--wrap-list > p{
+    margin-right: 0in !important;
+    margin-left: auto !important;
+}
+
+body > div:first-child{
+  margin: 0px !important;
+}
+
+body > div:first-child > div, body > div:first-child > div > section{
+  margin: 0px !important;
+}
+
+body > div:last-child{
+  margin: 0px !important;
+}
+
+.dont_remove {
+  max-height: 940px !important;
+}
+
+.break_condition{
+  page-break-after: always
+}
+
+.float-bottom-img{
+  position: absolute;
+  bottom: 0;
+}
+
+
+/*Sidenote full width*/
+
+.mhhe-pod--no-margin aside[class^="sidenote"], .mhhe-pod--no-margin section[class^="sidenote"], .mhhe-pod--bodym aside[class^="sidenote"], .mhhe-pod--bodym section[class^="sidenote"], .mhhe-pod--endm aside[class^="sidenote"], .mhhe-pod--endm section[class^="sidenote"], .mhhe-pod--2col aside[class^="sidenote"], .mhhe-pod--2col section[class^="sidenote"], .mhhe-pod--eoc--stet aside[class^="sidenote"], .mhhe-pod--eoc--stet section[class^="sidenote"]{
+  width:6.73in !important;
+    margin-right: 20px !important;
+}
+
+body[isbelongto='page_0'] {
+width:8.5in !important;
+margin-left: 0in !important;
+}
+
+.sidenote-5{
+  width:6.73in !important;
+}
+
+.mhhe-pod--margin-glos{
+    padding-left: 10px !important!;
+    padding-right: 10px !important!;
+        
+}
+.mhhe-pod--glos-entry p.mhhe-pod--glos-title{
+     padding-left: 10px !important!;
+    padding-right: 10px !important!;
+    
+}

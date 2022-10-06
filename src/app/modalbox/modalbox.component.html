@@ -1,0 +1,25 @@
+
+    <div class="modal-header">
+      <h4 class="modal-title">POPTIP/TWOCOLUMN</h4>
+      <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <!-- <p>Hello, {{name}}!</p> -->
+      <input type="number" class="Pgno" id="s_page_number" min="1" step="1" placeholder="Page no" >
+      <input type="checkbox" name="s_poptips[]" class="pop_two" id="s_poptips"/> Poptips
+     <input type="checkbox" name="s_twocolumn[]" class="pop_two" id="s_twocolumn" disabled/> Two Column
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="ok()">Ok</button>
+    </div>
+  
+    
+    
+   <!--  <div class="modal-body">
+        PAGES ARE STILL IN PROGRESS
+      
+    </div> 
+     -->
+  

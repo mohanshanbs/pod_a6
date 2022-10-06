@@ -1,0 +1,49 @@
+<!-- <label for="title">{{title}}</label> 
+<input type="text" [(ngModel)]="data" placeholder="Enter {{title}}" (change)="sendData()"> -->
+
+<div id='editor_block' *ngIf="!isEmpty" (click)="showEditor($event)">
+    <label for="title">{{title}}
+        <img *ngIf="checkImg()" class="img_preview" src="{{data}}">
+    </label>
+
+    <!-- mjx-container element -->
+    <button *ngIf="mjx_container" class="btn submit-btn saveButton text-right btn-preview" type="button" id="mathML_preview"
+        (click)="sendData($event)">Preview</button>
+    <angular-editor class="preview_button" *ngIf="mjx_container" id='editor_{{index+1}}' [(ngModel)]="data" [config]="config"></angular-editor>
+    <div *ngIf="mjx_container" class="math_overlay">
+        Edit your content and click preview button to see your changes.
+    </div>
+
+    <!-- Add drop down for Image input field -->
+    <div *ngIf="name=='img'" class="img_setup">
+        <select name="img_size" id="img_size_{{index+1}}" (change)="sendData($event)">
+            <option id="0" value="0" selected disabled hidden>Image Size</option>
+            <option id="1" value="1">Icon</option>
+            <option id="2" value="2">Small</option>
+            <option id="3" value="3">Medium</option>
+            <option id="4" value="4">Large</option>
+        </select>
+        <select name="img_position" id="img_posion_{{index+1}}" (change)="sendData($event)">
+            <option id="0" value="0" selected disabled hidden>Image Position</option>
+            <option id="1" value="1">Center</option>
+            <option id="2" value="2">Right</option>
+            <option id="3" value="3">Left</option>
+        </select>
+    </div>
+    <!-- other elements -->
+    <angular-editor *ngIf="!mjx_container && !isEmpty" id='editor_{{index+1}}' [(ngModel)]="data" (ngModelChange)="sendData($event)" [config]="config"></angular-editor>
+</div>    
+
+<!-- <div *ngIf="!elem_type">
+    <label for="title">{{title}}</label>
+    <angular-editor id="editor" [(ngModel)]="data" (ngModelChange)="sendData()"></angular-editor>
+</div> -->
+
+<!-- <div *ngIf="elem_type">
+    <mat-form-field>
+        <label for="title">{{title}}</label>
+        <textarea id="editor" matInput cdkTextareaAutosize #autosize="cdkTextareaAutosize" cdkAutosizeMinRows="1"
+            cdkAutosizeMaxRows="5" [(ngModel)]="data" (change)="sendData()"></textarea>
+    </mat-form-field>
+</div> -->
+

@@ -1,0 +1,167 @@
+@page {
+size: 8in 10in !important; 
+margin-bottom: -0.9in !important;
+margin-top:0.278in !important;
+}
+
+@page:first{
+  margin-top:0.5in !important;
+}
+
+@page:left{
+
+@top-left {
+content: string(chapterNo) "   " string(chapterName);
+font-family: "nimbus" !important;
+}
+}
+@page:right{
+@top-right-corner {
+margin-outside: 0.50in !important;margin-inside: -0.50in !important;
+font-family: "nimbus" !important;
+}
+@top-right {
+  content: string(chapterNo) "   " string(chapterName);
+font-family: "nimbus" !important;
+}
+}
+
+aside {
+  page-break-inside: avoid !important;
+}
+.list-step > li {
+ display: table-row !important;
+}
+
+.list-step > li:not(.mhhe-pod--para-9pt) > div {
+ padding-bottom: 2px;
+ padding-top: 2px;
+}
+.scrobile_container caption[break="break_condition"]{
+  position: relative;
+  left: 1px;
+  float: left;
+}
+
+div.scrobile_container table caption *{
+  white-space: nowrap !important;
+}
+
+.scrobile_container, figure.tmp_fig {
+    border: 1px solid transparent !important;
+}
+.tableLandscape caption { display: block; }
+
+.try-it p ,.speaking p {
+    font-size: 9pt !important;
+}
+
+.dynamicSection {
+  height: 100% !important;
+  margin: 0 !important;
+  page-break-before: always;
+}
+.scrobile_container>table tbody tr td {
+  padding-top: 2px !important ;
+  padding-bottom: 2px !important ;
+} 
+.step-info ol li {
+  margin-top: 1px !important;
+  margin-bottom: 1px !important;
+}
+
+.mhhe--layout_table_non_data.no_border_table tbody tr td br,
+.scrobile_container table br, br{
+white-space:pre !important;
+}
+.dynamicSection>section {
+  margin-top: -15px !important;
+}
+.tableLandscape caption { display: block; }
+
+ol li p span.mhhe-link.word_no_break span.mhhe-pod--wdbrk {
+  white-space: normal !important;
+}
+p { 
+  letter-spacing: 0.1px !important; 
+  hyphens: inherit !important;  
+}
+.list-no-indent {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.list-square li,.bulleted-list li{
+  padding-bottom: 0.1em !important;
+}
+
+.mhhe--layout_table_non_data td {
+    padding: 7.125px !important;
+}
+
+section.print ol li{
+  padding-bottom: 0.3em !important;
+}
+.countryfocus h4 {
+  font-size: 13.33px !important;
+}
+.countryfocus p {
+  font-size: 12px !important;
+}
+
+section[class^="sidenote"],section[class^="sidenote"] section,section[class^="sidenote"] p,aside[class^="sidenote"] p {
+  font-family: 'proximanovaregular',Helvetica, sans-serif;
+}
+
+body, li p, figcaption p, h1, h2, h3, h4, h5, h6, .unit-info, cite {
+  font-family: 'proximanovaregular', Verdana, Helvetica, sans-serif;
+}
+
+section.unit-info {
+  margin-left: 0px !important;
+  margin-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+.step-title>.mhhe-link {
+    margin-left: 10px !important;
+}
+.list-arrow > li:before {
+    top: -0.01em !important;
+}
+.list-arrow > li:marker {
+    top: -0.01em !important;
+}
+
+.one-half {
+    width: 75% !important;
+}
+
+.inline {
+    display: inline !important;
+}
+.small-icon {
+    max-width: 25px !important;
+}
+
+span.mhhe-pod--wdbrk ~ img {
+  display: none !important;
+}
+
+
+/* Math Editor - 05-01-2022*/
+
+mjx-container > svg + mjx-assistive-mml {
+  display: none;
+}
+
+.angular-editor-wrapper mjx-container > svg + mjx-assistive-mml {
+ display: inline !important;  
+ position: relative !important;
+}
+
+.angular-editor-wrapper mjx-container.MathJax {
+  text-align: left !important;
+}
+
+/* Math Editor End - 05-01-2022*/

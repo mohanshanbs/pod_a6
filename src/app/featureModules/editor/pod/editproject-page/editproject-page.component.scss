@@ -1,0 +1,283 @@
+/* @import "../../../../assets/css/variables.scss"; */
+@import "../../../../../assets/css/variables.scss";
+
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  #tocContentHide {
+    display: none;
+  }
+  
+  .mat-nav-list {
+    padding-bottom: 60px;
+    .mat-list-item {
+      width: auto;
+      font-family: 'Quicksand' !important;
+      font-weight: 500;
+      font-size: 16px;
+      height: 35px;
+      color: #ffffff;
+      margin: 0px 10px;
+      position: relative;
+      background: transparent;
+      padding: 0px 10px;
+      &:before{
+        content: "";
+        width: 18px;
+        height: 18px;
+        position: absolute;
+        left: 8px;
+        top: 10px;
+        background: url("#{$assetsUrl}icons/chapter.png") no-repeat;
+      }
+      &:hover{
+        &:before{
+          content: "";
+          width: 18px;
+          height: 18px;
+         position: absolute;
+          left: 8px;
+          top: 10px;
+          background: url("#{$assetsUrl}icons/chapter-active.png") no-repeat;
+        }
+      }
+      &.active-chapter{        
+        background: $chapter-panel-icon-bg;
+        border-radius: 4px;
+        &:before{
+          content: "";
+          width: 18px;
+          height: 18px;
+          // border-radius: 50%;
+          position: absolute;
+          left: 8px;
+          top: 10px;
+          background: url("#{$assetsUrl}icons/chapter-active.png") no-repeat;
+        }
+      }
+      .mat-list-item-content{
+        padding: 0px 0 0px 25px;
+      }
+    }
+    padding-top: 0px;
+    display: block;
+    span {
+      height: 24px;
+    }
+  }
+  
+  .row {
+    width: 100%;
+  }
+  
+  .pdf-viewer {
+    // width: 100%;
+    // height: 100%;
+    /* margin-top: 17%; */
+    position: absolute;
+    background-color: $color-white;
+    .left_arrow{
+      left: 10px!important;
+    }
+    .right_arrow{
+      right: 10px!important;
+    }
+  }
+  
+  .page-navigation {
+    background-color: $color-primary-pink;
+    width: 100%;
+    /* height:50px; */
+  }
+  
+  .pageno-nav {
+    margin: 10px 14px;
+    position: absolute;
+    top: 72px;
+    right: 0;
+  }
+  
+  .pointer {
+    cursor: pointer;
+  }
+  
+  .heading-med {
+    font-size: 24px;
+    margin: 0;
+    text-align: center;
+    color: $title-head-color;
+    width: 100%;
+    padding: 10px;
+  }
+  
+  .visible-icon {
+    color: $color-font-grey;
+    position: absolute;
+    right: 6%;
+    width: 10px;
+    font-size: 15px;
+    top: 13px;
+  }
+  
+  .chapter-list {
+    height: 100%;
+  }
+  
+  :host ::ng-deep {
+    .ng2-pdf-viewer-container {
+      // transform: scale(0.84);
+      margin-top: -5.8%;
+      overflow-x: unset !important;
+      margin-left: -6%;
+    }
+    .ng-scrollbar-thumb {
+      background-color: $color-primary-blue !important;
+    }
+    .ng-scrollbar {
+      background-color: $color-font-grey !important;
+      right: 5px !important;
+    }
+  }
+  
+  .viewer-part {
+    position: relative;
+    background: $color-white;
+    max-width: 915px;
+    border: 1px solid $color-font-grey;
+    margin: 80px auto;
+    padding: 48px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+  }
+  
+  .project-editpart {
+    width: 100%;
+    height: 100%;
+  }
+  
+  :host ::ng-deep .ng-scrollbar-container {
+    //height: auto;
+  }
+  
+  .ng-scrollbar-view .mat-list-item-content {
+    position: relative;
+  }
+  
+  
+  .icon-background1 {
+    color: $color-primary-blue;
+  }
+  
+  .fa-stack-1x {
+    color: $color-white;
+  }
+  
+  #left_arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  #right_arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    right: 0px;
+    z-index: 9;
+  }
+  
+  #left_arrow {
+    left: 0px;
+    z-index: 9;
+  }
+  
+  .toc-part {
+    background-color: $sidebar-bg-color;
+    position: fixed;
+    z-index: 9;
+    width: 230px;
+    bottom: 0;
+    top: 45px;
+    // padding-left: 25px;
+  }
+
+  .chapter_name {
+    width: auto;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 14px;
+  }
+  
+  span.chapter-count {
+    display: block;
+    color: $color-primary-skyblue;
+    font-weight: 600;
+    font-size: 18px;
+    text-align: left;
+    padding-left: 3px;
+    label{
+        color: $color-white;
+    }
+  }
+  
+  .ellipse_icon {
+    position: absolute;
+    z-index: 9;
+    right: 22px;
+    top: 25px;
+    cursor: pointer;
+    > .fa-ellipsis-v {
+      font-size: 28px;
+      color: $color-font-grey;
+    }
+  }
+  
+  .property-part {
+    background-color: $color-white;
+    margin: 11px 0px 0px 0px;
+    flex: 0 0 21.7% !important;
+    max-width: 275px;
+    position: fixed;
+    bottom: -8px;
+    right: 0;
+    z-index: 9;
+  }
+
+  #hiddentoc{
+    visibility: hidden;
+  }
+  #hiddenelement{
+    visibility: hidden;
+  }
+  #hiddentitlehtml{
+    visibility: hidden;
+  }
+  #hiddenfinalhtml{
+    visibility: hidden;
+  }
+  #hiddenremarkdata{
+    visibility: hidden;
+  }
+
+  .toc-part{  
+    transition: 1s all;
+    &.short-menu {
+      width: 0;
+      overflow: hidden;
+      transition: 1s all;
+    }
+  }
+
+.mat-list-item-content mat-icon.visible-icon.mat-icon.material-icons, .visible-icon {
+    display: none;
+}
+

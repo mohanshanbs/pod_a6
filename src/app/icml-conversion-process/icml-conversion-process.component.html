@@ -1,0 +1,51 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-spin-clockwise-fade"></ngx-spinner>
+<div class="main-container container">
+    <div class="row">
+        <div class="col-lg-8 mainLeft">
+            <h1>HTML to ICML CONVERSION</h1>
+            <span *ngIf="convertInfo == true">
+                <div class="pageDetails">
+                    Convert <span id='pagename'>{{pageName}}{{chapterName}}</span> to <span>icml</span>
+                </div>
+                <div class="buttons">
+                    <button class="convert" type="button" (click)="convert()">Convert</button>
+                    <button class="home" type="button" (click)="backtohome()">Back to Projects</button>
+                </div>
+            </span>
+            <span *ngIf="convertInfo == false">
+                <div class="convertDetail">
+                    <span>Generated ICML File</span>
+                </div>
+                <div class="icmloutputelement" style="text-align: center;">
+                <img src="assets/images/icon.png">
+                </div>
+                <div class="convertButtonbtp">
+                 <a class="downloadicml" [href]="icml_file_link" download> Download</a>
+                </div>
+                <div class="convertButtons">
+                    <button class="home" type="button" (click)="backtohome()">Back to Projects</button>
+                </div>
+            </span>
+        </div>
+
+        <div class="col-lg-4 mainRight">
+            <figure>
+                <img src="assets/images/MHE_Logo_RGB1.png" />
+                <figcaption>&#169; McGraw-Hill. All Rights Reserved.</figcaption>
+            </figure>
+        </div>
+    </div>
+  <div class="hiddenelement"></div>
+  <div class="hiddentoc"></div>
+  <div class="outputelement"></div>
+  <div class="cssoutputelement"></div>
+  <div class="asideoutputelement"></div>
+  <div class="cssstyletagspara"></div>
+  <div class="cssstyletagschar"></div>
+  <div class="cssstyletagscolor"></div>
+  <div class="filenames"></div>
+  <div class="csspropvalues"></div>
+  <div class="excolor"></div>
+</div>
+
+

@@ -1,0 +1,76 @@
+<div class="loginwrap">
+    <div class="container login" *ngIf="user">
+        <div class="row">
+            <div _ngcontent-hwi-c1="" class="col-md-6 login-left">
+                <img _ngcontent-hwi-c1="" class="login-logo" src="assets/images/MHE_Logo_RGB1.png">
+                <img _ngcontent-hwi-c1="" alt="" class="podLogo" src="assets/images/pod_logo.PNG">
+            </div>
+            <div class="auth-box col-md-6 login-right">
+                <!-- Sign-up -->
+
+                <div *ngIf="!isConfirm" class="login-container">
+                    <!-- Message Model -->
+                    <div class="messagemodal">
+                        <app-message-modal *ngIf="showAlert" (modalClose)="showAlert=false" [message]="alertMessage"></app-message-modal>
+                    </div>
+                    <div class="login-header">
+                        <h2>Register</h2>
+                        <!-- <h4>Register your account using below information</h4> -->
+                    </div>
+
+                    <div class="body-login">
+                        <form [formGroup]="Cognitosignup" (ngSubmit)="signUpWithCognito()">
+                            <div class="form-group">
+                                <input class="form-control" formControlName="givenName" type="text" name="givenName"
+                                    placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" formControlName="familyName" type="text" name="familyName"
+                                    placeholder="Last Name">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" formControlName="email" type="email" name="email"
+                                    placeholder="Email Address" autocomplete="off">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" formControlName="password"
+                                    [type]="user.showPassword ? 'text' : 'password'" name="password"
+                                    placeholder="Password">
+                                <div style="font-size: 12px; margin:8px;">
+                                    <input type="checkbox" [checked]="user.showPassword"
+                                        (change)="user.showPassword= !user.showPassword">
+                                    show Password
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Register</button>
+                                <!-- <span class="forgot-password ">Already a member? <a class="anchor" href="/sign-in">Sign
+                                        in</a></span> -->
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Confirm SIGN UP -->
+                <div *ngIf="isConfirm" class="login-container">
+                    <div class="login-header">
+                        <h2>Enter Code</h2>
+                        <h4 style="color: green; font-size: 16px;">A verification code is sent to {{user.email}}</h4>
+                    </div>
+                    <div class="body-login">
+                        <form [formGroup]="Cognitoconfirmsignup" (ngSubmit)="confirmSignUp()">
+                            <div class="form-group">
+                                <input class="form-control" type="text" name="verificationCode" formControlName="code"
+                                    placeholder="Enter verification code">
+
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">CONFIRM</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

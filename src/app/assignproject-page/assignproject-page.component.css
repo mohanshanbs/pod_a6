@@ -1,0 +1,116 @@
+/* @import "../../assets/css/variables.scss";
+
+.row {
+  margin: 25px 0 0 1%;
+}
+
+.col-md-12 > .row {
+  margin-left: 0;
+}
+
+.col-3 {
+  width: 700px;
+  max-width: 25%;
+}
+
+div#assign_container, #all_users {
+  margin-top: 35px;
+  width: 98%;
+}
+
+.assignee_details {
+  width: 32%;
+  border: 1px solid $color-font-grey;
+  background: $color-white;
+  height: 100px;
+  display: table;
+  float: left;
+  margin-right: 12px;
+}
+
+img.user_picture {
+  height: 50px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 10px;
+}
+
+.user_details {
+  display: inline-block;
+}
+
+span {
+  display: block;
+}
+
+div#assign_user {
+  float: right;
+}
+
+.user_profile {
+  float: left;
+  position: relative;
+}
+
+.clearFloat {
+  clear: both;
+}
+
+.assignee_details > * {
+  height: 110px;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 18px 0 18px;
+}
+
+#assignee_name {
+  font-weight: bold;
+  font-size: 15px;
+}
+
+#assignee_mail {
+  color: $color-font-grey;
+  font-size: 11px;
+}
+
+#assigner {
+  color: $color-primary-red;
+  font-size: 11px;
+}
+
+p.project_name {
+  font-size: 24px;
+}
+
+
+span.fas.fa-search.search-icon {
+  display: inline-block;
+}
+
+:host ::ng-deep .switch-small {
+  border: 1px solid #5584FF;
+}
+
+.search-part {
+  border: 1px solid $btn-grey;
+  border-radius: 24px;
+  position: absolute;
+  right: 46px;
+}
+
+div#switchUsers {
+  float: right;
+  margin: 1% 2% 0 0;
+}
+
+.user_circle {
+  position: absolute;
+  background: #A178B6;
+  width: 13px;
+  height: 13px;
+  left: 35px;
+  border-radius: 19px;
+  color: $color-white;
+  font-size: 9px;
+  text-align: center;
+} */

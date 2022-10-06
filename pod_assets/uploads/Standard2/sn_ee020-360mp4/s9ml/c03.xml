@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:xi="http://www.w3.org/2003/XInclude">
+<div class="reset_page"><xi:include href="chapter03/untitled_page.xhtml"/>
+<xi:include href="chapter03/untitled_page_1.xhtml"/>
+<xi:include href="chapter03/untitled_page_2.xhtml"/>
+<xi:include href="chapter03/untitled_page_3.xhtml"/>
+<xi:include href="chapter03/untitled_page_4.xhtml"/>
+<xi:include href="chapter03/untitled_page_5.xhtml"/>
+</div>
+</manifest>

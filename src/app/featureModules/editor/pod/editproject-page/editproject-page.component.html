@@ -1,0 +1,96 @@
+<ngx-spinner
+bdColor = "rgba(51, 51, 51, 0.8)"
+size = "large"
+color = "#fff"
+type = "ball-spin-clockwise-fade"
+></ngx-spinner>
+<!-- <div class="mat-elevation-z8"> -->
+<div class="row project-editpart">
+<div class="col-md-2 toc-part" >
+<div id="tocContentHide" [innerHtml]="tocContent"></div>
+
+  <div class="heading-med"><span class="chapter-count"> <label for="">{{projectName}}</label> ({{chapterCount}})</span></div>
+  <div class="chapter-list">
+          
+      <div>
+          <mat-nav-list>
+              <mat-list-item *ngFor="let chapter of chaptersList;let i = index;" [ngClass]="{'active-chapter': chapter.select == true }" (click)="showPdf(chapter,i)">
+                <p class="chapter_name"> {{ chapter.chapter_name }}</p>
+                 <!-- <button mat-icon-button (click)="showInfo(link)"> -->
+                   <span *ngIf="viewer == true;else editorHtml">
+                      <mat-icon *ngIf="chapter.pc_status==2; else makePdf" class="visible-icon">visibility</mat-icon>
+                   </span>
+                    <ng-template #editorHtml><mat-icon *ngIf="chapter.pc_status!=0; else makePdf" class="visible-icon">edit</mat-icon></ng-template>
+                    <ng-template #makePdf><img class="visible-icon" src="assets/images/generate.png"/></ng-template>
+                 <!-- </button> -->
+              </mat-list-item>
+            </mat-nav-list>
+          </div>
+         
+  </div> 
+  
+</div>
+<div style="width: 100%;" class="view-edit-section">  
+    
+    <div class="col-md-8 viewer-part" *ngIf="viewer == true;else editorpart">
+      <h2>{{ currentChapter.pc_name }}</h2>  
+      <div class="actBtnslist">
+        <ul>
+          <li>
+            <button class="btn-style-new" id="fullScreenbtn">
+                <div class="imgWrap"><img src="assets/icons/full-screen.png"></div><b>Full Screen</b></button>
+          </li>
+          <li>
+            <button class="btn-style-new" id="pdfProjBtn" (click)="downloadPdf(currentChapter,indexval)">
+                <div class="imgWrap"><img src="assets/icons/download.png"></div><b>Download</b></button>
+          </li>
+          <li>
+            <button class="btn-style-new" *ngIf= "viewer== true && editaccess==1" id="editProjBtn" (click)="showEditor(currentChapter,indexval)"><div class="imgWrap"><img src="assets/icons/edit.png"></div><b>Edit</b></button>
+          </li>
+        </ul>    
+      </div>
+      <!-- <span class="pdfActsec">
+      <span class="fa-stack fa-lg pdf-edit"> 
+         <span class="icon-background1 fa-stack-2x"><i class="fas fa-circle"></i></span>
+         <a title="editContent" ><span class="fa-stack-1x"><img src="assets/images/edit.svg" alt=""></span></a>
+       </span>
+       <span class="fa-stack fa-lg pdf-download"> 
+        <span class="icon-background1 fa-stack-2x"><i class="fas fa-circle"></i></span>
+        <a title="Download PDF" ><span class="fa-stack-1x"><img src="assets/images/download.svg" alt=""></span></a>
+      </span>
+      </span> -->
+       <div *ngIf="viewer == true">
+          <div class="pdf-viewer" style="width: 815px; height: 1054px !important;left: 0;right: 0;margin: auto;" >
+            <span id="left_arrow" (click)="pageNavigate(0)"><img src="assets/images/left.png"/></span>
+            <span id="right_arrow" (click)="pageNavigate(1)"><img src="assets/images/right.png"/></span>
+            <!-- <pdf-viewer [src]="pdfSrc" 
+            [render-text]="true"
+            [fit-to-page]="true"
+            [show-all]="false"
+            [(page)]="pageVariable"
+			(after-load-complete)="readyfn($event)"
+      (error)="readyfn($event)"
+           style="width: 815px; height: 1054px !important;" ></pdf-viewer> -->
+          </div>
+      </div> 
+	  
+    </div>
+	
+
+    <ng-template #editorpart>
+      <router-outlet></router-outlet>
+    </ng-template>
+</div>
+
+
+
+<!-- <div class="col-xl-2 property-part">
+  <button (click)="setBold()">Bold</button>
+</div> -->
+</div>
+<div id="hiddentoc"></div>
+<div id="hiddenelement"></div>
+<iframe id="hiddentitlehtml" hidden></iframe>
+<iframe id="hiddenfinalhtml" width="650" height="100%" hidden></iframe>
+<div id="hiddenremarkdata"></div>
+<div id="hiddenglosdata" hidden></div>

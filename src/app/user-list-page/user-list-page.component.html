@@ -1,0 +1,108 @@
+<ngb-alert *ngIf="errmsg" type="danger" [dismissible]="true" (close)="errmsg = ''">
+    {{errmsg}}
+    <div class="bar">
+        <div class="in"></div>
+    </div>
+</ngb-alert>
+<ngb-alert *ngIf="successmsg" type="success" [dismissible]="true" (close)="successmsg = ''">
+    {{successmsg}}
+    <div class="bar">
+        <div class="in"></div>
+    </div>
+</ngb-alert>
+<div class="mat-elevation-z8 example-container">
+    <div class="intro-part">
+        <div style="float:right">
+            <!-- <button class="addviewbtn" id="adduserbtn" (click)="openDialog()" [routerLink]="['adduser']" skipLocationChange="true"><span><i class="fas fa-plus"></i></span><span>Add Users</span></button> -->
+            <div class="input-placeholder search-part">
+                <input type="text" name="searchname" placeholder="Search" (keyup)="applyFilter($event.target.value)"
+                    id="searchusers" /><span class="search-icon"><img src="assets/icons/search-icon.png" alt=""> </span>
+            </div>
+            <a class="btn-style-new a-tag-hover" [routerLink]="['/sign-up']">
+                <div class="imgWrap"><img src="./assets/icons/plus.png" width="35" height="35" alt=""></div>
+                <b>Add user</b>
+            </a>
+            <div class="filter">
+                <!-- Admin <ui-switch size="small"></ui-switch> Users -->
+            </div>
+        </div>
+    </div>
+    <div *ngIf="noRecords" style="text-align:center;">
+        <img src="assets/images/no records@1x.png" alt="No Records found !!!">
+        <h2 style="color:#507df0;">No Records Found</h2>
+    </div>
+
+    <div *ngIf="!noRecords">
+        <div class="sub-title">
+            <p>Users <span class="chapter-count">({{userCount}})</span></p>
+        </div>
+        <div class="tableWrapper">
+            <table class="list-table userdata" mat-table [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="username">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> User Name </th>
+                    <td mat-cell *matCellDef="let element">
+                        <!--<img class="user-profile" src="../../assets/images/profileplace2.png" alt="Avatar">--> <span
+                            class="profile-bg">{{element.username | uppercase}}</span> {{element.username}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="userrole">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Role </th>
+                    <!-- <td mat-cell *matCellDef="let element"> <p class="user-role" [ngClass]="element.userrole == 'Admin' ? 'user-admin' : 'user'">{{element.userrole | uppercase}}</p> </td> -->
+                    <td mat-cell *matCellDef="let element">
+                        <p class="user-role"
+                            [ngClass]="element.userrole == 'Admin' ? 'user-admin' : (element.userrole == 'Teacher' ? 'teacher' : (element.userrole == 'Student' ? 'student' : 'user'))">
+                            {{element.userrole | uppercase}}</p>
+                    </td>
+                </ng-container>
+
+
+                <ng-container matColumnDef="actions">
+                    <th mat-header-cell *matHeaderCellDef> Actions </th>
+                    <td mat-cell *matCellDef="let element">
+                        <a matTooltipPosition="above" id="useredit_{{element.username}}" matTooltip="Edit"
+                            href="javascript:void(0);" (click)="editDialog(element)">
+                            <span class="action-icon"><i class="fas fa-edit"></i></span>
+                        </a>&nbsp;
+                        <a matTooltipPosition="above" id="userdeletebtn_{{element.username}}" matTooltip="Delete"
+                            href="javascript:void(0);" (click)="confirmAction(confirm, 'delete', element)">
+                            <span class="action-icon"><i class="fas fa-trash"></i></span>
+                        </a>&nbsp;
+                        <a matTooltipPosition="above" id="usersendmail_{{element.username}}" matTooltip="Send Mail"
+                            href="javascript:void(0);" (click)="confirmAction(confirm, 'mail', element)">
+                            <span class="action-icon"><i class="fas fa-envelope"></i></span>
+                        </a>&nbsp;
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+                <tr [ngClass]="row.userrole == 'Admin' ? 'admin-active' : 'user-active'" mat-row
+                    *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+    <!-- new table with scroll -->
+
+</div>
+
+<ng-template #confirm let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h5 class="modal-title">Ready to Leave?</h5>
+        <button type="button" id="closebtnad" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>{{confirmmsg}}</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" id="modalcancelcnfm" class="btn btn-outline-dark cancelmodalbtn"
+            (click)="c('close')">Cancel</button>
+        <button type="button" id="modalokcnfm" class="btn btn-outline-dark okmodalbtn" (click)="c('ok')">Ok</button>
+    </div>
+</ng-template>

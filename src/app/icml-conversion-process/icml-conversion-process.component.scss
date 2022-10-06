@@ -1,0 +1,156 @@
+.hiddenelement,
+.hiddentoc,
+.outputelement,
+.cssoutputelement,
+.asideoutputelement,
+.cssstyletagspara,
+.cssstyletagschar,
+.cssstyletagscolor,
+.filenames,
+.csspropvalues,
+.excolor {
+    visibility : hidden;
+}
+body {
+    background-color: #5E5865 !important;
+    padding: 0;
+    margin: 0;
+}
+.main-container {
+    background-color: #fff;
+    margin-top: 0 !important;
+    margin: 0 auto;
+    height: 500px;
+    overflow: hidden;
+}
+.main-container .row,
+.mainLeft, .mainRight {
+    height: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    clear: none !important;
+}
+.mainLeft, .mainRight {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+.mainLeft {
+    padding: 70px 40px !important;
+    background-color: #f9f9fa;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+}
+.mainLeft h1 {
+    text-align: center;
+    margin-top: 0 !important;
+    font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size:36px !important;
+    font-weight:500 !important;
+    color: #000 !important;
+}
+.mainRight {
+    padding: 40px !important;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.mainRight figure {
+        text-align: center;
+}
+.mainRight figure figcaption{
+        margin-top: 15px;
+    color: #b8b6b6;
+}
+.pageDetails {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 1px 2px 19px -3px #ccc;
+    text-align: center;
+    font-size: 22px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+.convertDetail {
+    text-align: center;
+    font-size: 22px;
+}
+.pageDetails span, .convertDetail span {
+    font-weight: bold;
+    color: #04b1db;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+button.home {
+    border: none;
+    padding: 7px 18px;
+    font-size: 18px;
+    border-radius: 7px;
+    color: #fff;
+    background: #666464;
+}
+button.home:hover {
+    background: #000;
+}
+button.convert ,
+a.downloadicml {
+    background: #04b1db;
+    border: none;
+    color: #fff;
+    padding: 7px 18px;
+    font-size: 18px;
+    border-radius: 7px;
+    margin-right: 10px;
+}
+button.convert:hover {
+    background: #019fc6;
+}
+a.downloadicml:hover {
+    text-decoration: none;
+    color: #fff;
+    background: #019fc6;
+}
+a.downloadicml:focus {
+    outline: 0 !important;
+    outline-offset: 0 !important;
+    text-decoration: none;
+    color: #fff;
+}
+.convertButtons,.convertButtonbtp {
+    text-align: center;
+    margin: 30px;
+}
+.convertButtons .convert {
+    margin-bottom: 40px;
+    margin-right: 0;
+    width: 200px;
+}
+span.filename {
+    margin-top: 15px;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    color: #969696;
+}
+a.downloadicml {
+    width: 200px;
+    display: inline-block;
+}
+.icmloutputelement {
+    width: 200px;
+    margin-top: 0 !important;
+    height: 200px;
+    margin: 0 auto;
+}
+.icmloutputelement img {
+    width:100%;
+    height:auto;
+}
+.convertButtonbtp{
+    margin-top: 0 ;
+}

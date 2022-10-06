@@ -1,0 +1,31 @@
+@page {
+size: 814px 1102px !important; /* #view-container width + padding  & #view-container height*/
+margin-inside: 0.65in !important;
+margin-outside: 0.25in !important;
+}
+
+p {
+font-size:9pt !important;
+}
+
+aside {
+	page-break-inside: avoid !important;
+}
+
+
+/* Math Editor - 05-01-2022*/
+
+mjx-container > svg + mjx-assistive-mml {
+  display: none;
+}
+
+.angular-editor-wrapper mjx-container > svg + mjx-assistive-mml {
+ display: inline !important; 
+ position: relative !important;
+}
+
+.angular-editor-wrapper mjx-container.MathJax {
+  text-align: left !important;
+}
+
+/* Math Editor End - 05-01-2022*/

@@ -1,0 +1,539 @@
+import { Injectable, Renderer2, RendererFactory2 } from '@angular/core';
+import { editorHttpService } from './editorHttp.service';
+import { editorDomService } from './editorDom.service';
+import { editorJsonService } from './editorJson.service';
+import { AppConfig } from '../../../../../app-config';
+import { HttpClient } from '@angular/common/http';
+import { Subject, Observable } from 'rxjs';
+import { _ } from 'underscore';
+import { EditorElementStruture } from './editorElementStructure.service'
+
+@Injectable({ providedIn: 'root' })
+export class EditorSaveService {
+    public pub_sub: any = {
+        startFromUniqID: '',
+        elemType: '',
+        DOMelement: '',
+        paraStartFrom: '',
+        LIstartValue: [],
+        traverseCount: '',
+        isSibling: false,
+        resetId: '',
+        tableObj: {
+            firstThreeRows: '',
+            lastThreeRows: '',
+            inBetween: '',
+            removeTill: '',
+            objStartFrom: ''
+        },
+        minorColumn: [],
+        breakCondition: false,
+        objKey: ''
+    }
+    sectionArray: any = [];
+    iframeBody: any = '';
+    sectionCount: number = 0;
+    breakLoop: boolean = false;
+    noBreak: boolean = false;
+    isSave: boolean = false;
+    public subject = new Subject<any>()
+    page_model: any = '';
+    sec_temp: any = '';
+    condition_return: boolean = false;
+    secheight: number = 0;
+    startIndex: boolean = false;
+    listCondition: boolean = false;
+    public isRecursive: any = false;
+    public renderer: any;
+    constructor(
+        public editorHttpService: editorHttpService,
+        public editorDomService: editorDomService,
+        public editorJsonService: editorJsonService,
+        public http: HttpClient,
+        public appConfig: AppConfig,
+        rendererFactory: RendererFactory2
+    ) {
+        this.renderer = rendererFactory.createRenderer(null, null);
+    }
+
+    mappingContent = async function (obj, testIframe, contentDoc, url, page_model, save) {
+        try {
+          //  console.log("mapping content");
+            this.page_model = page_model;
+            let responseData = await this.http.get(this.appConfig.config.apiURL + "/readfile", { params: { 'url': url } }).toPromise();
+            let headTags = responseData.match(/<head[^>]*>[\s\S]*<\/head>/gi);
+            let bodyTags = responseData.match(/<body[^>]*>[\s\S]*<\/body>/gi);
+            testIframe.head.innerHTML = headTags;
+            testIframe.body.innerHTML = bodyTags;
+            let original_html = testIframe.body;
+           // console.log("original_html",original_html);
+           // console.log("testIframe.body", testIframe.body)
+            for (let i = 0; i < this.page_model.sectionArray.length; i++) {
+                await this.matchElement(this.page_model.sectionArray[i], original_html, this.page_model.sectionArray[i]);
+            }
+            // if(save)
+            //     this.appendBreakCondition(testIframe)
+
+            return new Promise((resolve, reject) => {
+                resolve(testIframe)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    appendBreakCondition = async function (saveElement) {
+        try {
+           // console.log("append break condition");
+            let array_Id: any = [];
+            this.page_model.sectionArray.forEach((x) => {
+                array_Id.push(x.querySelector('[break=break_condition]'))
+            })
+            array_Id.forEach((x) => {
+                let _Id = x.getAttribute('uniqid');
+                saveElement.body.querySelector('[uniqid="' + _Id + '"]').classList.add('break_condition')
+            })
+            return new Promise((resolve, reject) => {
+                resolve()
+            })
+
+        } catch (err) {
+            if (err)
+                throw err
+        }
+    }
+
+    /**
+     * function to match the pagewise elements with full data
+     */
+    public rep_val: any = [];
+    matchElement = async function (editorElements, originalElements, contentDoc) {
+        try {
+            let data = editorElements.childNodes;
+           // console.log("matchElement");
+            //console.log(editorElements.childNodes);
+                for(let x of data){
+                    //console.log(x.parentNode.getAttribute('uniqid'))
+                    if(x.nodeName == "#text"){
+                        await this.appendTextNode_Save(x.parentNode,originalElements,contentDoc,x)
+                    }else{
+                        let _Id = x.getAttribute('uniqid')
+                        if(_Id == null || _Id == undefined){
+                            if(x.nodeName.toLowerCase() == 'br' && x.parentNode.textContent.length==0)
+                            await this.insertingElements(x,originalElements,contentDoc,true);
+                            else
+                                await this.insertingElements(x,originalElements,contentDoc,false);
+                            //console.log('reset')
+                        }else{
+                            let node_list = contentDoc.querySelectorAll('[uniqid="'+_Id+'"]');
+                            if(node_list.length > 1){
+                                /**repeat duplicate value */
+                            }else{
+                                // console.log(_Id+'+++++++'+this.page_model.deleteArray.includes(_Id))
+                                if(this.page_model.deleteArray.includes(_Id)){
+                                    this.matchElement(x,originalElements,contentDoc)
+                                }else{
+                                    await this.matchElement(x,originalElements,contentDoc)
+                                }
+                            }
+                        }
+                    }
+                }
+            return new Promise((resolve, reject) => {
+                resolve(originalElements)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    deletingElement = function (editElement, originalElements, contentDoc, textElem) {
+        let _Id = editElement.getAttribute('uniqid');
+        let orgininal_element = originalElements.querySelector('[uniqid="' + _Id + '"]');
+        orgininal_element.parentNode.removeChild(orgininal_element)
+    }
+    /** function for appending text node - save process*/
+    appendTextNode_Save = async function (editElement, originalElements, contentDoc, textElem) {
+        try {
+            let _Id = editElement.getAttribute('uniqid');
+            //console.log(textElem.textContent+'+++++++'+textElem.textContent.length)
+            
+
+            let orgininal_element = originalElements.querySelector('[uniqid="' + _Id + '"]');
+            let _Index = Array.from(textElem.parentNode.childNodes).indexOf(textElem);
+          
+            // let breakElementInPage:boolean=false;
+            // breakElementInPage = editElement.classList.contains('para_decorator');
+            //console.log('editElement',editElement)
+
+            if (editElement.getAttribute("para") == "last_para") {
+              
+                let org_text = orgininal_element.textContent;
+                let dup_text = textElem.textContent;
+                let new_len: number = 0;
+                let isAvail_text: any = '';
+                for (let j = 0; j <= org_text.length; j++) {
+                    isAvail_text = isAvail_text == '' ? dup_text.substr(0, dup_text.length) : isAvail_text.substr(0, dup_text.length);
+           
+                    if (org_text.includes(isAvail_text)) {
+                        new_len = isAvail_text.length;
+                
+                        break;
+                    }
+                }
+                let lastTexttoAppend = org_text.substr(new_len, org_text.length);
+                orgininal_element.childNodes[_Index].textContent = '';
+                orgininal_element.childNodes[_Index].textContent = textElem.textContent;
+                if (dup_text.substr(new_len, dup_text.length).length >= 0)
+                    orgininal_element.childNodes[_Index].textContent += lastTexttoAppend;
+                else
+                    console.log('yet to work for deleting')
+
+                // console.log('yes')
+            } else if (editElement.getAttribute("para") == "first_para") {
+             
+                let arr: any = [];
+                arr = this.page_model.sectionArray.filter((x) => { return (x.querySelector('[uniqid="' + _Id + '"]')) });
+                // this.page_model.sectionArray.filter((x)=>{arr.push(x.querySelector('[uniqid="'+_Id+'"]'))});
+                let temp = []
+                if (arr.length > 0) {
+                    orgininal_element.childNodes[_Index].textContent = '';
+                    arr.filter((x) => { temp.push(x.querySelectorAll('[para="last_para"]')) })
+                    // orgininal_element.childNodes[_Index].textContent += arr.filter((x)=>{ return x.querySelectorAll('[para="last_para"]')})[0].textContent;
+                    // orgininal_element.childNodes[_Index].textContent += arr.filter((x)=>{ return x.classList.contains('last_para')})[0].textContent;
+                   // console.log(temp[0][0].textContent, "====>", textElem.textContent);
+                    orgininal_element.childNodes[_Index].textContent = temp[0][0].textContent
+                    orgininal_element.childNodes[_Index].textContent += ' ';
+                    orgininal_element.childNodes[_Index].textContent += textElem.textContent;
+                } else {
+                  //  console.log("====>", textElem.textContent);
+                    orgininal_element.childNodes[_Index].textContent = '';
+                    orgininal_element.childNodes[_Index].textContent = textElem.textContent;
+                }
+            } else {
+                if (orgininal_element.childNodes.length > _Index) {
+                    orgininal_element.childNodes[_Index].textContent = '';
+                    orgininal_element.childNodes[_Index].textContent = textElem.textContent;
+                } else {
+                    let textNode = this.renderer.createText(textElem.textContent)
+                    orgininal_element.appendChild(textNode)
+                    //orgininal_element.insertBefore(textElem,orgininal_element.childNodes[_Index]);
+                }
+            }
+            return new Promise((resolve, reject) => {
+                resolve('textappend')
+            })
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+    /** 
+     * function to insert new elements
+     */
+    insertingElements = async function (elem, originalElements, contentDoc,emptyTextNode) {
+        try {
+           
+           
+            let _Id = elem.parentNode.nodeName.toLowerCase() == 'body' ? 'container' : elem.parentNode.getAttribute('uniqid');
+            let node_list = contentDoc.querySelectorAll('[uniqid="' + _Id + '"]');
+            let orgininal_element = _Id != 'container' ? originalElements.querySelector('[uniqid="' + _Id + '"]') : originalElements;
+           
+            let json: any = '';
+            // if(_Id != 'container'){
+            //     json = await this.editorJsonService.createJSON(node_list[0].childNodes,'','');
+            // }else{
+            //     let from_index = Array.from(elem.parentNode.childNodes).indexOf(elem);
+            //     json = await this.editorJsonService.createJSON(elem.parentNode.childNodes,from_index,(from_index+1));
+            // }
+            let from_index = Array.from(elem.parentNode.childNodes).indexOf(elem);
+      
+            json = await this.editorJsonService.createJSON(elem.parentNode.childNodes, from_index, (from_index + 1));
+
+            let data = JSON.parse(json);
+          
+            let new_element: any = '';
+            for (let keyx in data) {
+                new_element = await this.createElement('', data[keyx], '', contentDoc)
+            }
+            if(emptyTextNode)
+                orgininal_element.textContent = '';
+
+            let appendAtIndex = Array.from(elem.parentNode.childNodes).indexOf(elem);
+            orgininal_element.insertBefore(new_element, orgininal_element.childNodes[appendAtIndex]);
+
+            
+           
+            return new Promise((resolve, reject) => {
+                resolve(originalElements)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+   
+
+    /**
+     * creating element
+     */
+    /** function to create iframe head wise elements */
+    appendIframeHeadContent = async function (json, contentDoc, save) {
+        this.pub_sub.minorColumn = [];
+        try {
+            contentDoc.head.innerHTML = '';
+            if (json != "") {
+                let data = JSON.parse(json);
+                let _this = this;
+                for (let key in data) {
+                    let elem_type = Object.keys(data[key])[0];
+                    let elem = _this.renderer.createElement(elem_type);
+                    let resdata = await this.createElementAttribute(elem, data[key][Object.keys(data[key])[0]][0]['attributes'][0]);
+                    if(resdata.element) {
+                        _this.renderer.appendChild(contentDoc.head, resdata.element)
+                    }
+                }
+            }
+            new Promise((resolve, reject) => {
+                resolve('DOM appended')
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    /** 
+     * function to create iframe body page wise elements 
+     * json : json of the html
+     * contentDoc: iframe 
+     * pageNo: page no for next and previous event
+     * state : boolean to break html page wise or append full html to DOM
+     * save :  boolean for conditional attributes for uniqId etc
+     * */
+
+
+    appendIframePageWiseContent = async function (page_model, contentDoc, pageNo, state, save) {
+        // contentDoc.addEventListener('scroll',function(){
+        //     alert('as')
+        // })
+
+        this.sectionCount = page_model.sectionCount ? page_model.sectionCount : 0;
+        this.breakLoop = false;
+        this.noBreak = state;
+        this.compress_object = false;
+        this.condition_return = false;
+        this.secheight = 0;
+        this.startIndex = false;
+        // this.enterLoop =false;
+        this.isSave = save ? save : false;
+        contentDoc.body.setAttribute('isbelongTo', 'page_' + this.sectionCount);
+        this.iframeBody = contentDoc.body;
+        this.sec_temp = '';
+        this.page_model = page_model;
+        this.listCondition = false;
+
+        try {
+            contentDoc.body.innerHTML = '';
+            let _this = this;
+            this.sec_temp = this.renderer.createElement('section')
+            this.sec_temp.setAttribute('id', 'section_' + this.sectionCount)
+            // this.renderer.setStyle(this.sec_temp, 'display', 'inline-block')
+            this.iframeBody.appendChild(this.sec_temp)
+            //for(let i=0; i< page_model.newData.length; i++){
+                let data =  JSON.parse(page_model.newData);
+                for (let keyx in data) {
+                    await this.createElement('',data[keyx], this.sec_temp);
+                }
+                
+            //}
+
+
+            let copy = this.sec_temp.innerHTML;
+            this.iframeBody.innerHTML = '';
+            this.iframeBody.innerHTML = copy
+
+            new Promise((resolve, reject) => {
+                resolve('created')
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    /** 
+     * timeout function for delay rendering
+     */
+    timeout = function (ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+    /**
+     * image DOM rendering completion event trigger
+     */
+    imageRender = async function (event) {
+
+        // console.log(event.complete)
+        if (!event.complete) {
+            await this.timeout(100)
+            this.imageRender(event)
+        }
+
+        if (event.complete == true) {
+            return new Promise((resolve, reject) => {
+                resolve('completed')
+            })
+        }
+    }
+
+
+    /** function to create element */
+    createElement = async function (parent, json, contentDocBody) {
+        let elem_type: any = '';
+        let element: any = '';
+        let data: any = ''
+        elem_type = Object.keys(json)[0];
+        element = this.renderer.createElement(elem_type);
+        if (parent)
+            this.renderer.appendChild(parent, element)
+        else if (contentDocBody)
+            contentDocBody.appendChild(element);
+
+
+        data = json[elem_type];
+        try {
+            for (let key in data) {
+
+                if (!this.breakLoop) {
+                    if (Object.keys(data[key])[0].toLowerCase() == 'attributes') {
+                        let obj =  await this.createElementAttribute(element, data[key][Object.keys(data[key])[0]][0]);
+                        if((obj.uniqId != null || element != undefined) && obj.uniqId != ""){
+                            if ((obj.element.tagName.toLowerCase()).indexOf('m') != 0) {
+                            let node_list = this.iframeBody.querySelectorAll('[uniqid="'+obj.uniqId+'"]');
+                                if(node_list.length>=1){
+                                    element.parentNode.removeChild(element)
+                                    element = node_list[0];
+                                }
+                            }
+                        }
+                        if((obj.class != null || element != undefined) && obj.class != ""){ 
+                            let node_list = this.iframeBody.querySelectorAll('[class="'+obj.class+'"]');
+                            if(node_list.length>=1){
+                                var theRemovedElement = node_list[key].childNodes;
+                                node_list[key].replaceWith(...theRemovedElement);
+                            }
+                        }
+                    } else if (Object.keys(data[key])[0].toLowerCase() == 'text') {
+                        await this.appendTextNode(element, data[key][Object.keys(data[key])[0]], !this.noBreak ? this.pub_sub.paraStartFrom : 0);
+                    }else {
+                        await this.createElement(element, data[key], '')
+                    }
+                }
+            }
+            return new Promise((resolve, reject) => {
+                resolve(element)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+    /** function to append textnode */
+    appendTextNode = async function (element, text, startFromIndex) {
+        let text_test: any = '';
+        for (let i = startFromIndex ? startFromIndex : 0; i < text.length; i++) {
+            text_test += text[i]
+        }
+
+        let textNode = this.renderer.createText(text_test);
+        element.appendChild(textNode)
+        return new Promise((resolve, reject) => {
+            resolve(element)
+        })
+    }
+    /** function to create element attributes and append text */
+    createElementAttribute = async function (element, json) {
+        try {
+            let _this = this;
+            let obj:any={
+                element:'',
+                uniqId:'',
+                class:''
+            }
+           // console.log(element,json);
+            for (let key in json) {
+                if (key == 'computedStyles')
+                    continue
+
+                if (json[key] != ''&&json[key]!=undefined){
+                    if(key == 'uniqid'){
+                        let node_list = this.iframeBody.querySelectorAll('[uniqid="'+json[key]+'"]');
+                        if(node_list.length >= 1){
+                            obj={
+                                element:element,
+                                uniqId:json[key]
+                            }
+                        }else{
+                            element.setAttribute(key, json[key])
+                        }
+                    } else if(key == 'class'){ 
+                        let node_list = this.iframeBody.querySelectorAll('[class="rm_mrgn_0 editor-frame dynamicSection"]');
+                        if(node_list.length >= 1){
+                            obj={
+                                element:element,
+                                uniqId:json[key],
+                                class:"rm_mrgn_0 editor-frame dynamicSection"
+                            }
+                        }else{
+                            element.setAttribute(key, json[key])
+                        }
+                    } else if(key == 'style'){
+                       if(json[key].includes("height: ") && element.nodeName.toLowerCase() == 'section'){
+                           element.removeAttribute(key, '');
+                       } else {
+                           element.setAttribute(key, json[key])
+                       }
+                       
+                    } else if(key == 'page_section'){
+                         element.removeAttribute('page_section');
+                    } else if(key == 'new_node'){
+                         element.removeAttribute(key, '');
+                         element = element.parentNode;
+                         
+                         obj={
+                                element:element,
+                                uniqId:json[key]
+                            }            
+                    }else{
+                        element.setAttribute(key, json[key])
+                    }
+                }
+
+                if (json[key] == 'stylesheet')
+                    element.setAttribute('type', 'text/css')
+                if (key == 'key')
+                    element.setAttribute('key', json[key]);
+                if (key == 'isComponent')
+                    element.setAttribute('isComponent', json[key]);
+
+            }
+            if (this.iframeBody) {
+                if (this.iframeBody.classList.contains('pagebreak_spi_even')) {
+                    if ((element.nodeName.toLowerCase() != 'img' || element.nodeName.toLowerCase() != 'span') && element.style.hasOwnProperty('float')) {
+                        if (document.defaultView.getComputedStyle(element, null).getPropertyValue('float') == 'right') {
+                            element.style.float = 'left';
+                            element.style.marginRight = '1em';
+                        }
+                    }
+                }
+            }
+
+            return new Promise((resolve, reject) => {
+                resolve(obj)
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+
+ 
+}

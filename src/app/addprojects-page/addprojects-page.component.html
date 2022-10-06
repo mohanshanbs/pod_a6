@@ -1,0 +1,41 @@
+<ng-template #addproject let-c="close" let-d="dismiss" >
+    <div class="modal-header">
+        <h4 class="modal-title">Add Project</h4>
+        <button type="button" class="close" id="modalClose" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body addproject-body">
+        <div class="row">
+            <div class="col-md-5 addproject-left">
+                <div class="part-1"><img src="assets/images/upload.png" height="57px" width="'90px">
+                    <input class="browsezip inputfile" name="userfile" id="userfile" type="file" accept=".zip"/>
+                </div>
+                <div class="part-2">UPLOAD FILE</div>
+                <div class="part-3">All changes has been completed successfully</div>
+           </div>
+            <div class="col-md-7 addproject-right">
+                <ul>
+                    <li>
+                        <div class="fu-success">
+                            <span><i class="far fa-check-circle fa-2x"></i></span>
+                            <span>File uploaded.</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="fu-pending">
+                            <span><img src="assets/images/spinner.png" width="32px" height="32px"></span>
+                            <span>File extracted.</span>
+                        </div>
+                    </li>
+                    <li>Chapter wise manifest XML created.</li>
+                    <li>Remarks and Glossary HTML files created.</li>
+                    <li>Links removed.</li>
+                    <li>CSS changes made.</li>
+                    <li>New fonts included.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    </ng-template>
+    

@@ -1,0 +1,26 @@
+<div class="modal-dialog-wrapper">
+    <h1 mat-dialog-title>{{data.page}}</h1>
+    <div mat-dialog-content>        
+        <input *ngIf="data.page == 'createlink'" matInput [(ngModel)]="data.createlink">
+        <p *ngIf="data.page == 'editorsave'">Confirm to save your changes?</p>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button (click)="closeDialog()" class="cancelmodalbtn">cancel</button>
+        <button mat-button (click)="saveDialog()" class="okmodalbtn">{{data.page == 'createlink' ? 'Create link' : 'Save'}}</button>
+    </div>
+</div>
+<!-- 
+
+<div class="modal-header">
+        <h5 class="modal-title">Are you sure?</h5>
+        <button type="button" class="close" id="modalClose" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+    <div class="modal-body">
+        <p>Select "Save" below if you are ready to Save this project.</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark cancelmodalbtn" (click)="closeDialog('close')">Cancel</button>
+        <button type="button" class="btn btn-outline-dark okmodalbtn" (click)="saveDialog('save')">Save</button>
+    </div> -->

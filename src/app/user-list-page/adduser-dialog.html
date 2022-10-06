@@ -1,0 +1,119 @@
+<div class="modal-heading">
+  <p mat-dialog-title>Add Users<span class="modal-close" (click)="onNoClick()"><i class="fas fa-times"></i></span></p>
+</div>
+<div mat-dialog-content>
+  <ngb-alert *ngIf="errmsg" type="danger" [dismissible]="true" (close)="errmsg = ''">
+    {{errmsg}}
+    <div class="bar">
+      <div class="in"></div>
+    </div>
+  </ngb-alert>
+  <ngb-alert *ngIf="successmsg" type="success" [dismissible]="true" (close)="successmsg = ''">
+    {{successmsg}}
+    <div class="bar">
+      <div class="in"></div>
+    </div>
+  </ngb-alert>
+  <form class="form-horizontal add-user-form" [formGroup]="adduser" (ngSubmit)="addUser(adduser,isEdit)">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
+        <div class="form-group  disable-user-edit">
+          <input type="username" name="username" id="username" class="form-control input-lg" placeholder="User Name"
+            tabindex="1" [(ngModel)]="username" formControlName="username" (keyup)="errmsg = ''" disabled="disabled">
+        </div>
+        <div class="form-group disable-user-edit">
+          <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email" tabindex="2"
+            [(ngModel)]="email" formControlName="email" email="true" (keyup)="errmsg = ''" disabled="disabled">
+        </div>
+        <div class="form-group  disable-user-edit-password" *ngIf="!isEdit">
+          <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password"
+            required tabindex="5" [(ngModel)]="password" formControlName="password" (keyup)="errmsg = ''"
+            disabled="disabled">
+        </div>
+        <div class="form-group  disable-user-edit" *ngIf="!isEdit">
+          <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg"
+            required placeholder="Confirm Password" tabindex="6" [(ngModel)]="confpassword"
+            formControlName="confpassword" (keyup)="errmsg = ''" disabled="disabled">
+        </div>
+        <div class="form-group"><span>User type</span>
+          <select id="usertype" name="usertype" [(ngModel)]="usertype" formControlName="usertype"
+            (change)="checkUserRole()">
+            <option disabled value="null">Select User Role</option>
+            <option value="2">Admin</option>
+            <option value="3">Teacher</option>
+            <option value="4">Student</option>
+            <option value="5">Guest</option>
+          </select>
+          <!-- <label class="radio-inline" *ngIf="loginuserrole==1"><input (change)="errmsg='' " type="radio"
+              id="usertypeadmin" name="usertype" formControlName="usertype" value="2" required>&nbsp;Admin&nbsp;</label>
+          <label class="radio-inline"><input (change)="errmsg='' " type="radio" id="usertypeuser" name="usertype"
+              formControlName="usertype" value="4" required>&nbsp;User&nbsp;</label> -->
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-12 col-lg-6">
+        <div class="form-group">
+          <!-- <select class="form-control"  id="selectProjectmodal" formControlName="projectname" (change)="errmsg='' ">
+                        <option value="" >Please Select Project</option>
+                        <option *ngFor = "let i of projectListData" value={{i.project_id}}>{{i.project_name}}</option>
+                    </select> -->
+          <label>Please Select Project</label>
+          <div class="project-list">
+            <table class="table table-striped table-fixed">
+              <thead>
+                <th>Project</th>
+                <th>Editable ?</th>
+              </thead>
+              <tbody>
+
+                <tr *ngFor="let i of projectListData">
+                  <td>
+                    <div class="check-box">
+                      <input id={{i.project_name}} [checked]="i.isChecked" (change)="getProjectList($event)"
+                        value={{i.project_id}} type="checkbox">
+                      <label for={{i.project_name}}>{{i.project_name}}</label>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="access">
+                      <div (click)="editAccessHandler(i)"
+                        [ngClass]="(i.isEditAccess) ? 'edit-access green' : 'edit-access'">
+                        Yes
+                      </div>
+                      <div (click)="editAccessHandler(i)"
+                        [ngClass]="(!i.isEditAccess) ? 'view-access red' : 'view-access'">
+                        No
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="clrbth"></div>
+
+    <div class="form-group btn-border-top">
+      <div class="col-sm-offset-2 col-sm-5 col-md-12 col-lg-12 text-right" *ngIf="!isEdit">
+        <button class="btn submit-btn" type="submit" id="usersubmitbtn"
+          [disabled]="(!adduser.valid || !selectedProjects.length)">Submit</button>
+      </div>
+      <div class="col-sm-offset-2 col-sm-5 col-md-12 col-lg-12 text-right" *ngIf="isEdit">
+        <button class="btn submit-btn" type="submit" id="usersubmitbtn"
+          [disabled]="(!adduser.valid || !selectedProjects.length)">Update</button>
+      </div>
+    </div>
+  </form>
+</div>
+<!-- <div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="data.animal" cdkFocusInitial>Ok</button>
+</div> -->
+
+
+<!-- Copyright 2018 Google Inc. All Rights Reserved.
+    Use of this source code is governed by an MIT-style license that
+    can be found in the LICENSE file at http://angular.io/license -->

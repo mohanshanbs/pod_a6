@@ -1,0 +1,81 @@
+<div class="card col-12 paddingzero">
+    <div class="col-12 paddingzero">
+        <div class="card-header formheader">
+            <i class="fa fa-table"></i> Add User</div>
+        <div class="card-body">
+            <ngb-alert *ngIf="errmsg" type="danger" [dismissible]="true" (close)="errmsg = ''">
+                {{errmsg}}
+                <div class="bar">
+                    <div class="in"></div>
+                  </div>
+            </ngb-alert>
+            <ngb-alert *ngIf="successmsg" type="success" [dismissible]="true" (close)="successmsg = ''">
+                {{successmsg}}
+                <div class="bar">
+                    <div class="in"></div>
+                  </div>
+            </ngb-alert>
+
+
+            <!-- <div class="container"> -->
+            <form class="form-horizontal" [formGroup]="adduser" (ngSubmit)="addUser(adduser)">
+                <div class="form-group">
+                    <div class="col-sm-3 fltleft">
+                        <label class="control-label " for="username">Username:</label>
+                        <div>
+                            <input type="username" class="form-control" placeholder="Enter username" name="username" formControlName="username" (keyup)="errmsg = ''">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 fltleft">
+                        <label class="control-label" for="email">Email:</label>
+                        <div>
+                            <input type="email" class="form-control" placeholder="Enter email" name="email" formControlName="email" email="true" (keyup)="errmsg = ''">
+                        </div>
+                    </div>
+                    <div class="clrbth"></div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-3 fltleft">
+                        <label class="control-label" for="password">Password:</label>
+                        <div>
+                            <input type="password" class="form-control" placeholder="Enter password" name="password" formControlName="password" (keyup)="errmsg = ''">
+                        </div>
+                    </div>
+                    <div class="col-sm-3 fltleft">
+                        <label class="control-label" for="confpassword">Confirm Password:</label>
+                        <div>
+                            <input type="password" class="form-control" placeholder="Confirm Password" name="confpassword" formControlName="confpassword" (keyup)="errmsg = ''">
+                        </div>
+                    </div>
+                    <div class="clrbth"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-3 fltleft">
+                        <label class="control-label" for="project">Projects:</label>
+                        <div>
+                            <select class="form-control" [(ngModel)]="selectedItem" formControlName="projectname" id="selectProjectid" (change)="errmsg='' ">
+                                <option value="">Please Select Project</option>
+                                <option *ngFor = "let i of projectListData">{{i.project_name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-sm-3 fltleft">
+                        <label class="control-label" for="usertype">User Type:</label>
+                        <div>
+                            <label class="radio-inline"><input  (change)="errmsg='' " type="radio" id="usertypeadmin" name="usertype" formControlName ="usertype" value="2" required>&nbsp;Admin&nbsp;</label>
+                            <label class="radio-inline"><input  (change)="errmsg='' " type="radio" id="usertypeuser" name="usertype" formControlName ="usertype" value="4" required>&nbsp;User&nbsp;</label>
+                        </div>
+                    </div>
+                    <div class="clrbth"></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-5">
+                        <button class="btn btn-primary" type="submit" [disabled]="!adduser.valid">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div class="pagesize">
+    <div class="modal-header">
+      <h4 class="modal-title">Select Page size</h4> <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+
+<mat-form-field>
+    <mat-label>Select page size</mat-label>
+    <mat-select (selectionChange)="pageValue($event.value)" #myElement >
+    <mat-option *ngFor="let size of sizes" [value]="size.value">
+    {{size.viewValue}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>	
+
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" [disabled]="selectepagesize<=0" (click)="ok()">Ok</button>
+    </div>
+</div>
+  

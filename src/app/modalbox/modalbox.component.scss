@@ -1,0 +1,32 @@
+@import "../../assets/css/variables.scss";
+
+
+
+.Pgno {
+    height: 35px;
+    line-height: 1.65;
+    float: left;
+    display: block;
+    padding: 0;
+    margin-right: 5px;
+    padding-left: 20px;
+    border: 1px solid $color-font-grey;
+    border-radius: 23px;
+    font-size: 14px;
+    font-weight: 500;
+    color: $color-black;
+      &[disabled]{
+          background: $color-page-bg;
+          border: 1px solid $color-page-bg;
+      }
+    &:focus {
+      outline: 0;
+    }
+}
+
+
+
+.pop_two{
+  margin-top:10px;
+}
+

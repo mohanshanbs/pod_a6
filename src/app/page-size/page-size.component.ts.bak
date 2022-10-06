@@ -1,0 +1,44 @@
+import { Component, ViewChild, OnInit, ChangeDetectorRef } from '@angular/core';
+import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router, NavigationEnd,Event,NavigationStart} from '@angular/router';
+interface pageSize {
+  value: string;
+  viewValue: string;
+}
+@Component({
+  selector: 'app-page-size',
+  templateUrl: './page-size.component.html',
+  styleUrls: ['./page-size.component.scss']
+})
+export class PageSizeComponent implements OnInit {
+  sizes: pageSize[] = [
+    {value: '8,10', viewValue: '8 x 10'},
+    {value: '8,11', viewValue: '8 x 11'}
+  ];
+  selectepagesize;
+  constructor(public activeModal: NgbActiveModal, 
+		private cd: ChangeDetectorRef) { }
+
+  ngOnInit() {
+  	this.selectepagesize = 0;
+  }
+
+	@ViewChild('myElement') firstItem: any;
+
+	ngAfterViewInit() {
+	   this.firstItem.focus();
+	   this.cd.detectChanges();
+	}
+	pageValue(value) {
+		this.selectepagesize = value;
+	}
+	public getDismissReason(reason: any): string {
+	    return "getdismissedreason";
+	}
+	ok() {
+  		this.activeModal.close(this.selectepagesize);
+	}
+  }
+
+  
+

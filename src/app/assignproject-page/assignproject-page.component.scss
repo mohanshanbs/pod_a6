@@ -1,0 +1,278 @@
+@import "../../assets/css/variables.scss";
+
+.row {
+  margin: 25px 0 0 1%;
+}
+
+.col-md-12 > .row {
+  margin-left: 0;
+}
+
+.col-3 {
+  width: 700px;
+  max-width: 25%;
+}
+
+div#assign_container, #all_users {
+  margin-top: 35px;
+  width: 98%;
+}
+
+.assignee_details {
+  width: 32%;
+  border: 1px solid $btn-grey;
+  background: $color-white;
+  height: 100px;
+  display: table;
+  float: left;
+  margin-right: 12px;
+  & > div{
+    position: relative;
+  }
+  span.profile-bg{
+    width: 50px;
+    height: 50px;
+    line-height: 48px;
+    overflow: hidden;
+    letter-spacing: 100px;
+    text-align: center;
+    padding: 1px 16px;
+    color: $color-white;
+    border-radius: 50%;
+    font-size: 32px;
+    position: relative;
+    top: 0px;
+    left: 0;
+    float: left;
+    margin-right: 10px;
+    text-transform: capitalize;
+  }
+  &:nth-child(1n+1){
+    span.profile-bg {
+      background: $user-bg-color1;
+    }
+  }
+  &:nth-child(2n+2){
+    span.profile-bg {
+      background: $user-bg-color2;        
+    }
+  }
+  &:nth-child(3n+3){
+    span.profile-bg {
+      background: $user-bg-color3;        
+    }
+  }
+  &:nth-child(4n+4){
+    span.profile-bg {
+      background: $user-bg-color4;
+    }
+  }
+  &:nth-child(5n+5){
+    span.profile-bg {
+      background: $user-bg-color5;
+    }
+  }
+}
+
+
+i.fa {
+  &.fa-plus-circle, &.fa-minus-circle {
+    font-size: 35px;
+    cursor: pointer;
+  }
+  &.fa-plus-circle {
+    color: $user-bg-color1;
+  }
+  &.fa-minus-circle {
+    color: $color-primary-red;
+    margin-left: -30px;
+  }
+}
+
+:host ::ng-deep {
+  .ng-scrollbar-container {
+    height: 480px !important;
+  }
+  .ng-scrollbar-thumb {
+    background-color: $scroll-thumb-bg !important;
+  }
+  .ng-scrollbar {
+    background-color: $scroll-bar-bg !important;
+  }
+}
+
+ui-switch {
+  &::before {
+    content: "All Users  ";
+    vertical-align: super;
+  }
+  &::after {
+    content: "Assigned Users  ";
+    vertical-align: super;
+  }
+}
+
+
+img.user_picture {
+  height: 50px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 10px;
+}
+
+.user_details {
+  display: inline-block;
+}
+
+span {
+  display: block;
+}
+
+.fa-3x {
+    color: $user-bg-color1;
+	cursor: pointer;
+	
+}
+svg.svg-inline--fa.fa-minus-circle.fa-w-16.fa-3x  {
+    color: $user-bg-color3;
+}
+
+div.assign_user {
+  float: right;
+  svg{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    top: 7px;
+  }
+  span{
+    cursor: pointer;
+    position: absolute;
+    top: 38px;
+    bottom: 0;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    img{
+      width: 35px;
+      height: 35px;
+      display: inline-block;      
+    }
+  }
+  
+}
+
+.user_profile {
+  float: left;
+  position: relative;
+}
+
+.clearFloat {
+  clear: both;
+}
+
+.assignee_details > * {
+  height: 110px;
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0 18px 0 18px;
+}
+
+.assignee_name {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 2px;
+  text-transform: capitalize;
+}
+
+.assignee_mail {
+  color: $color-font-grey;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.assigner {
+  color: $color-primary-pink;
+  font-size: 12px;
+  font-weight: 600;
+  min-height: 20px;
+}
+
+p.project_name {
+  font-size: 24px;
+  float: left;
+  margin: 0;
+  line-height: 47px;
+}
+
+:host ::ng-deep {
+  .ng-scrollbar-container {
+    height: 480px !important;
+  }
+  .ng-scrollbar-thumb {
+    background-color: $scroll-thumb-bg !important;
+  }
+  .ng-scrollbar {
+    background-color: $scroll-bar-bg !important;
+  }
+}
+
+ui-switch {
+  &::before {
+    content: "All Users  ";
+    vertical-align: super;
+  }
+  &::after {
+    content: "Assigned Users  ";
+    vertical-align: super;
+  }
+}
+
+span.fas.fa-search.search-icon {
+  display: inline-block;
+}
+
+:host ::ng-deep .switch-small {
+  border: 1px solid $color-primary-skyblue;
+}
+
+.search-part {
+  border: 1px solid $btn-grey;
+  border-radius: 24px;
+  position: absolute;
+  right: 46px;
+  top: -54px;
+}
+
+div#switchUsers {
+  float: right;
+  margin: 1% 2% 0 0;
+}
+
+.user_circle {
+  position: absolute;
+
+  &.admin_active {
+    background: $color-primary-pink;
+  }
+
+  &.user_active {
+    background: $color-primary-voilet;
+  }
+  width: 20px;
+  height: 20px;
+  left: 35px;
+  border-radius: 19px;
+  color: $color-white;
+  font-size: 12px;
+  text-align: center;
+  border: 1px solid $color-white;
+  line-height: 20px;
+  top: 5px;
+}
+
+.proj-detail{
+  display: inline-block;
+  width: 100%;
+}
+

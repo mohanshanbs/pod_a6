@@ -1,0 +1,322 @@
+/* @import "../../../../assets/css/variables.scss"; */
+@import "../../../../../assets/css/variables.scss";
+
+.viewer-part {
+    position: relative;
+    background: $color-white;
+    max-width: 915px;
+    border: 1px solid $color-font-grey;
+    margin: 80px auto;
+    /* display: inline-block; */
+    float: none;
+    padding: 48px;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);  
+  }
+  
+  .pg-break-btn{
+    background: url($assetsUrl+'images/pg-brk.png') no-repeat;
+    //background: url(../../assets/images/pg-brk.png) no-repeat;
+    width: 15px;
+    height: 15px;
+    display: inline-block;
+    background-size: contain;
+    margin-top: 20px;
+  }
+
+  .project-editpart {
+    width: 100%;
+    height: 100%;
+  }
+
+  .ellipse_icon {
+    position: absolute;
+    z-index: 9;
+    right: 22px;
+    top: 25px;
+    cursor: pointer;
+    > .fa-ellipsis-v {
+      font-size: 28px;
+      color: $color-font-grey;
+    }
+  }
+  
+  .property-part {
+    background-color: $sidebar-bg-color;
+    margin: 11px 0px 0px 0px;
+    flex: 0 0 21.7% !important;
+    max-width: 225px;
+    display: inline-block;
+    height: 96%;    
+    position: fixed;
+    bottom: -8px;
+    right: 0;
+    z-index: 9;
+    .action-property {
+      padding: 13px 0 0 0;
+      span {
+        color: $color-white;
+        cursor: pointer;
+        width: 28px;
+        height: 28px;
+        padding: 0;
+        display: inline-block;
+        text-align: center;
+        line-height: 28px;
+        background: $edit-panel-icon-bg;
+        border-radius: 3px;
+        margin: 5px;
+      }
+
+      .active {
+        color: $color-white !important;
+      }
+      h5{
+        text-transform: uppercase;
+        border-bottom: 1px solid $menu-text-color;
+        color: $title-head-color;
+        font-size: 16px;
+        padding-bottom: 5px;
+        padding-top: 5px;
+      }
+    }
+  }
+
+  #editableFrame {
+    width: 673px;
+    height: 872px;
+    margin-left: 0;
+    overflow:hidden;
+    // padding: 0 7%;
+    margin-top: 0px;
+  }
+  .pdf-editor {
+    width: 100%;
+    height: 100%;
+    position: sticky;
+    background-color: $color-white;
+  }
+
+
+
+
+  #left_arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  #right_arrow {
+    position: absolute;
+    top: 50%;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    right: 0px;
+    z-index: 9;
+  }
+  
+  #left_arrow {
+    left: 0px;
+    z-index: 9;
+  }
+
+::ng-deep span.page-break{
+  page-break-after: always;
+}
+
+.pdf-edit,.pdf-download {
+  position: absolute;
+  z-index: 9;
+  right: -20px;
+  top: -20px;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  cursor: pointer;
+  span{
+    svg{
+      width: 45px;
+      height: 45px;
+      color: $color-primary-pink;
+    }
+  }  
+  a{
+    span{
+      svg{
+        color: $color-white;
+        width: 26px;
+      }
+    }
+  }
+  img{
+    width: 24px;
+    margin-top: -6px;
+  }
+}
+.pdf-download{
+  right: -66px;
+}
+.icon-background1 {
+  color: $color-primary-blue;
+}
+
+.fa-stack-1x {
+  color: $color-white;
+}
+
+#loading {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: block;
+  opacity: 0.7;
+  z-index: 99;
+  text-align: center;
+}
+
+#loading-image {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 100;
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+}
+::ng-deep span.page-break{
+  page-break-after: always;
+  color: $color-primary-red;
+}
+#hiddenfinalhtml{
+  visibility: hidden;
+}
+
+
+
+@media screen and (max-width: 1450px){
+    #editableFrame{
+      margin-left: 0px !important;
+    }
+    .viewer-part{
+      margin: 80px auto;
+      float: none;
+      max-width: 915px !important;
+      padding: 48px;
+    }
+    .property-part{
+      width: 50px !important;
+      max-width: 50px !important;
+    }
+    .action-property span{
+      color: $color-font-grey;
+      padding: 0px 23px 0px 0px !important;
+      cursor: pointer;
+      margin: 8px 0px !important;
+      display: inline-block;
+    }
+    #right_arrow{
+      right: 0px;
+    }
+    #left_arrow{
+      left: 0px;
+    }
+}
+
+.divider-mark{
+  .left-top-mark{
+     &:before{
+       content: '';
+       display: inline-block;
+       position: absolute;
+       width: 24px;
+       height: 2px;
+       background: $pdf-marker;
+       top: 47px;
+       left: 0;
+     }
+     &:after{
+       content: '';
+       display: inline-block;
+       position: absolute;
+       width: 2px;
+       height: 24px;
+       background: $pdf-marker;
+       top: 0px;
+       left:47px;
+     }
+  }
+  .right-top-mark{
+     &:before{
+       content: '';
+       display: inline-block;
+       position: absolute;
+       width: 24px;
+       height: 2px;
+       background: $pdf-marker;
+       top: 47px;
+       right: 1px;
+     }
+     &:after{
+       content: '';
+       display: inline-block;
+       position: absolute;
+       width: 2px;
+       height: 24px;
+       background: $pdf-marker;
+       top: 0px;
+       right: 48px;
+     }
+ }
+ .left-bottom-mark{
+   &:before{
+     content: '';
+     display: inline-block;
+     position: absolute;
+     width: 24px;
+     height: 2px;
+     background: $pdf-marker;
+     bottom: 48px;
+     left: 0;
+   }
+   &:after{
+     content: '';
+     display: inline-block;
+     position: absolute;
+     width: 2px;
+     height: 24px;
+     background: $pdf-marker;
+     bottom: 1px;
+     left:47px;
+   }
+}
+.right-bottom-mark{
+   &:before{
+     content: '';
+     display: inline-block;
+     position: absolute;
+     width: 24px;
+     height: 2px;
+     background: $pdf-marker;
+     bottom: 48px;
+     right: 1px;
+   }
+   &:after{
+     content: '';
+     display: inline-block;
+     position: absolute;
+     width: 2px;
+     height: 24px;
+     background: $pdf-marker;
+     bottom: 1px;
+     right: 48px;
+   }
+}
+}
+
+

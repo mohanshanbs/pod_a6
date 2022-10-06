@@ -1,0 +1,215 @@
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-spin-clockwise-fade"></ngx-spinner>
+<div class="mat-elevation-z8 example-container">
+    <div id="tocContentHide" style="display:none;" [innerHtml]="tocContent"></div>
+    <div class="intro-part">
+        <div class="sub-title">
+            <p>{{projectName}} <span class="project-count">({{chapterCount}})</span></p>
+        </div>
+
+        <div style="width: auto;float: right;margin-right: 2px;position: absolute;top: 12px;right: 20px;">
+            <div class="input-placeholder search-part">
+                <input type="text" name="searchname" placeholder="Search"
+                    (keyup)="applyFilter($event.target.value)" /><span class="search-icon"><img
+                        src="assets/icons/search-icon.png" alt=""></span>
+            </div>
+        </div>
+    </div>
+    <div class="tableWrapper">
+        <table class="toc-list-table" mat-table [dataSource]="dataSource">
+            <ng-container matColumnDef="tocname">
+                <th mat-header-cell *matHeaderCellDef>Chapter Name </th>
+                <td mat-cell *matCellDef="let toc;">
+                    <p class="chap-name">{{toc.chapter_name}}</p>
+                    <p class="reader-card">Reader Card: {{toc.reader_count}}</p>
+                    <p class="converted-no">Updated: {{toc.convert_count}} times</p>
+                    <p class="conv-time">Last Updated: {{toc.date | date:'medium'}}</p>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="pagenumber">
+                <th mat-header-cell *matHeaderCellDef>Page Selection </th>
+                <td mat-cell *matCellDef="let toc;let c = index;">
+                    <div class="q-cont">
+                        <div class="quantity">
+                            <input type="number" id="s_page_number{{c}}" min="1" step="1" placeholder="Page no"
+                                [(ngModel)]="toc.startPageNumber" [disabled]="toc.pc_status==1 || toc.pc_status==2">
+                        </div>
+                        <div class="quantity-nav" [class.is-cloc]="toc.pc_status==1 || toc.pc_status==2">
+                            <div class="quantity-button quantity-up" (click)="pageNumNav(1,toc)"><i
+                                    class="fas fa-angle-up"></i></div>
+                            <div class="quantity-button quantity-down" (click)="pageNumNav(0,toc)"><i
+                                    class="fas fa-angle-down"></i></div>
+                        </div>
+                    </div>
+
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="poptips_container">
+                <th mat-header-cell *matHeaderCellDef>Poptips / Two Column </th>
+                <td mat-cell *matCellDef="let toc;let c = index;">
+                    <div class="poptipschk">
+                        <input type="checkbox" name="s_poptips[]" id="s_poptips{{c}}" /> Poptips
+                        <input type="checkbox" name="s_twocolumn[]" id="s_twocolumn{{c}}" /> Two Column
+                    </div>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="htmlstatus">
+                <th mat-header-cell *matHeaderCellDef>Convert / Download Action </th>
+
+                <td mat-cell *matCellDef="let toc;let i = index;">
+                    <div class="toc-actions">
+                        <p class="generate-actions html-border"
+                            [ngClass]="[toc.pc_status==0 || toc.pc_status==1 || toc.pc_status==2 ? 'enable-cir' : 'disable-cir',  toc.pc_status==1 || toc.pc_status==2 ? 'comp-act' : '',toc.enlargeHtml == true ? 'enlarge' : '', toc.pc_status==2 ? 'disable-btn-ic' : 'enable-btn-ic']">
+                            <img (click)="generateHtml(toc,i)" class="icon-enable"
+                                *ngIf="toc.pc_status==0 || toc.pc_status==1" src="assets/images/html-ic.png"
+                                matTooltip="Generate HTML" id="h_{{projectName}}" />
+                            <img class="icon-disable" *ngIf="toc.pc_status==2" src="assets/images/html-ic.png"
+                                id="h_{{projectName}}">
+                            <span>HTML</span>
+                            <!-- <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                                viewBox="0 0 161.2 161.2" enable-background="new 0 0 161.2 161.2" xml:space="preserve">
+                                                                <path class="path" fill="none" stroke="#785E7F" stroke-miterlimit="10" d="M425.9,52.1L425.9,52.1c-2.2-2.6-6-2.6-8.3-0.1l-42.7,46.2l-14.3-16.4
+                                                                c-2.3-2.7-6.2-2.7-8.6-0.1c-1.9,2.1-2,5.6-0.1,7.7l17.6,20.3c0.2,0.3,0.4,0.6,0.6,0.9c1.8,2,4.4,2.5,6.6,1.4c0.7-0.3,1.4-0.8,2-1.5
+                                                                c0.3-0.3,0.5-0.6,0.7-0.9l46.3-50.1C427.7,57.5,427.7,54.2,425.9,52.1z"/>
+                                                                <circle class="path" fill="none" stroke="#785E7F" stroke-width="25" stroke-miterlimit="10" cx="80.6" cy="80.6" r="62.1"/>
+                                                                <polyline class="path" fill="none" stroke="#785E7F" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" points="113,52.8 
+                                                                74.1,108.4 48.2,86.4 "/>
+                                                           </svg> -->
+                            <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 37 37"
+                                style="enable-background:new 0 0 37 37;" xml:space="preserve">
+                                <path class="circ path"
+                                    style="fill:none;stroke:#000;stroke-width:8;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    d="
+                                                                M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+                                <polyline class="tick path"
+                                    style="fill:none;stroke:#000;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    points="
+                                                                11.6,20 15.9,24.2 26.4,13.8 " />
+                            </svg>
+                        </p>
+                        <p class="generate-actions pdf-border"
+                            [ngClass]="[toc.pc_status==1 || toc.pc_status==2 ? 'enable-cir' : 'disable-cir',  toc.pc_status==2 ? 'comp-act' : '',toc.enlargePdf == true ? 'enlarge' : '', toc.pc_status==0 ? 'disable-btn-ic' : 'enable-btn-ic']">
+                            <img (click)="generatePDF(toc,i)" class="icon-enable"
+                                *ngIf="toc.pc_status==1 || toc.pc_status==2" src="assets/images/pdf-ic.png"
+                                matTooltip="Generate PDF" id="p_{{projectName}}" />
+                            <img class="icon-disable" *ngIf="toc.pc_status==0" src="assets/images/pdf-ic.png"
+                                id="p_{{projectName}}">
+                            <span>PDF</span>
+                            <!-- <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                                viewBox="0 0 161.2 161.2" enable-background="new 0 0 161.2 161.2" xml:space="preserve">
+                                                                <path class="path" fill="none" stroke="#DF6B7C" stroke-miterlimit="10" d="M425.9,52.1L425.9,52.1c-2.2-2.6-6-2.6-8.3-0.1l-42.7,46.2l-14.3-16.4
+                                                                c-2.3-2.7-6.2-2.7-8.6-0.1c-1.9,2.1-2,5.6-0.1,7.7l17.6,20.3c0.2,0.3,0.4,0.6,0.6,0.9c1.8,2,4.4,2.5,6.6,1.4c0.7-0.3,1.4-0.8,2-1.5
+                                                                c0.3-0.3,0.5-0.6,0.7-0.9l46.3-50.1C427.7,57.5,427.7,54.2,425.9,52.1z"/>
+                                                                <circle class="path" fill="none" stroke="#DF6B7C" stroke-width="25" stroke-miterlimit="10" cx="80.6" cy="80.6" r="62.1"/>
+                                                                <polyline class="path" fill="none" stroke="#DF6B7C" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" points="113,52.8 
+                                                                74.1,108.4 48.2,86.4 "/>
+                                                            </svg> -->
+                            <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 37 37"
+                                style="enable-background:new 0 0 37 37;" xml:space="preserve">
+                                <path class="circ path"
+                                    style="fill:none;stroke:#000;stroke-width:8;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    d="
+                                                                M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+                                <polyline class="tick path"
+                                    style="fill:none;stroke:#000;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    points="
+                                                                11.6,20 15.9,24.2 26.4,13.8 " />
+                            </svg>
+                        </p>
+                        <p class="generate-actions download-border"
+                            [ngClass]="[toc.pc_status==2 ? 'enable-cir' : 'disable-cir', toc.pc_status!=2 ? 'disable-btn-ic' : 'enable-btn-ic']">
+                            <img (click)="downloadPdf(toc,i)" class="icon-enable" *ngIf="toc.pc_status==2"
+                                src="assets/images/download-ic.png" matTooltip="Download PDF" id="d_{{projectName}}" />
+                            <img class="icon-disable" *ngIf="toc.pc_status!=2" src="assets/images/download-ic.png"
+                                id="d_{{projectName}}">
+                            <span>DOWNLOAD</span>
+                            <!-- <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                                viewBox="0 0 161.2 161.2" enable-background="new 0 0 161.2 161.2" xml:space="preserve">
+                                                                <path class="path" fill="none" stroke="#6789BA" stroke-miterlimit="10" d="M425.9,52.1L425.9,52.1c-2.2-2.6-6-2.6-8.3-0.1l-42.7,46.2l-14.3-16.4
+                                                                c-2.3-2.7-6.2-2.7-8.6-0.1c-1.9,2.1-2,5.6-0.1,7.7l17.6,20.3c0.2,0.3,0.4,0.6,0.6,0.9c1.8,2,4.4,2.5,6.6,1.4c0.7-0.3,1.4-0.8,2-1.5
+                                                                c0.3-0.3,0.5-0.6,0.7-0.9l46.3-50.1C427.7,57.5,427.7,54.2,425.9,52.1z"/>
+                                                                <circle class="path" fill="none" stroke="#6789BA" stroke-width="25" stroke-miterlimit="10" cx="80.6" cy="80.6" r="62.1"/>
+                                                                <polyline class="path" fill="none" stroke="#6789BA" stroke-width="10" stroke-linecap="round" stroke-miterlimit="10" points="113,52.8 
+                                                                74.1,108.4 48.2,86.4 "/>
+                                                            </svg> -->
+                            <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg"
+                                xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 37 37"
+                                style="enable-background:new 0 0 37 37;" xml:space="preserve">
+                                <path class="circ path"
+                                    style="fill:none;stroke:#000;stroke-width:8;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    d="
+                                                                M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+                                <polyline class="tick path"
+                                    style="fill:none;stroke:#000;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:10;"
+                                    points="
+                                                                11.6,20 15.9,24.2 26.4,13.8 " />
+                            </svg>
+                        </p>
+                        <p class="generate-actions preview-border">
+              <img class="icon-enable" src="assets/images/download-ic.png" matTooltip="preview" id="d_{{projectName}}" />
+              <!-- <img class="icon-disable" *ngIf="toc.pc_status!=2" src="assets/images/download-ic.png"
+                id="d_{{projectName}}"> -->
+              <span>Preview</span>
+              <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 37 37" style="enable-background:new 0 0 37 37;" xml:space="preserve">
+                <path class="circ path"
+                  style="fill:none;stroke:#000;stroke-width:8;stroke-linejoin:round;stroke-miterlimit:10;"
+                  d="M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+                <polyline class="tick path"
+                  style="fill:none;stroke:#000;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:10;"
+                  points="11.6,20 15.9,24.2 26.4,13.8 " />
+              </svg>
+            </p>
+                    </div>
+                </td>
+            </ng-container>
+            <!-- <ng-container matColumnDef="pdfstatus">
+                                                                <th mat-header-cell *matHeaderCellDef>Generate Pdf </th>
+                                                                <td mat-cell *matCellDef="let toc">
+                                                                        <div class="toc-actions">
+                                                                                        <img (click)="generatePdf(toc)" class= "icon-enable" *ngIf= "toc.html && !toc.pdf" src="../../assets/images/pdf-enable.png/" matTooltip="Generate PDF"/>
+                                                                                        <img class= "icon-disable" *ngIf= "toc.pdf || !toc.html" src="../../assets/images/pdf-disable.png/">
+                                                        
+                                                                        </div>
+                                                                </td>
+                                                            </ng-container>
+                                                            <ng-container matColumnDef="dwdstatus">
+                                                                        <th mat-header-cell *matHeaderCellDef>Download Pdf </th>
+                                                                        <td mat-cell *matCellDef="let toc">
+                                                                                <div class="toc-actions">
+                                                                                                <img (click)="downloadPdf(toc)" class= "icon-enable" *ngIf= "toc.pdf" src="../../assets/images/download-enable.png/" matTooltip="Download PDF"/>
+                                                                                                <img class= "icon-disable" *ngIf= "!toc.pdf" src="../../assets/images/download-disable.png/">
+                                                                                </div>
+                                                                        </td>
+                                                                    </ng-container> -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        </table>
+
+
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="toc-paginator"></mat-paginator>
+    </div>
+    <!-- new table with scroll -->
+
+    <!-- <div class="toc-pagination">
+                        <a href="#">&laquo;</a>
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#">6</a>
+                        <a href="#">&raquo;</a>
+                      </div> -->
+
+</div>
+
+
+<div id="hiddentoc"></div>
+<div id="hiddenelement"></div>
+<iframe id="hiddentitlehtml" hidden></iframe>
+<iframe id="hiddenfinalhtml" width="650px" height="100%"></iframe>
+<div id="hiddenglosdata" hidden></div>
+<div id="hiddenremarkdata"></div>

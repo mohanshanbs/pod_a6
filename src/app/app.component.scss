@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand:300,400,500,700");
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+@import "../assets/css/variables.scss";
+
+body {
+  font-family: "Quicksand" !important;
+  color: $color-primary-blue;
+}
+
+.breadcrumblink >.active > span {
+   color: #f83c7b!important;
+}

@@ -1,0 +1,44 @@
+<span *ngIf="redirectotlogin; then login else landingpage"></span>
+
+<ng-template #login>
+    <div class="loginwrap">
+        <app-login-page (checkLogin)="onCheckLogin($event)"></app-login-page>
+        <!-- <app-sign-in (checkLogin)="onCheckLogin($event)"></app-sign-in> -->
+    </div>
+</ng-template>
+
+<ng-template #landingpage>
+    <div class="card-text">
+        <div class="row">
+
+            <app-header-page class="col-12 headerwrap"></app-header-page>
+            <!-- <app-sidemenu-page class="sidewrap" (checkLogin)="onCheckLogin($event)" (checkMenu)="onMenuselect($event)"></app-sidemenu-page> -->
+            <div class="mainwrap">
+                <div class="mainwrapcontent">
+                    <ul class="breadcrumblink" *ngIf="activebreadcrumb == true">
+                        <li (click)=changeroute()><a>Dashboard</a></li>
+                        <li class="breadcrumb-item" *ngFor="let item of breadcrumbList; let i = index"
+                            [class.active]="i===breadcrumbList.length-1">
+                            <a [routerLink]="item.path" *ngIf="i!==breadcrumbList.length-1">
+                                {{ item.name }}
+                            </a>
+                            <span *ngIf="i===breadcrumbList.length-1">{{ item.name }}</span>
+                        </li>
+                    </ul>
+                    <!--<span *ngIf="addview; then addproject else viewproject"></span>
+                     <ng-template #addproject>
+                        <button *ngIf="selectedMenu == 'Projects'" class="addviewbtn" type="button" (click)="setaddview(false)" routerLink="/addprojects">Add Projects</button>
+                        <button *ngIf="selectedMenu == 'Users'" class="addviewbtn" type="button" (click)="setaddview(false)" routerLink="/addusers">Add Users</button>
+                    </ng-template> -->
+                    <!-- <ng-template #viewproject>
+                        <button *ngIf="selectedMenu == 'Projects'" class="addviewbtn" type="button" (click)="setaddview(true)" routerLink="/projectslist">View Projects</button>
+                        <button *ngIf="selectedMenu == 'Users'" class="addviewbtn" type="button" (click)="setaddview(true)" routerLink="/userslist">View Users</button>
+                    </ng-template> -->
+                    <!-- <app-main-page class="maincontent"></app-main-page> -->
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- breadcrumb -->
+</ng-template>

@@ -1,0 +1,441 @@
+<!--<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-spin-clockwise-fade" *ngIf="!showPreview"></ngx-spinner>-->
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#fff" type="ball-spin-clockwise-fade"
+  *ngIf="!showPreview"></ngx-spinner>
+<div class="mat-elevation-z8 example-container"
+  [ngClass]="{'showContent': showMattable , 'hideContent' : !showMattable || showPreview }">
+  <div id="tocContentHide" style="display:none;" [innerHtml]="tocContent"></div>
+  <div class="intro-part">
+    <div class="sub-title">
+      <p>{{projectName}} <span class="project-count">({{chapterCount}})</span></p>
+    </div>
+    <div style="width: auto;float: right;margin-right: 2px;position: absolute;top: 12px;right: 20px;">
+      <div class="input-placeholder search-part">
+        <input type="text" name="searchname" placeholder="Search" (keyup)="applyFilter($event.target.value)" /><span
+          class="search-icon"><img src="assets/icons/search-icon.png" alt=""></span>
+      </div>
+    </div>
+  </div>
+  <div class="tableWrapper">
+    <table class="toc-list-table" mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="tocname">
+        <th mat-header-cell *matHeaderCellDef>Chapter Name </th>
+        <td mat-cell *matCellDef="let toc;">
+          <p class="chap-name">{{toc.chapter_name}}</p>
+          <p class="reader-card">Reader Card: {{toc.reader_count}}</p>
+          <p class="converted-no">Updated: {{toc.convert_count}} times</p>
+          <p class="conv-time">Last Updated: {{toc.date | date:'medium'}}</p>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="pagenumber">
+        <th mat-header-cell *matHeaderCellDef>Page Selection</th>
+        <td mat-cell *matCellDef="let toc;let c = index;">
+          <div *ngIf="!hideStartPage" class="q-cont">
+            <div class="quantity">
+              <input type="number" id="s_page_number{{c}}" min="1" step="1" placeholder="Page no"
+                [(ngModel)]="toc.startPageNumber" [disabled]="toc.pc_status==1 || toc.pc_status==2">
+            </div>
+            <div class="quantity-nav" [class.is-cloc]="toc.pc_status==1 || toc.pc_status==2">
+              <div class="quantity-button quantity-up" (click)="pageNumNav(1,toc)"><i class="fas fa-angle-up"></i></div>
+              <div class="quantity-button quantity-down" (click)="pageNumNav(0,toc)"><i class="fas fa-angle-down"></i>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="hideStartPage">NA</div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="poptips_container">
+        <th mat-header-cell *matHeaderCellDef>Poptips / Two Column </th>
+        <td mat-cell *matCellDef="let toc;let c = index;">
+          <div *ngIf="!hideStartPage" class="poptipschk">
+            <input type="checkbox" name="s_poptips[]" id="s_poptips{{c}}" /> Poptips
+            <input type="checkbox" name="s_twocolumn[]" id="s_twocolumn{{c}}" /> Two Column
+          </div>
+          <div *ngIf="hideStartPage">NA</div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="htmlstatus">
+        <th mat-header-cell *matHeaderCellDef>Convert / Download Action </th>
+        <td mat-cell *matCellDef="let toc;let i = index;">
+          <div class="toc-actions">
+            <p class="generate-actions html-border"
+              [ngClass]="[toc.pc_status==0 || toc.pc_status==1 || toc.pc_status==2 ? 'enable-cir' : 'disable-cir',  toc.pc_status==1 || toc.pc_status==2 ? 'comp-act' : '',toc.enlargeHtml == true ? 'enlarge' : '', toc.pc_status==2 ? 'disable-btn-ic' : 'enable-btn-ic']">
+              <img (click)="generateHtmlpage(toc,i)" class="icon-enable" *ngIf="toc.pc_status==0 || toc.pc_status==1"
+                src="assets/images/html-ic.png" matTooltip="Generate HTML" id="h_{{projectName}}" />
+              <img class="icon-disable" *ngIf="toc.pc_status==2" src="assets/images/html-ic.png" id="h_{{projectName}}">
+              <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 37 37" style="enable-background:new 0 0 37 37;" xml:space="preserve">
+                <path class="circ path"
+                  style="fill:none;stroke:#000;stroke-width:8;stroke-linejoin:round;stroke-miterlimit:10;"
+                  d="
+                                                                M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+                <polyline class="tick path"
+                  style="fill:none;stroke:#000;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:10;"
+                  points="11.6,20 15.9,24.2 26.4,13.8 " />
+              </svg>
+            </p>
+            <p class="generate-actions pdf-border"
+              [ngClass]="[toc.pc_status==1 || toc.pc_status==2 ? 'enable-cir' : 'disable-cir',  toc.pc_status==2 ? 'comp-act' : '',toc.enlargePdf == true ? 'enlarge' : '', toc.pc_status==0 ? 'disable-btn-ic' : 'enable-btn-ic']">
+              <img (click)="showViewer(toc,i)" class="icon-enable" *ngIf="toc.pc_status==1 || toc.pc_status==2"
+                src="assets/images/pdf-ic.png" matTooltip="View Editor" id="p_{{projectName}}" />
+              <img class="icon-disable" *ngIf="toc.pc_status==0" src="assets/images/pdf-ic.png" id="p_{{projectName}}">
+              <span>View</span>
+              <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 37 37" style="enable-background:new 0 0 37 37;" xml:space="preserve">
+                <path class="circ path"
+                  style="fill:none;stroke:#000;stroke-width:8;stroke-linejoin:round;stroke-miterlimit:10;"
+                  d="
+                                                                M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+                <polyline class="tick path"
+                  style="fill:none;stroke:#000;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:10;"
+                  points="11.6,20 15.9,24.2 26.4,13.8 " />
+              </svg>
+            </p>
+            <!--  <p class="generate-actions pdf-border" [ngClass]="[toc.pc_status==1 || toc.pc_status==2 ? 'enable-cir' : 'disable-cir',  toc.pc_status==2 ? 'comp-act' : '',toc.enlargePdf == true ? 'enlarge' : '', toc.pc_status==0 ? 'disable-btn-ic' : 'enable-btn-ic']">
+              <img (click)="generatePDF(toc,i)" class="icon-enable" *ngIf="toc.pc_status==1 || toc.pc_status==2" src="assets/images/pdf-ic.png" matTooltip="Generate PDF" id="p_{{projectName}}" />
+              <img class="icon-disable" *ngIf="toc.pc_status==0" src="assets/images/pdf-ic.png" id="p_{{projectName}}">
+              <span>PDF</span>
+              <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 37 37" style="enable-background:new 0 0 37 37;" xml:space="preserve">
+                <path class="circ path" style="fill:none;stroke:#000;stroke-width:8;stroke-linejoin:round;stroke-miterlimit:10;" d="
+                                                                M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+                <polyline class="tick path" style="fill:none;stroke:#000;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:10;" points="
+                                                                11.6,20 15.9,24.2 26.4,13.8 " />
+              </svg>
+            </p> -->
+            <p class="generate-actions download-border"
+              [ngClass]="[toc.pc_status==2 ? 'enable-cir' : 'disable-cir', toc.pc_status!=2 ? 'disable-btn-ic' : 'enable-btn-ic']">
+              <img (click)="downloadPdf(toc,i)" class="icon-enable" *ngIf="toc.pc_status==2"
+                src="assets/images/download-ic.png" matTooltip="Download PDF" id="d_{{projectName}}" />
+              <img class="icon-disable" *ngIf="toc.pc_status!=2" src="assets/images/download-ic.png"
+                id="d_{{projectName}}">
+              <span>DOWNLOAD</span>
+              <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 37 37" style="enable-background:new 0 0 37 37;" xml:space="preserve">
+                <path class="circ path"
+                  style="fill:none;stroke:#000;stroke-width:8;stroke-linejoin:round;stroke-miterlimit:10;"
+                  d="M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+                <polyline class="tick path"
+                  style="fill:none;stroke:#000;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:10;"
+                  points="11.6,20 15.9,24.2 26.4,13.8 " />
+              </svg>
+            </p>
+            <!-- <p class="generate-actions preview-border">
+              <img class="icon-enable" (click)="showProjectPreview(toc,i)" src="assets/images/download-ic.png"
+                matTooltip="preview" id="d_{{projectName}}" />
+              <span>Edit</span>
+              <svg version="1.1" id="tick" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" viewBox="0 0 37 37" style="enable-background:new 0 0 37 37;" xml:space="preserve">
+                <path class="circ path"
+                  style="fill:none;stroke:#000;stroke-width:8;stroke-linejoin:round;stroke-miterlimit:10;"
+                  d="M30.5,6.5L30.5,6.5c6.6,6.6,6.6,17.4,0,24l0,0c-6.6,6.6-17.4,6.6-24,0l0,0c-6.6-6.6-6.6-17.4,0-24l0,0C13.1-0.2,23.9-0.2,30.5,6.5z" />
+                <polyline class="tick path"
+                  style="fill:none;stroke:#000;stroke-width:5;stroke-linejoin:round;stroke-miterlimit:10;"
+                  points="11.6,20 15.9,24.2 26.4,13.8 " />
+              </svg>
+            </p> -->
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns;"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons class="toc-paginator"></mat-paginator>
+  </div>
+</div>
+<div class="row project-editpart"
+  [ngClass]="{'showContent': !showMattable && !showPreview, 'hideContent' : showMattable || showPreview}">
+  <!--  <div class="col-md-2 toc-part">
+    <div id="tocContentHide" [innerHtml]="tocContent"></div>
+    <div class="heading-med"><span class="chapter-count"> <label for="">{{projectName}}</label>
+        ({{chapterCount}})</span></div>
+    <div class="chapter-list">
+      <div>
+        <mat-nav-list>
+          <mat-list-item *ngFor="let chapter of chaptersList;let i = index;" [ngClass]="{'active-chapter': chapter.select == true }" (click)="changeHtml_test(chapter,i)">
+            <p class="chapter_name"> {{ chapter.chapter_name }}</p>
+            <span *ngIf="viewer == true;else editorHtml">
+              <mat-icon *ngIf="chapter.pc_status==2; else makePdf" class="visible-icon">visibility
+              </mat-icon>
+            </span>
+            <ng-template #editorHtml>
+              <mat-icon *ngIf="chapter.pc_status!=0; else makePdf" class="visible-icon">edit</mat-icon>
+            </ng-template>
+            <ng-template #makePdf><img class="visible-icon" src="assets/images/generate.png" />
+            </ng-template>
+          </mat-list-item>
+        </mat-nav-list>
+      </div>
+    </div>
+  </div> -->
+  <span (click)="chapterlist()" class="backtolist"><i class="fa fa-arrow-left" aria-hidden="true"></i></span>
+
+  <div class="viewer-title" *ngIf="!showMattable">
+    {{projectName}} ({{chapterCount}}) <span><i class="fa fa-caret-right"
+        aria-hidden="true"></i></span>{{chapterDetails.chapter_name}}
+  </div>
+
+  <div class="view-edit-section">
+    <div class="col-md-8 viewer-part" id="view-container">
+      <!-- <h2>{{chapterName.pc_name}}</h2> -->
+      <div class="gotopage" *ngIf="!button_disable">
+        <input type="text" [(ngModel)]='jumppage' (ngModelChange)="checkpageno($event)" (keyup)="checkpagenoGo($event)">
+        / {{page_model.sectionArray.length}}
+        <input type="button" (click)="pageNavigation('gopage')" value="Go" [disabled]='checkgo'>
+      </div>
+      <div class="actBtnslist" *ngIf="!pdfunderprocess">
+        <ul>
+          <li>
+            <div *ngIf="!isUserEdit&&!isReadOnly">
+              <button class="btn-style-new_1" id="edithtml" (click)="enableEditOption()"
+                [disabled]="button_disable==true? true:false">
+                  <div class="imgWrap edit">
+                    <img src="assets/icons/edit_1.png">
+                  </div>
+                  <b>Edit</b>
+              </button>
+            </div>
+          </li>
+          <li>
+            <div *ngIf="isUserEdit">
+              <button class="btn-style-new_1" id="closeHtmlEdit" (click)="closeEditOption()"
+              [disabled]="button_disable==true? true:false">
+                <div class="imgWrap close">
+                  <img src="assets/icons/close_1.png">
+                </div>
+                <b>Close</b>
+              </button>
+            </div>
+          </li>
+          <li>
+            <div *ngIf="isUserEdit">
+              <button class="btn-style-new" id="savechapterbtn" (click)="saveAllHtmlChanges()"
+              [disabled]="button_disable==true? true:false">
+                <div class="imgWrap" style="background-color: #2cba32 !important;">
+                  <img src="assets/icons/save.png">
+                </div>
+                <b>Save</b>
+              </button>
+            </div>
+          </li>
+          <!-- <li>
+            <div *ngIf="isUserEdit">
+              <button class="btn-style-new" id="savechapterbtn" (click)="onSaveHtml(false)"
+              [disabled]="button_disable==true? true:false">
+                <div class="imgWrap">
+                  <img src="assets/icons/save.png">
+                </div>
+                <b>Save</b>
+              </button>
+            </div>
+          </li> -->
+          <li>
+            <div *ngIf="!isUserEdit">
+              <button class="btn-style-pdf" (click)="generatePDF()" [disabled]="button_disable==true? true:false">
+                <div class="imgWrap">
+                  <!-- <img src="assets/images/pdf-enable.png"> -->
+                  <img src="assets/icons/pdf_1.png">
+                </div>
+                <b>Pdf</b>
+            </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!-- <div *ngIf="pdfunderprocess" class="pdfprogress">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div> -->
+      <div *ngIf="progressBar" class="pdfprogress">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </div>
+      <div class="divider-mark">
+        <span class="left-top-mark"></span>
+        <span class="right-top-mark"></span>
+        <span class="left-bottom-mark"></span>
+        <span class="right-bottom-mark"></span>
+      </div>
+      <div class="pdf-editor">
+        <div id="htmlEditor">
+          <div [ngClass]='isShowPageTitle ? "page-title-show": "" '>
+            <div class="pdf-broder" [ngClass]="chapter_pagecount%2 ? 'text-right':'text-left'"
+              style="border-bottom: 1px solid; text-align: left;" *ngIf="chapter_pagecount>0">
+              <span>{{chapterinfo}}</span>&nbsp;&nbsp;
+              <span *ngIf="startPageNumber<2">{{chapter_pagecount}}</span>
+              <span *ngIf="startPageNumber>1">{{chapter_pagecount + startPageNumber - 1}}</span>
+            </div>
+          </div>
+          <span id="left_arrow" (click)="pageNavigation('previous')">
+            <img src="assets/images/left.png" />
+          </span>
+          <span id="right_arrow" *ngIf="isPageFirst" (click)="pageNavigation('next')">
+            <img src="assets/images/right.png" />
+          </span>
+          <iframe #iframetest id="editableFrame_test" frameborder="0" style="background:white"
+            [ngClass]="chapter_pagecount%2 ? 'iframe-odd':'iframe-even'"></iframe>
+          <iframe appEditorOption #iframe id="editableFrame" frameborder="0" scrolling="" style="background:white"
+            [ngClass]="chapter_pagecount%2 ? 'iframe-odd':'iframe-even'">
+          </iframe>
+          <div id="editor_newframe">
+            <!-- <div id="styleEditor" style="display:none">
+              <textarea id="ta1" name="ta1" rows="10" cols="50"></textarea><br />
+              <input name="submit" id="submit" type="button" value="Apply" />
+            </div>
+            <div class="arrow-down"></div>
+            <div class="close-icon">
+              <span title="close" (click)="editorClose()">
+                <i class="fa fa-times"></i>
+              </span>
+            </div>
+            <div class="action-property" name='nonImageElement'>
+              <span title="Bold" [ngClass]="{'active': actionBold == true }" (click)="textFormat('bold',actionBold,'')">
+                <i class="fa fa-bold"></i>
+              </span>
+              <span title="Italic" [ngClass]="{'active': actionItalic == true }"
+                (click)="textFormat('italic',actionItalic,'')">
+                <i class="fa fa-italic"></i>
+              </span>
+              <span title="Underline" [ngClass]="{'active': actionUnderline == true }"
+                (click)="textFormat('underline',actionUnderline,'')">
+                <i class="fa fa-underline"></i>
+              </span>
+              <span title="Color" id="color-picker" (click)="textFormat('FORECOLOR', foreColor,'')">
+                <color-github [ngClass]="{'color-picker': colorPicker, 'color-picker-hidden' : !colorPicker  }"
+                  [colors]="colors" (onChange)="handleColor($event)" [triangle]="'false'">
+                </color-github>
+                <img src="assets/icons/text-color-picker.png" />
+              </span>
+              <span [ngClass]="{'active': actionOl == true }" (click)="textFormat('orderedlist',actionSub, '1')"><i
+                  class="fas fa-list-ol"></i>
+              </span>
+              <span [ngClass]="{'active': actionOl == true }" (click)="textFormat('orderedlist',actionSub, 'A')"><img
+                  src="assets/icons/abc-caps.png" />
+              </span>
+              <span [ngClass]="{'active': actionOl == true }" (click)="textFormat('orderedlist',actionSub, 'a')"><img
+                  src="assets/icons/abc-small.png" />
+              </span>
+              <span [ngClass]="{'active': actionUl == true }" (click)="textFormat('unorderedlist',actionSub,'')"><i
+                  class="fas fa-list-ul"></i>
+              </span>
+              <span id="two-column-btn" [ngClass]="{'active': actionTC == true }"
+                (click)="textFormat('twocolumn',actionTC,'2')"><i class="fas fa-columns"></i>
+              </span>
+              <span id="three-column-btn" [ngClass]="{'active': actionTHC == true }"
+                (click)="textFormat('threecolumn',actionTHC,'3')"><i class="fa fa-align-justify three-col"
+                  aria-hidden="true"></i>
+              </span>
+              <span class="editLineheight"> <img src="assets/icons/lineheight.svg" />
+                <input type="number" class="lineheight" id="line_height" min="0.1" step="0.1" placeholder=""
+                  [(ngModel)]="lineheight" (ngModelChange)="changeLineHeight($event)">
+              </span>
+              <span class="editFontSize">
+                <i class="fa fa-font"></i>
+                <input type="number" class="fontsize" id="font_size" min="1" step="1" placeholder=""
+                  [(ngModel)]="fontsize" (ngModelChange)="changeFontSize($event)">
+              </span>
+              <span title="floatLeft" [ngClass]="{'active': actionfloatLeft == true }"
+                (click)="textFormat('floatleft',actionfloatLeft,'')">
+                <i class="fa fa-arrow-left"></i>
+              </span>
+              <span title="floatRight" [ngClass]="{'active': actionfloatRight == true }"
+                (click)="textFormat('floatRight',actionfloatRight,'')">
+                <i class="fa fa-arrow-right"></i>
+              </span>
+              <span class="editFontSize" title="letterSpace" [ngClass]="{'active': actionletterSpace == true }"
+                (click)="textFormat('letterSpace',actionletterSpace,'')">
+                <i class="fas fa-sliders-h"></i>
+                <input type="number" class="letterSpace fontsize" id="letterSpace" min="0.1" step="0.1" placeholder=""
+                  [(ngModel)]="letterspace" (ngModelChange)="changeletterspace($event)">
+              </span>
+            </div> -->
+          </div>
+          <div id="editor_newframe_image">
+            <!-- <div class="arrow-down"></div>
+            <div class="close-icon">
+              <span title="close" (click)="editorCloseImage()">
+                <i class="fa fa-times"></i>
+              </span>
+            </div>
+            <div class="action-property">
+              <div>Width </div>
+              <input type="number" class="imagesize" id="image_size" min="1" step="1" placeholder="px"
+                [(ngModel)]="imagesize" (ngModelChange)="changeImageSize($event)">
+              <div>Padding </div>
+              <input type="number" class="imagepadding" id="image_padding" min="1" step="1" placeholder="px"
+                [(ngModel)]="imagepadding" (ngModelChange)="changeImagePadding($event)">
+              <div>Margin-L</div>
+              <input type="number" class="image_margin" id="image_margin_l" min="1" step="1" placeholder="px"
+                [(ngModel)]="imagemargin_l" (ngModelChange)="changeImageMarginLeft($event)">
+              <div>Margin-R</div>
+              <input type="number" class="image_margin" id="image_margin_r" min="1" step="1" placeholder="px"
+                [(ngModel)]="imagemargin_r" (ngModelChange)="changeImageMarginRight($event)">
+              <div>Margin-T</div>
+              <input type="number" class="image_margin" id="image_margin_t" min="1" step="1" placeholder="px"
+                [(ngModel)]="imagemargin_t" (ngModelChange)="changeImageMarginTop($event)">
+              <div>Margin-B</div>
+              <input type="number" class="image_margin" id="image_margin_b" min="1" step="1" placeholder="px"
+                [(ngModel)]="imagemargin_b" (ngModelChange)="changeImageMarginBottom($event)">
+            </div> -->
+          </div>
+          <div id="editor_newframe_table">
+            <!-- <div class="arrow-down"></div>
+            <div class="close-icon">
+              <span title="close" (click)="editorCloseTable()">
+                <i class="fa fa-times"></i>
+              </span>
+            </div>
+            <div class="action-property">
+              <div> Cell Width </div>
+              <input type="number" class="cellwidth" id="cell_width" min="1" step="1" placeholder="%"
+                [(ngModel)]="cellWidth" (ngModelChange)="changeCellWidth($event)">
+              <div class="widthpercent">%</div>
+              <div class="aligntextTable">
+                <span (click)="alignText($event, 0)"><i class="fa fa-align-left"></i></span>
+                <span (click)="alignText($event, 1)"><i class="fa fa-align-right"></i></span>
+              </div>
+              <div class="tablefont">
+                <span (click)="changeTableFontSize($event, 0)"><i class="fa fa-font"></i> </span>
+                <span (click)="changeTableFontSize($event, 1)"><i class="fa fa-font"></i></span>
+              </div>
+            </div> -->
+          </div>
+          <div id="matheditor_container">
+            <!-- <h4>Math editor</h4>
+            <div class="close-icon">
+              <span title="close" (click)="editorCloseMath()">
+                <i class="fa fa-times"></i>
+              </span>
+            </div>
+            <textarea id="matheditor_input" rows="20" cols="10" name="mathinput" [(ngModel)]="mathinput"
+              #message='ngModel' (ngModelChange)="editmath()"></textarea>
+            <br />
+            <div class="render">
+              <div class="matherrormsg" *ngIf="matherrormsg">Invalid Mathml !</div>
+              <input type="button" value="Render" id="render" [disabled]='!mathinput' (click)="render_math()" />
+            </div>
+            <div class="mathpaddingwrap">
+              Margin
+              <input type="number" class="mathpadding" id="mathpaddingTop" min="1" max="15" step="1" placeholder="px"
+                [(ngModel)]="mathpaddingTop" (ngModelChange)="changeMathpadding($event,1)" [disabled]='enableSave'>
+              <input type="number" class="mathpadding" id="mathpaddingRight" min="1" max="15" step="1" placeholder="px"
+                [(ngModel)]="mathpaddingRight" (ngModelChange)="changeMathpadding($event,2)" [disabled]='enableSave'>
+              <input type="number" class="mathpadding" id="mathpaddingBottom" min="1" max="15" step="1" placeholder="px"
+                [(ngModel)]="mathpaddingBottom" (ngModelChange)="changeMathpadding($event,3)" [disabled]='enableSave'>
+              <input type="number" class="mathpadding" id="mathpaddingLeft" min="1" max="15" step="1" placeholder="px"
+                [(ngModel)]="mathpaddingLeft" (ngModelChange)="changeMathpadding($event,4)" [disabled]='enableSave'>
+            </div>
+            <br clear="all" />
+            <div id="matheditor_output"></div>
+            <div class="save">
+              <input type="button" value="Save and close" id="render" (click)="save_math()" [disabled]='enableSave' />
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<iframe #hiddenfinal id="hiddenfinalhtml"></iframe>
+<iframe id="hiddentitlehtml" hidden></iframe>
+<div id="hiddenglosdata" hidden></div>
+<iframe id="hiddenremarkdata" hidden></iframe>
+
+<router-outlet></router-outlet>

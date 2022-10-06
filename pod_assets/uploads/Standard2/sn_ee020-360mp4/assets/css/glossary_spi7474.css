@@ -1,0 +1,71 @@
+@page:left {
+        @  top-left-corner {
+    content: "GL-" counter(page);
+    *content: counter(page);
+    *border-bottom: solid 1pt cmyk(0,0,0,0.8)!important;
+    margin: 0.2in 0in 0.2in 0.51in!important;
+    text-align: left!important;
+    vertical-align: bottom!important;
+    font-family: "TimesLTStd" !important;
+    font-size: 8pt!important;
+    color: prince-overprint(black)!important;
+  }
+
+        @  top-left {
+                /*content: string(chapterName);*/
+    content: string(chapterNo) "   " string(chapterName);
+    border-bottom: solid 0.1pt cmyk(0,0,0,1)!important;
+    *padding-bottom: 2pt!important;
+    margin: 0.5in 0in 0.2in 0.002in!important;
+    vertical-align: bottom!important;
+    text-align: left!important;
+    font-family: "TimesLTStd" !important;
+    font-size: 8pt!important;
+    padding-left: 30px !important;
+    padding-right: 30px !important;
+    color: prince-overprint(black)!important;
+                /*text-transform: uppercase!important;*/;
+  }
+}
+
+@page:right {
+
+                @  top-right-corner {
+    content: "GL-" counter(page);
+    *content: counter(page);
+    *border-bottom: solid 1pt cmyk(0,0,0,1)!important;
+    margin: 0.2in 0.5in 0.2in -28px !important;
+    text-align: right !important;
+    vertical-align: bottom!important;
+    font-family: "TimesLTStd" !important;
+    font-size: 8pt!important;
+    color: prince-overprint(black)!important;
+  }
+
+        @  top-right {
+    content: string(chapterNo) "   " string(chapterName);
+    border-bottom: solid 0.1pt cmyk(0,0,0,1)!important;
+    margin: 0.5in 0in 0.2in 0in !important;
+    vertical-align: bottom!important;
+    padding-right: 30px !important;
+    padding-left: 30px !important;
+    font-family: "TimesLTStd" !important;
+    font-size: 8pt!important;
+    color: prince-overprint(black)!important;
+                /*text-transform: uppercase!important;*/;
+  }
+}
+
+.gloscontent {
+  column-count: 2;
+  column-gap: 25px;
+  padding-bottom: 10px !important;
+  padding-top: 7px !important;
+  padding-left: 0px !important;
+}
+
+.gloscontent p,
+.gloscontent ul li p {
+  margin-bottom: 7px !important;
+  text-align: left !important;
+}

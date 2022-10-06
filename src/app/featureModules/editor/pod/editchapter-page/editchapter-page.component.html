@@ -1,0 +1,95 @@
+<ngx-spinner
+bdColor = "rgba(51, 51, 51, 0.8)"
+size = "large"
+color = "#fff"
+type = "ball-spin-clockwise-fade"
+></ngx-spinner>
+<div class="col-md-8 viewer-part"><!--  (window:resize)="onResize($event)"-->
+    <h2>{{chapterName.pc_name}}</h2>
+    <div class="actBtnslist">
+        <ul>
+          <li>
+            <button class="btn-style-new" id="fullScreenbtn"><div class="imgWrap"><img src="assets/icons/full-screen.png"></div><b>Full Screen</b></button>
+          </li>
+          <li>
+            <button class="btn-style-new" id="cancelBtn">
+                <div class="imgWrap"><img src="assets/icons/cancel.png"></div><b>Cancel</b></button>
+          </li>
+          <li>
+            <button class="btn-style-new" id="savechapterbtn" (click)="saveChapter()">
+                <div class="imgWrap"><img src="assets/icons/save.png"></div><b>Save</b></button>
+          </li>
+        </ul>    
+      </div>
+    <div class="divider-mark">
+        <span class="left-top-mark"></span>
+        <span class="right-top-mark"></span>
+        <span class="left-bottom-mark"></span>
+        <span class="right-bottom-mark"></span>
+    </div>
+    <div id="loading" *ngIf="contentLoad">
+        <img id="loading-image" src="assets/images/editor_loader.gif" alt="Loading..." />
+    </div>
+    <!-- <span class="ellipse_icon" (click)="editIcon = (editIcon==true ? false : true)" ><i class="fas fa-ellipsis-v fa-2x"></i></span> -->
+    <!-- <span class="fa-stack fa-lg pdf-edit" id="savechapterbtn" (click)="saveChapter()"> 
+       <span class="icon-background1 fa-stack-2x"><i class="fas fa-circle"></i></span>
+       <a title="editContent"><span class="fa-stack-1x"><i class="far fa-eye"></i></span></a>
+     </span> -->
+     
+    <div class="pdf-editor">
+        <div id="htmlEditor">
+                
+                <span id="left_arrow" (click)="pageNavigation('previous',1)"><img src="assets/images/left.png"/></span>
+                <span id="right_arrow" (click)="pageNavigation('next',2)"><img src="assets/images/right.png"/></span>
+                <iframe #iframe id="editableFrame" frameborder="0" height="300 " style="height: 1058px !important;" scrolling="no"  [className]="navcondition ? 'pagebreak_spi_even' : 'pagebreak_spi_odd'">
+                </iframe>
+                <!-- <iframe id="" frameborder="0" height="300" scrolling="no" hidden></iframe> 
+                <iframe id="hiddenfinalhtml" width="650px" height="100%"></iframe> -->
+        </div>
+        <ng-template #editorAlert> cannot resize </ng-template>
+    </div>
+</div>
+
+<!-- <ng-template #savechanges let-c="close" let-d="dismiss">
+        <div class="modal-header">
+            <h5 class="modal-title">Are you sure?</h5>
+            <button type="button" class="close" id="modalClose" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+        <div class="modal-body">
+            <p>Select "Save" below if you are ready to Save this project.</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark cancelmodalbtn" (click)="closeDialog('close')">Cancel</button>
+            <button type="button" class="btn btn-outline-dark okmodalbtn" (click)="saveDialog('save')">Save</button>
+        </div>
+    </ng-template> -->
+
+<div class="col-xl-2 property-part">
+    <div class="action-property">
+        <h5>Layout Options</h5>
+        <span title="Bold" [ngClass]="{'active': actionBold == true }" (click)="textFormat('bold',actionBold)"><i class="fa fa-bold"></i></span>
+        <span title="Italic" [ngClass]="{'active': actionItalic == true }" (click)="textFormat('italic',actionItalic)"><i class="fa fa-italic"></i></span>
+        <span title="Underline" [ngClass]="{'active': actionUnderline == true }" (click)="textFormat('underline',actionUnderline)"><i class="fa fa-underline"></i></span>        
+
+        <span title="H1" class="header-h1" [ngClass]="{'active': actionH1 == true }" (click)="textFormat('h1',actionH1)"><i class="fa fa-heading fa-2x"></i></span>
+        <span title="H2" class="header-h2" [ngClass]="{'active': actionH2 == true }" (click)="textFormat('h2',actionH2)"><i class="fa fa-heading fa-1x"></i></span>
+        <span title="Link" [ngClass]="{'active': actionCreateLink == true }" (click)="textFormat('createlink',actionCreateLink)"><i class="fa fa-link"></i></span>
+        <span title="Unlink" [ngClass]="{'active': actionUnLink == true }" (click)="textFormat('unlink',actionUnLink)"><i class="fa fa-unlink"></i></span>
+        <span title="Indent" [ngClass]="{'active': actionIndent == true }" (click)="textFormat('indent',actionIndent)"><i class="fas fa-indent"></i></span>
+        <!--<span [ngClass]="{'active': actionH2 == true }" (click)="textFormat('h2',actionH2)"><i class="fas fa-strikethrough"></i></span>
+            <span [ngClass]="{'active': actionStrike == true }" (click)="textFormat('strike',actionStrike)"><i class="fas fa-strikethrough"></i></span>
+         <span [ngClass]="{'active': actionSuper == true }" (click)="textFormat('superscript',actionSuper)"><i class="fas fa-superscript"></i></span>
+        <span [ngClass]="{'active': actionSub == true }" (click)="textFormat('subscript',actionSub)"><i class="fas fa-subscript"></i></span>
+        <span [ngClass]="{'active': actionOl == true }" (click)="textFormat('orderedlist',actionSub)"><i class="fas fa-list-ol"></i></span>
+        <span [ngClass]="{'active': actionUl == true }" (click)="textFormat('unorderedlist',actionSub)"><i class="fas fa-list-ul"></i></span> 
+        <span title="Page Break" class="pg-break-btn" [ngClass]="{'active': actionPageBreak == true }" (click)="textFormat('insertHTML',actionPageBreak)"><i class="lnr lnr-page-break"></i></span> -->
+    </div>
+    <!-- <button class="save-changes-btn" id="saveeditedpdf" (click)='editorSave()'>
+        <i class="fa fa-check" aria-hidden="true"></i> Save
+        <i class="fa fa-save fa-1x" aria-hidden="true"></i>
+    </button> -->
+</div>
+
+

@@ -1,0 +1,92 @@
+.style-wrap {
+   
+    .label {
+        font-size: 15px;
+        width: 110px;
+        margin-bottom: 0;
+        vertical-align: middle;
+    }
+
+    .font-familywrap {
+
+        #fontFamily,
+        #Text-Align {
+            width: 150px;
+            padding: 0px;
+            height: 30px;
+            vertical-align: middle;
+            margin: 10px 0;
+            text-align: center;
+            background: #fff;
+            border-radius: 6px;
+            border: 1px solid #bbb;
+            font-size: 15px;
+        }
+
+        #Text-Align {
+            width: 85px;
+            margin: 10px 0;
+        }
+    }
+
+    .input-field {
+
+        #fontSize,
+        #color,
+        #backgroundColor {
+            width: 45px;
+            padding: 0px;
+            height: 30px;
+            vertical-align: middle;
+            margin: 10px 0;
+            background: #fff;
+            border-radius: 6px;
+            border: 1px solid #bbb;
+        }
+
+        #fontSize {
+            text-align: center;
+        }
+    }
+
+    .format-button {
+        width: 33%;
+        text-align: center;
+        border: 1px solid transparent;
+        float: left;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+
+        button {
+            width: 70%;
+            font-size: 18px;
+            border-radius: 7px;
+            background: #fff;
+            color: #007aff;
+            border: 1px solid #bbb;
+            height: 30px;
+            text-align: center;
+            margin: 10px 0;
+
+            &.clicked {
+                background-color: #007aff;
+                color: #fff;
+                border: 1px solid #bbb;
+            }
+        }
+
+        #bold {
+            font-weight: bold;
+        }
+
+        #italic {
+            font-style: italic;
+        }
+
+        #underline {
+            text-decoration: underline;
+        }
+    }
+}

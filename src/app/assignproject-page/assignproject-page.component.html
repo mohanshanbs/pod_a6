@@ -1,0 +1,159 @@
+ <ngb-alert *ngIf="errmsg" type="danger" [dismissible]="true" (close)="errmsg = ''">
+				{{errmsg}}
+				<div class="bar">
+                    <div class="in"></div>
+                  </div>
+            </ngb-alert>
+            <ngb-alert *ngIf="successmsg" type="success" [dismissible]="true" (close)="successmsg = ''">
+				{{successmsg}}
+				<div class="bar">
+                    <div class="in"></div>
+                  </div>
+            </ngb-alert><br>
+<div class="row">
+	<div class="col-md-12">
+		<div class="form-group row">        
+			
+			<div class="input-placeholder search-part">
+				<input type="text" name="searchname" [(ngModel)]="searchuser" /><span class="fas fa-search search-icon"></span>
+			 </div>
+		</div>
+		<div class="proj-detail">
+			<p class="project_name">{{projectname}}</p>				
+			<div id="switchUsers">					
+				<ui-switch size="small" switchColor="#5584FF" color="transparent" defaultBgColor="transparent" defaultBoColor="#5584FF" (change)="onChange($event)"></ui-switch>				
+			</div>
+		</div>
+		<div class="clearFloat"></div>
+			
+		<div id="assign_container">
+			<div *ngIf = "noRecords" style="text-align:center;">
+					<img src="assets/images/no records@1x.png" alt="No Records found !!!">
+					<h2 style="color:#507df0;">No Records Found</h2>
+			</div>	
+			<div *ngIf = "!noRecords">
+				<div class="form-group assignee_details" *ngFor="let i of userListData | filter:searchuser">
+						<div *ngIf="i.length === 0 || (userListData | filter: searchuser).length === 0">
+								<p>not events result</p>
+						</div>
+					<div>
+						<!-- <input type="checkbox" name="" id=""> -->
+						<div class="user_profile">
+							<!-- <img class="user_picture" src="../../assets/images/image1.png" /> -->
+							
+							<span class="profile-bg">{{i.username}}</span>
+							<div class="user_circle admin_active" *ngIf="i.role == 2">
+							A
+							</div>
+							<div class="user_circle user_active" *ngIf="i.role == 4">
+								U
+							</div>
+							<div class="user_details">
+								<span class="assignee_name">{{i.username}}</span>
+								<span class="assignee_mail">{{i.email}}</span>
+								<!--<span class="assigner" > <span *ngIf="i.assigner"> Assignee: {{i.assigner}} </span></span>-->
+								<div class="checkboxcontainer" *ngIf = i.removeUser>
+									<mat-checkbox [checked]="true" class="example-margin" [disabled]="true">View access</mat-checkbox>&nbsp;&nbsp;
+									<mat-checkbox [checked]="i.edit_access" class="example-margin" (change)="assignProject(i,'edit')">Edit access</mat-checkbox>
+								</div>
+							</div>
+						</div>
+						<div class="assign_user" >
+							<span *ngIf = i.assign (click)="assignProject(i,'assign')">
+								<!-- <i class="fas fa-plus-circle fa-3x" ></i>  -->
+								<img src="assets/images/assign-add.PNG" alt="">
+							</span>
+							<span (click)="removeAssignee(i)"  *ngIf = i.removeUser>
+								<!-- <i class="fas fa-minus-circle fa-3x"  ></i>  -->
+								<img src="assets/images/assign-remove.PNG" alt="">
+							</span>
+						</div>
+						<div class="clearFloat"></div>
+						
+					</div>
+				</div>
+				
+				<div class="clearFloat"></div>
+			</div>
+			</div>
+			
+			<!-- <div id="all_users" *ngIf= usersList> -->
+				<!-- <ng-scrollbar> -->
+					<!-- <div class="form-group assignee_details"> -->
+						<!-- <div> -->
+							<!-- <div class="user_profile"> -->
+								<!-- <img class="user_picture" src="../../assets/images/image1.png" /> -->
+								<!-- <div class="user_circle"> -->
+							<!-- </div> -->
+								<!-- <div class="user_details"> -->
+									<!-- <span class="assignee_name">Preethi</span> -->
+									<!-- <span class="assignee_mail">preethi.r@spi-global.com</span> -->
+									<!-- <span class="assigner">Assigner: Suriya</span> -->
+								<!-- </div> -->
+							<!-- </div> -->
+							<!-- <div class="assign_user" > -->
+								<!-- <span *ngIf = i.assign (click)="assignProject(i)"> -->
+								<!-- <i class="fas fa-plus-circle fa-3x" ></i> -->
+							<!-- </span> -->
+							<!-- <span (click)="removeAssignee(i)"  *ngIf = i.removeUser> -->
+								<!-- <i class="fas fa-minus-circle fa-3x"  ></i> -->
+							<!-- </span> -->
+							<!-- </div> -->
+							
+							<!-- <div class="clearFloat"></div> -->
+						<!-- </div> -->
+					<!-- </div> -->
+				<!-- </ng-scrollbar> -->
+					
+			<!-- </div> -->
+			
+	</div>
+</div>
+
+
+
+<!-- <select class="form-control" formControlName="selecteduser" (change)="errmsg='' " multiple> -->
+					<!-- <option *ngFor="let i of userListData" [value]='i.id'>{{i.username}}</option> -->
+				<!-- </select> -->
+				
+				
+<!-- <div class="card col-12 paddingzero"> -->
+    <!-- <div class="col-12 paddingzero"> -->
+        <!-- Example DataTables Card  -->
+        <!-- <div class="card mb-3"> -->
+            <!-- <div class="card-header formheader"> -->
+                <!-- <i class="fa fa-table"></i> Assign Project -->
+            <!-- </div> -->
+            <!-- <div class="card-body" style="padding:1.25rem"> -->
+                <!-- <ngb-alert *ngIf="errmsg" type="danger" [dismissible]="true" (close)="errmsg = ''"> -->
+                    <!-- {{errmsg}} -->
+                <!-- </ngb-alert> -->
+                <!-- <ngb-alert *ngIf="successmsg" type="success" [dismissible]="true" (close)="successmsg = ''"> -->
+                    <!-- {{successmsg}} -->
+                <!-- </ngb-alert> -->
+                <!-- <form class="form-horizontal" class="form-horizontal" [formGroup]="assignform" (ngSubmit)="assignProject(assignform)"> -->
+                    <!-- <div class="form-group row"> -->
+                        <!-- <label class="col-1 col-form-label" for="password">Project</label> -->
+                        <!-- <div class="col-10"> -->
+                            <!-- <label class="col-10 col-form-label label-right" for="password">{{projectname}}</label> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <div class="form-group row"> -->
+                        <!-- <label class="col-1 col-form-label" for="users">Users</label> -->
+                        <!-- <div class="col-3"> -->
+                            <!-- <select class="form-control" formControlName="selecteduser" (change)="errmsg='' " multiple> -->
+                                <!-- <option *ngFor="let i of userListData" [value]='i.id'>{{i.username}}</option> -->
+                            <!-- </select> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                    <!-- <div class="form-group row"> -->
+                        <!-- <label class="col-1 col-form-label" for="users"></label> -->
+                        <!-- <div class="col-10"> -->
+                            <!-- <button class="btn btn-primary" type="submit" [disabled]="!assignform.valid">Submit</button> -->
+                        <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </form> -->
+            <!-- </div> -->
+        <!-- </div> -->
+    <!-- </div> -->
+ <!-- </div> -->
